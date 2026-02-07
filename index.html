@@ -21,7 +21,6 @@ Academic Projects:
 - OS Scheduler
 - Robotics Competition Winner
 --- */
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -258,12 +257,15 @@ Academic Projects:
         .highlight-item:hover img {
             filter: brightness(0.8);
         }
+        
+        /* UPDATED OVERLAY CSS for better readability */
         .highlight-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            /* Changed to a darker gradient (95% black at bottom) */
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
             padding: 20px 15px 15px 15px;
             opacity: 0;
             transition: opacity 0.3s ease;
