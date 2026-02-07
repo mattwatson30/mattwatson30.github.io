@@ -1,182 +1,397 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Academic Projects — Matthew Watson</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
-  <style>
-    /* --- Global Styles --- */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-        --primary-blue: #0000FF; --text-primary: #212529; --text-secondary: #6c757d;
-        --background: #f8f9fa; --card-background: #ffffff; --border-color: #dee2e6;
-        --border-light: #e9ecef;
-    }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--background);
-      color: var(--text-primary);
-      line-height: 1.6;
-      padding: 40px 20px;
-      font-weight: 300;
-    }
-
-    /* --- Links & Headers --- */
-    a {
-      color: var(--primary-blue);
-      text-decoration: none;
-      font-weight: 500;
-      transition: opacity 0.2s ease;
-    }
-    a:hover {
-      text-decoration: none;
-      opacity: 0.7;
-    }
-    header, footer {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    header { margin-bottom: 60px; }
-    h1 { font-weight: 600; font-size: 2.5rem; letter-spacing: 2px; }
-    h3 { font-weight: 500; margin-bottom: 10px; font-size: 1.3rem; }
-
-    /* --- Layout & Cards --- */
-    .back-link {
-      font-size: 1rem;
-      color: var(--text-secondary);
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 15px;
-      transition: color 0.2s ease;
-    }
-    .back-link:hover { color: var(--primary-blue); opacity: 1; }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matthew Watson Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); 
-      gap: 25px;
-      max-width: 1200px; 
-      margin: 0 auto;
-    }
-    
-    .card {
-      background: var(--card-background);
-      border: 1px solid var(--border-color);
-      padding: 20px;
-      border-radius: 14px;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 20px rgba(0, 0, 255, 0.15);
-    }
-    
-    /* Image Styling to match Brother's look */
-    .card img { 
-        width: 100%; 
-        height: 300px; /* Fixed height for uniformity */
-        object-fit: cover; 
-        border-radius: 10px; 
-        margin-bottom: 15px; 
-        border: 1px solid #eee;
-    }
-    
-    .meta { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px; font-style: italic; }
-    .card p { margin-bottom: 10px; color: #495057; }
-    
-    /* --- BOLDING STYLES (Matches Work/Personal) --- */
-    /* Headers like "Challenge:" -> BLUE */
-    .card strong { 
-        color: var(--primary-blue); 
-        font-weight: 600; 
-        display: block; 
-        margin-bottom: 5px; 
-    }
-    /* Inline keywords -> DARK GREY/BLACK */
-    .card p b { 
-        font-weight: 500; 
-        color: var(--text-primary); 
-    }
+    <style>
+        /* --- Global Styles --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --primary-blue: #0000FF; 
+            --text-primary: #212529; 
+            --text-secondary: #6c757d;
+            --background: #f8f9fa; 
+            --card-background: #ffffff; 
+            --border-color: #dee2e6;
+            --border-light: #e9ecef;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-weight: 300;
+            min-height: 100vh;
+        }
 
-    .links { margin-top: auto; }
+        a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s ease;
+            cursor: pointer;
+        }
+        a:hover {
+            text-decoration: none;
+            opacity: 0.8;
+        }
 
-    /* --- Footer --- */
-    footer {
-      margin-top: 80px;
-      padding-top: 40px;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-    }
-    footer p:first-child a { margin: 0 10px; }
+        /* --- TOP BAR & LOGOS --- */
+        .top-bar {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: var(--card-background);
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            z-index: 1000;
+        }
+        .static-nav-links {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            padding-left: 40px;
+            padding-right: 40px;
+            height: 100%;
+            background-color: var(--card-background);
+            z-index: 5;
+            position: relative;
+        }
+        .static-nav-links a {
+            margin-right: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .static-nav-links a:last-child { margin-right: 0; }
 
-    /* --- Responsive Adjustments --- */
-    @media (max-width: 768px) {
-        .projects { grid-template-columns: 1fr; }
-    }
-  </style>
+        .scrolling-logos {
+            flex-grow: 1;
+            overflow: hidden;
+            height: 100%;
+            position: relative;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 120px);
+            mask-image: linear-gradient(to right, transparent 0%, black 120px);
+        }
+        .logos-scroller {
+            display: flex;
+            width: max-content;
+            height: 100%;
+            animation: scroll-left 60s linear infinite;
+        }
+        .logos-scroller a {
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            text-decoration: none;
+            flex-shrink: 0;
+            height: 100%;
+        }
+        .logos-scroller img {
+            height: 35px;
+            max-width: 140px;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: filter 0.3s, opacity 0.3s;
+        }
+        .logos-scroller a:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        .scrolling-logos:hover .logos-scroller {
+            animation-play-state: paused;
+        }
+        @keyframes scroll-left {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- MAIN CONTENT & HEADER --- */
+        .main-content {
+            padding: 40px 20px;
+            margin-top: 70px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        header {
+            text-align: center;
+            max-width: 800px;
+            margin: 20px auto 40px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .headshot {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h1 { font-weight: 600; font-size: 2.5rem; letter-spacing: 2px; }
+        p.lead { color: #6c757d; margin-top: 10px; font-size: 1.1rem; }
+
+        .about-me {
+            max-width: 750px;
+            margin: 0 auto 80px auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #495057;
+        }
+
+        /* --- CATEGORIES --- */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto 80px auto;
+        }
+        .category-card {
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            padding: 25px;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+        .category-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 25px rgba(0, 0, 255, 0.1);
+            border-color: #ced4da;
+        }
+        .category-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #212529;
+            font-weight: 500;
+        }
+        .category-card p {
+            color: #6c757d;
+            flex-grow: 1;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        .link-cta {
+            font-weight: 500;
+            color: #0000FF;
+            margin-top: auto;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        .category-card:hover .link-cta {
+            transform: translateX(5px);
+        }
+
+        /* --- HIGHLIGHTS --- */
+        .project-highlights {
+            max-width: 1100px;
+            margin: 0 auto 80px auto;
+            text-align: center;
+        }
+        .project-highlights h2 {
+            font-weight: 500;
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            color: #495057;
+        }
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .highlight-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block; 
+        }
+        .highlight-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .highlight-item img {
+            display: block;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: filter 0.3s ease;
+        }
+        .highlight-item:hover img {
+            filter: brightness(0.8);
+        }
+        
+        /* UPDATED OVERLAY CSS for better readability */
+        .highlight-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
+            padding: 20px 15px 15px 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: left;
+        }
+        .highlight-item:hover .highlight-overlay {
+            opacity: 1;
+        }
+        .highlight-overlay span {
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+            color: #6c757d;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        footer p { margin-bottom: 10px; }
+        
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .top-bar { height: auto; flex-direction: column; position: static; }
+            .static-nav-links { width: 100%; justify-content: center; padding: 10px; border-bottom: 1px solid var(--border-light); }
+            .scrolling-logos { -webkit-mask-image: none; mask-image: none; padding: 20px 0; margin-bottom: 0; }
+            .main-content { margin-top: 0; }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>Academic Clubs & Projects</h1>
-    <a href="index.html" class="back-link">&larr; Back to Home</a>
-  </header>
+    <div class="top-bar">
+        <nav class="static-nav-links">
+            <a href="images/resume.pdf" target="_blank">Resume</a>
+            <a href="https://linkedin.com/in/matthewwatson311" target="_blank">LinkedIn</a>
+            <a href="mailto:matthewwatson311@gmail.com">Email</a>
+        </nav>
+        
+        <section class="scrolling-logos" aria-label="Featured Companies and Organizations">
+            <div class="logos-scroller">
+                             <!-- SET 1 -->
+                <a href="#" title="Tesla"><img src="images/logo-tesla.png" alt="Tesla logo" onerror="this.src='https://placehold.co/140x35?text=Tesla'"></a>
+                <a href="#" title="Lockheed Martin"><img src="images/logo-lockheed.png" alt="Lockheed logo" onerror="this.src='https://placehold.co/140x35?text=Lockheed'"></a>
+                <a href="#" title="Dalhousie Investment Society"><img src="images/logo-dalis.png" alt="DALIS logo" onerror="this.src='https://placehold.co/140x35?text=DALIS'"></a>
+                
+                <!-- SET 2 -->
+                <a href="#" title="Tesla"><img src="images/logo-tesla.png" alt="Tesla logo" onerror="this.src='https://placehold.co/140x35?text=Tesla'"></a>
+                <a href="#" title="Lockheed Martin"><img src="images/logo-lockheed.png" alt="Lockheed logo" onerror="this.src='https://placehold.co/140x35?text=Lockheed'"></a>
+                <a href="#" title="Dalhousie Investment Society"><img src="images/logo-dalis.png" alt="DALIS logo" onerror="this.src='https://placehold.co/140x35?text=DALIS'"></a>
 
-  <section class="projects">
-
-    <!-- === CARD 1: CAPSTONE === -->
-    <article class="card">
-      <img src="images/dalhousie_cardiac_imaging_calcium.png" alt="Cardiac Imaging Setup" onerror="this.src='https://placehold.co/600x400?text=Cardiac+Imaging'">
-      
-      <h3>Embedded Control System for Cardiac Imaging</h3>
-      <p class="meta">Capstone Project @ Dalhousie University</p>
-      
-      <p>
-        <strong>Problem:</strong> The Cardiac Autoregulation & Arrhythmias Research Lab required a high-precision system to capture fluorescence imaging of cardiac tissue. Commercial solutions lacked the microsecond timing required to synchronize high-power LED excitation with high-speed cameras, resulting in blurred or unusable data.
-      </p>
-      <p>
-        <strong>My Solution:</strong> I engineered a custom embedded control system using an <b>STM32 microcontroller</b>. I designed a PCB with an analog switching circuit to drive high-power LEDs and wrote <b>Embedded C firmware</b> to handle the strict timing requirements. The system acts as the master trigger, synchronizing the camera shutter and light source with sub-millisecond precision.
-      </p>
-      <p>
-        <strong>Results:</strong> The system is currently deployed in the research lab, enabling scientists to visualize calcium waves in cardiac tissue with unprecedented clarity. This data is now being used to understand the underlying mechanisms of fatal arrhythmias.
-      </p>
-    </article>
-
-    <!-- === CARD 2: DALIS === -->
-    <article class="card">
-      <img src="images/logo-dalis.png" alt="Dalhousie Investment Society Logo" style="object-fit: contain; padding: 20px;" onerror="this.src='https://placehold.co/600x400?text=DALIS'">
-      
-      <h3>Quantitative Risk Management App</h3>
-      <p class="meta">Director of Technology @ Dalhousie Investment Society</p>
-      
-      <p>
-        <strong>Problem:</strong> The Investment Society managed a multi-asset portfolio but lacked a centralized way to track daily Profit and Loss (PNL) or analyze risk exposure. This operational blind spot prevented the investment teams from making data-driven hedging decisions.
-      </p>
-      <p>
-        <strong>My Solution:</strong> I built a full-stack quantitative analysis application using <b>Python</b>. I utilized the <b>Bloomberg API</b> to pull real-time trade data and used <b>Pandas/NumPy</b> to calculate daily PNL across four distinct investment sectors. I designed a <b>Tkinter GUI</b> to make the tool accessible to non-technical analysts and implemented Monte Carlo simulations to model portfolio risk.
-      </p>
-      <p>
-        <strong>Results:</strong> The application became the central source of truth for the society's performance tracking. It automated the reporting process and introduced institutional-grade risk management tools, allowing the fund to optimize its asset allocation strategies based on real-time data.
-      </p>
-    </article>
+                <!-- SET 3 -->
+                <a href="#" title="Tesla"><img src="images/logo-tesla.png" alt="Tesla logo" onerror="this.src='https://placehold.co/140x35?text=Tesla'"></a>
+                <a href="#" title="Lockheed Martin"><img src="images/logo-lockheed.png" alt="Lockheed logo" onerror="this.src='https://placehold.co/140x35?text=Lockheed'"></a>
+                <a href="#" title="Dalhousie Investment Society"><img src="images/logo-dalis.png" alt="DALIS logo" onerror="this.src='https://placehold.co/140x35?text=DALIS'"></a>
+                
+                <!-- SET 4 -->
+                <a href="#" title="Tesla"><img src="images/logo-tesla.png" alt="Tesla logo" onerror="this.src='https://placehold.co/140x35?text=Tesla'"></a>
+                <a href="#" title="Lockheed Martin"><img src="images/logo-lockheed.png" alt="Lockheed logo" onerror="this.src='https://placehold.co/140x35?text=Lockheed'"></a>
+                <a href="#" title="Dalhousie Investment Society"><img src="images/logo-dalis.png" alt="DALIS logo" onerror="this.src='https://placehold.co/140x35?text=DALIS'"></a>
+            </div>
+        </section>
+    </div>
     
-  </section>
+    <div class="main-content">
+        <header>
+         <img src="images/headshot.png" alt="Matthew's Headshot" class="headshot" onerror="this.src='https://placehold.co/150x150?text=Matthew'">
+            <h1>Matthew Watson</h1>
+            <p class="lead">
+                Bachelor of Electrical & Computer Engineering, Minor in Biomedical Engineering<br>
+                <span style="font-size: 0.95em; opacity: 0.85;">Dalhousie University</span>
+            </p>
+        </header>
 
-  <footer>
-    <p>
-      <a href="images/resume.pdf" target="_blank"> Download Resume</a> ·
-      <a href="mailto:matthewwatson311@gmail.com">Email Me</a> ·
-      <a href="https://linkedin.com/in/matthewwatson311" target="_blank">LinkedIn</a>
-    </p>
-    <p>© 2026 Matthew Watson</p>
-  </footer>
+        <section class="about-me">
+            <p>
+                Driven by a first-principles approach, I tackle complex operational challenges at the 
+                intersection of software engineering and technical product management. Currently honing my 
+                skills at Tesla, I am leading the 0→1 development of a global AI-driven workforce scheduling platform, 
+                managing the product lifecycle from a local pilot to a multi-factory rollout across Austin, 
+                Fremont, and Berlin. I specialize in translating raw data into actionable product roadmaps, 
+                bridging the gap between engineering execution and business strategy.
+            </p>
+        </section>
+
+        <section class="project-highlights">
+            <h2>Project Highlights</h2>
+            <div class="highlights-grid">
+                <!-- LINK 1: Tesla Scheduling (in work.html) -->
+                <a href="work.html#tesla-scheduling" class="highlight-item">
+                    <img src="images/model_Y_assembly_line_tesla.png" alt="Tesla Scheduling Project" onerror="this.src='https://placehold.co/300x200?text=Tesla+Scheduling'">
+                     <div class="highlight-overlay"><span>AI-Driven Factory Employee Scheduling Software @ Tesla</span></div>
+                </a>
+                
+                <!-- LINK 2: Cardiac Imaging (NOW in personal.html) -->
+                <a href="personal.html#cardiac-imaging" class="highlight-item">
+                    <!-- VIDEO TAG: Autoplays, Loops, Muted -->
+                    <video autoplay loop muted playsinline style="display: block; width: 100%; height: 200px; object-fit: cover;">
+                        <source src="images/cardiac_video.mp4" type="video/mp4">
+                        <!-- Fallback image if video fails -->
+                        <img src="images/dalhousie_cardiac_imaging_calcium.png" alt="Cardiac Imaging">
+                    </video>
+                    
+                    <div class="highlight-overlay">
+                        <span>Cardiac Imaging Research - Autoregulation & Arrhythmias Laboratory @ Dalhousie University</span>
+                    </div>
+                </a>
+                
+                <!-- LINK 3: Robotics (NOW in personal.html) -->
+                <a href="personal.html#robotics-comp" class="highlight-item">
+                    <img src="images/dalhousie_robotics_competition.png" alt="Project 3" style="object-fit: contain; background-color: #fff;" onerror="this.src='https://placehold.co/300x200?text=Project+3'">
+                     <div class="highlight-overlay"><span>Robotics Competition Winner - Department of Electrical & Computer Engineering @ Dalhousie University</span></div>
+                </a>
+                
+                <!-- LINK 4: Sonar (in work.html) -->
+                <a href="work.html#lm-sonar" class="highlight-item">
+                    <img src="images/csc_sonar.png" alt="Sonar Systems Integration" onerror="this.src='https://placehold.co/300x200?text=Sonar+Integration'">
+                     <div class="highlight-overlay"><span>Sonar & Navigation Systems Integration @ Lockheed Martin</span></div>
+                </a>
+            </div>
+        </section>
+
+        <section class="categories">
+            <a href="work.html" class="category-card">
+                <h2>Work Experience</h2>
+                <p>Driving impact through internships at companies like Tesla and Lockheed Martin.</p>
+                <span class="link-cta">View Projects &rarr;</span>
+            </a>
+            <a href="personal.html" class="category-card">
+                <h2>Personal Projects</h2>
+                <p>Exploring my curiosity in electrical, firmware, software and data engineering.</p>
+                <span class="link-cta">View Projects &rarr;</span>
+            </a>
+            <a href="school.html" class="category-card">
+                <h2>Academic Clubs/Projects</h2>
+                <p>Applying first-principles approaches to solve complex challenges within 
+                    Electrical Engineering, Firmware Engineering, Data Engineering and Quantitative Finance.</p>
+                <span class="link-cta">View Projects &rarr;</span>
+            </a>
+        </section>
+
+        <footer>
+            <p>© 2026 Matthew Watson</p>
+        </footer>
+    </div>
 
 </body>
 </html>
