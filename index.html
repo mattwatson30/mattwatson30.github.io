@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matthew's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- Global Styles --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --primary-blue: #0000FF; 
+            --text-primary: #212529; 
+            --text-secondary: #6c757d;
+            --background: #f8f9fa; 
+            --card-background: #ffffff; 
+            --border-color: #dee2e6;
+            --border-light: #e9ecef;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-weight: 300;
+            min-height: 100vh;
+        }
+
+        a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s ease;
+            cursor: pointer;
+        }
+        a:hover {
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        /* --- TOP BAR & LOGOS --- */
+        .top-bar {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: var(--card-background);
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            z-index: 1000;
+        }
+        .static-nav-links {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            padding-left: 40px;
+            padding-right: 40px;
+            height: 100%;
+            background-color: var(--card-background);
+            z-index: 5;
+            position: relative;
+        }
+        .static-nav-links a {
+            margin-right: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .static-nav-links a:last-child { margin-right: 0; }
+
+        .scrolling-logos {
+            flex-grow: 1;
+            overflow: hidden;
+            height: 100%;
+            position: relative;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 120px);
+            mask-image: linear-gradient(to right, transparent 0%, black 120px);
+        }
+        .logos-scroller {
+            display: flex;
+            width: max-content;
+            height: 100%;
+            animation: scroll-left 60s linear infinite;
+        }
+        .logos-scroller a {
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            text-decoration: none;
+            flex-shrink: 0;
+            height: 100%;
+        }
+        .logos-scroller img {
+            height: 35px;
+            max-width: 140px;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: filter 0.3s, opacity 0.3s;
+        }
+        .logos-scroller a:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        .scrolling-logos:hover .logos-scroller {
+            animation-play-state: paused;
+        }
+        @keyframes scroll-left {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- MAIN CONTENT & HEADER --- */
+        .main-content {
+            padding: 40px 20px;
+            margin-top: 70px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        header {
+            text-align: center;
+            max-width: 800px;
+            margin: 20px auto 40px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .headshot {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h1 { font-weight: 600; font-size: 2.5rem; letter-spacing: 2px; }
+        p.lead { color: #6c757d; margin-top: 10px; font-size: 1.1rem; }
+
+        .about-me {
+            max-width: 750px;
+            margin: 0 auto 80px auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #495057;
+        }
+
+        /* --- CATEGORIES --- */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto 80px auto;
+        }
+        .category-card {
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            padding: 25px;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+        .category-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 25px rgba(0, 0, 255, 0.1);
+            border-color: #ced4da;
+        }
+        .category-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #212529;
+            font-weight: 500;
+        }
+        .category-card p {
+            color: #6c757d;
+            flex-grow: 1;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        .link-cta {
+            font-weight: 500;
+            color: #0000FF;
+            margin-top: auto;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        .category-card:hover .link-cta {
+            transform: translateX(5px);
+        }
+
+        /* --- HIGHLIGHTS --- */
+        .project-highlights {
+            max-width: 1100px;
+            margin: 0 auto 80px auto;
+            text-align: center;
+        }
+        .project-highlights h2 {
+            font-weight: 500;
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            color: #495057;
+        }
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .highlight-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block; 
+        }
+        .highlight-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .highlight-item img {
+            display: block;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: filter 0.3s ease;
+        }
+        .highlight-item:hover img {
+            filter: brightness(0.8);
+        }
+        .highlight-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 20px 15px 15px 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: left;
+        }
+        .highlight-item:hover .highlight-overlay {
+            opacity: 1;
+        }
+        .highlight-overlay span {
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+            color: #6c757d;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        footer p { margin-bottom: 10px; }
+        
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .top-bar { height: auto; flex-direction: column; position: static; }
+            .static-nav-links { width: 100%; justify-content: center; padding: 10px; border-bottom: 1px solid var(--border-light); }
+            .scrolling-logos { -webkit-mask-image: none; mask-image: none; padding: 20px 0; margin-bottom: 0; }
+            .main-content { margin-top: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <nav class="static-nav-links">
+            <a href="images/resume.pdf" target="_blank">Resume</a>
+            <a href="https://linkedin.com/in/thomaswatsonn" target="_blank">LinkedIn</a>
+            <a href="mailto:thomaswatson1188@gmail.com">Email</a>
+        </nav>
+        
+        <section class="scrolling-logos" aria-label="Featured Companies and Organizations">
+            <div class="logos-scroller">
+                <!-- Logos repeated for scrolling effect -->
+                <a href="#" title="Tesla"><img src="images/logo-tesla.png" alt="Tesla logo" onerror="this.src='https://placehold.co/140x35?text=Tesla'"></a>
+                <a href="#" title="Lockheed Martin"><img src="images/logo-lockheed.png" alt="Lockheed logo" onerror="this.src='https://placehold.co/140x35?text=Lockheed'"></a>
+                <a href="#" title="RTX"><img src="images/logo-rtx.png" alt="RTX logo" onerror="this.src='https://placehold.co/140x35?text=RTX'"></a>
+                <a href="#" title="Dalhousie"><img src="images/logo-dalhousie.png" alt="Dalhousie logo" onerror="this.src='https://placehold.co/140x35?text=Dalhousie'"></a>
+                <a href="#" title="DALIS"><img src="images/logo-dalis.png" alt="DALIS logo" onerror="this.src='https://placehold.co/140x35?text=DALIS'"></a>
+                
+                <a href="#" title="Tesla"><img src="images/logo-tesla.png" alt="Tesla logo" onerror="this.src='https://placehold.co/140x35?text=Tesla'"></a>
+                <a href="#" title="Lockheed Martin"><img src="images/logo-lockheed.png" alt="Lockheed logo" onerror="this.src='https://placehold.co/140x35?text=Lockheed'"></a>
+                <a href="#" title="RTX"><img src="images/logo-rtx.png" alt="RTX logo" onerror="this.src='https://placehold.co/140x35?text=RTX'"></a>
+                <a href="#" title="Dalhousie"><img src="images/logo-dalhousie.png" alt="Dalhousie logo" onerror="this.src='https://placehold.co/140x35?text=Dalhousie'"></a>
+                <a href="#" title="DALIS"><img src="images/logo-dalis.png" alt="DALIS logo" onerror="this.src='https://placehold.co/140x35?text=DALIS'"></a>
+            </div>
+        </section>
+    </div>
+    
+    <div class="main-content">
+        <header>
+            <img src="images/headshot.jpg" alt="Matthew's Headshot" class="headshot" onerror="this.src='https://placehold.co/150x150?text=Matthew'">
+            <h1>Matthew</h1>
+            <p class="lead">Software Engineer | Your Tagline Here</p>
+        </header>
+
+        <section class="about-me">
+            <p>
+              Driven by a first-principles approach, I tackle complex engineering challenges. (You should edit this section to reflect your own bio!)
+            </p>
+        </section>
+
+        <section class="project-highlights">
+            <h2>Project Highlights</h2>
+            <div class="highlights-grid">
+                <!-- DEEP LINKING to separate files -->
+                <a href="personal.html#robot-hand-project" class="highlight-item">
+                    <img src="images/cover_final.png" alt="Project 1" onerror="this.src='https://placehold.co/300x200?text=Project+1'">
+                     <div class="highlight-overlay"><span>Project 1 Title</span></div>
+                </a>
+                <a href="work.html#tesla-cell" class="highlight-item">
+                    <img src="images/tesla-cybertruck-seats.png" alt="Project 2" onerror="this.src='https://placehold.co/300x200?text=Project+2'">
+                    <div class="highlight-overlay"><span>Project 2 Title</span></div>
+                </a>
+                <a href="personal.html#controller-project" class="highlight-item">
+                    <img src="images/controller-project.png" alt="Project 3" style="object-fit: contain; background-color: #fff;" onerror="this.src='https://placehold.co/300x200?text=Project+3'">
+                     <div class="highlight-overlay"><span>Project 3 Title</span></div>
+                </a>
+                <a href="work.html#lm-integration" class="highlight-item">
+                    <img src="images/lockheed-system-integration.png" alt="Project 4" onerror="this.src='https://placehold.co/300x200?text=Project+4'">
+                     <div class="highlight-overlay"><span>Project 4 Title</span></div>
+                </a>
+            </div>
+        </section>
+
+        <section class="categories">
+            <a href="work.html" class="category-card">
+                <h2>Work Experience</h2>
+                <p>Driving impact through internships and professional roles.</p>
+                <span class="link-cta">View Projects &rarr;</span>
+            </a>
+            <a href="personal.html" class="category-card">
+                <h2>Personal Projects</h2>
+                <p>Exploring my curiosity in hardware design and software development.</p>
+                <span class="link-cta">View Projects &rarr;</span>
+            </a>
+            <a href="school.html" class="category-card">
+                <h2>Academic Projects</h2>
+                <p>Applying fundamental engineering principles to complex challenges.</p>
+                <span class="link-cta">View Projects &rarr;</span>
+            </a>
+        </section>
+
+        <footer>
+            <p>© 2026 Matthew</p>
+        </footer>
+    </div>
+
+</body>
+</html>
