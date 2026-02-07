@@ -222,11 +222,13 @@
         <li class="project-item" data-project-id="tesla-audit">
             <div class="project-preview">
                  <div class="preview-image-container">
-                     <img src="images/tesla-audit-1.png" alt="Audit Dashboard" class="active" onerror="this.src='https://placehold.co/100x100?text=Audit+1'">
-                     <img src="images/tesla-audit-2.png" alt="Automated Report Example" onerror="this.src='https://placehold.co/100x100?text=Audit+2'">
+                     <!-- Image 1: Technical (Code/Data) -->
+                     <img src="images/python-sql-code.jpg" alt="Python and SQL Data Processing" class="active" onerror="this.src='https://placehold.co/100x100?text=SQL+Python'">
+                     <!-- Image 2: Physical Product (Context) -->
+                     <img src="images/cybertruck-body.jpg" alt="Cybertruck Production" onerror="this.src='https://placehold.co/100x100?text=Cybertruck'">
                  </div>
                  <div class="preview-text">
-                     <h3>Model Y & Cybertruck Audit Automation</h3>
+                     <h3>Model Y & Cybertruck Process Audit & Analytics Portal</h3>
                      <p class="meta">Pilot Engineering Intern @ Tesla</p>
                      <img src="images/logo-tesla.png" alt="" class="preview-company-logo">
                  </div>
@@ -234,19 +236,30 @@
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
-                    <div class="slide active"><img src="images/tesla-audit-1.png" alt="Audit Dashboard" onerror="this.src='https://placehold.co/800x400?text=Audit+Dashboard'"></div>
-                    <div class="slide"><img src="images/tesla-audit-2.png" alt="Automated Report Example" onerror="this.src='https://placehold.co/800x400?text=Report+Example'"></div>
+                    <div class="slide active">
+                        <img src="images/python-sql-code.jpg" alt="Automated Data Pipelines using Python (Pandas) and SQL" onerror="this.src='https://placehold.co/800x400?text=Data+Pipelines'">
+                    </div>
+                    <div class="slide">
+                        <img src="images/cybertruck-body.jpg" alt="Real-time auditing for Cybertruck & Model Y Assembly" onerror="this.src='https://placehold.co/800x400?text=Cybertruck+Assembly'">
+                    </div>
                     <a class="prev" onclick="manualSlideChange('tesla-audit', -1)">&#10094;</a>
                     <a class="next" onclick="manualSlideChange('tesla-audit', 1)">&#10095;</a>
                 </div>
                 <div class="caption-container"></div>
                 <div class="project-description">
-                    <p><strong>Problem:</strong> Maintaining process compliance on the Model Y and Cybertruck lines required manual, time-consuming 
-                        audits that were prone to human error and data lag.</p>
-                    <p><strong>My Solution:</strong> I developed an automated auditing system that continuously validates process parameters against 
-                        engineering standards. This involved integrating data streams from the line directly into a reporting framework.</p>
-                    <p><strong>Results:</strong> This automation reduced the manual workload for the quality and engineering teams, ensuring real-time 
-                        compliance visibility and faster reaction times to process deviations.</p>
+                    <p><strong>Problem:</strong> Process Engineering data was fragmented across disparate systems.
+                        Engineers wasted hours manually cross-referencing the <strong>EBOM vs. MBOM</strong> and auditing 
+                        Work Instructions for completeness (e.g., missing photos), creating a lag in root cause analysis 
+                        for cycle time deviations.</p>
+                    <p><strong>My Solution:</strong> I architected a centralized Process Engineering Portal using 
+                        <strong>Advanced SQL and Python (Pandas)</strong>. I built automated ETL pipelines to cross-validate 
+                        data between the internal Work Instruction software and the Manufacturing Execution System (MES). The 
+                        system automatically flags discrepancies—such as BOM mismatches or missing instruction imagery—and visualizes 
+                        real-time cycle time analytics via an internal BI dashboard.</p>
+                    <p><strong>Results:</strong> This portal became the single source of truth for the Process team. 
+                        It automated the assignment of correction tasks to <strong>Manufacturing Technicians</strong>, 
+                        ensuring work instructions are audit-ready, and enabled engineers to perform <strong>rapid root 
+                            cause analysis</strong> on production bottlenecks without manual data scrubbing.</p>
                 </div>
             </div>
         </li>
