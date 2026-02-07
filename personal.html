@@ -79,8 +79,24 @@
     }
     
     .meta { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px; font-style: italic; }
+    
+    /* --- TEXT STYLING (MATCHING WORK.HTML) --- */
     .card p { margin-bottom: 10px; color: #495057; }
-    .card strong { color: var(--primary-blue); font-weight: 600; display: block; margin-bottom: 5px; }
+    
+    /* Headers like "Challenge:" -> BLUE */
+    .card strong { 
+        color: var(--primary-blue); 
+        font-weight: 600; 
+        display: block; 
+        margin-bottom: 5px; 
+    }
+    
+    /* Inline keywords like "ROS2" -> BLACK/DARK */
+    .card p b { 
+        font-weight: 600; 
+        color: var(--text-primary); 
+    }
+
     .links { margin-top: auto; }
 
     .card p a {
@@ -201,10 +217,6 @@
         .prev, .next { font-size: 16px; padding: 12px; }
         .slide img { height: 350px; }
     }
-    .description-wrapper b {
-        font-weight: 600;
-        color: var(--primary-blue);
-    }
   </style>
 </head>
 <body>
@@ -236,11 +248,11 @@
         <a class="next" onclick="manualSlideChange('robotics-comp', 1)">&#10095;</a>
       </div>
       
-      <!-- ADDED CAPTION CONTAINER (Matches Brother's Layout) -->
+      <!-- ADDED CAPTION CONTAINER -->
       <div class="caption-container">1st Place Winning Robot, Pictured During Competition</div>
       
       <h3>Autonomous Navigation Robot (1st Place Winner)</h3>
-      <p class="meta">Skills: ROS2 (Nav2), Python/C++, Arduino, PWM Hardware Design, Linux/Bash</p>
+      <p class="meta">Skills: ROS2 (Nav2), Python, C++, Arduino, PWM Hardware Design, Linux/Bash</p>
       
       <div class="toggle-bar" onclick="toggleDescription(this)">
           <span>View Details</span>
@@ -249,12 +261,11 @@
 
       <div class="description-wrapper">
           <div style="padding-top: 20px;">
-          <div style="padding-top: 20px;">
               <p><strong>Challenge:</strong> To design an autonomous robot capable of navigating a dynamic obstacle course and 
                 collecting LED targets faster than 28 other teams. The robot had to autonomously identify team-specific frequencies 
                 (80Hz vs 40Hz), navigate via waypoints, and return home within a strict 5-minute window.</p>
               <p><strong>My Solution:</strong> I engineered a full-stack robotic system using <b>Python, C++, and C</b>. 
-                I integrated <b>LiDAR and Ultrasonic sensors</b> for real-time obstacle detection and designed a 
+                On the hardware side, I integrated <b>LiDAR and Ultrasonic sensors</b> for real-time obstacle detection and designed a 
                 custom PWM LED driver circuit controlled by an Arduino. For software, I implemented the <b>ROS2 Nav2 stack</b>, 
                 optimizing global costmap parameters to enable tighter path planning. I wrote custom <b>Bash scripts</b> to automate the 
                 startup sequence, ensuring the hardware nodes and navigation stack launched instantly upon boot.</p>
@@ -268,6 +279,7 @@
     <!-- === PROJECT 2: CPU EMULATOR === -->
     <article class="card" data-project-id="cpu-emulator"> 
       <div class="slideshow-container">
+        <!-- Generic Code/Architecture Image -->
         <div class="slide active"><img src="images/cpu-architecture.png" alt="4-Stage Pipeline Architecture Diagram" onerror="this.src='https://placehold.co/800x550?text=CPU+Architecture'"></div>
         <div class="slide"><img src="images/debugger-ui.png" alt="Custom Debugger Interface" onerror="this.src='https://placehold.co/800x550?text=Debugger+UI'"></div>
         <a class="prev" onclick="manualSlideChange('cpu-emulator', -1)">&#10094;</a>
