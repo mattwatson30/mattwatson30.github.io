@@ -222,7 +222,7 @@
 <body>
 
   <header>
-    <h1>Technical Projects</h1>
+    <h1>Peronal Projects</h1>
     <a href="index.html" class="back-link">&larr; Back to Home</a>
   </header>
 
@@ -252,7 +252,7 @@
       <div class="caption-container">1st Place Winning Robot, Pictured During Competition</div>
       
       <h3>Autonomous Navigation Robot (1st Place Winner)</h3>
-      <p class="meta">Skills: ROS2 (Nav2), Python, C++, Arduino, PWM Hardware Design, Linux/Bash</p>
+      <p class="meta">Skills: ROS2 (Nav2), Python, C++, Arduino, PWM Hardware Design</p>
       
       <div class="toggle-bar" onclick="toggleDescription(this)">
           <span>View Details</span>
@@ -267,7 +267,7 @@
               <p><strong>My Solution:</strong> I engineered a full-stack robotic system using <b>Python, C++, and C</b>. 
                 On the hardware side, I integrated <b>LiDAR and Ultrasonic sensors</b> for real-time obstacle detection and designed a 
                 custom PWM LED driver circuit controlled by an Arduino. For software, I implemented the <b>ROS2 Nav2 stack</b>, 
-                optimizing global costmap parameters to enable tighter path planning. I wrote custom <b>Bash scripts</b> to automate the 
+                optimizing global costmap parameters to enable tighter path planning. I wrote custom Bash scripts to automate the 
                 startup sequence, ensuring the hardware nodes and navigation stack launched instantly upon boot.</p>
               <p><strong>Results:</strong> Our robot achieved a <b>97.5% collection rate</b> (117/120) and placed <b>1st out of 
                 29 teams</b>. We executed a consistent strategy, scoring an average of 34.5 points per run (well above the 25-point requirement) 
@@ -298,9 +298,15 @@
 
       <div class="description-wrapper">
           <div style="padding-top: 20px;">
-              <p><strong>Challenge:</strong> To understand the low-level operation of a processor by building a functional emulator from scratch. The goal was to execute compiled S-Record files on a custom RISC architecture.</p>
-              <p><strong>My Solution:</strong> I architected a <b>4-stage pipelined CPU emulator</b> in C. The system simulates a <b>Harvard Architecture</b> (separate instruction and data memory) and supports a custom 16-bit instruction set. I implemented a full fetch-decode-execute-writeback cycle, handling data hazards and control hazards. I also built a robust <b>debugger</b> that allows users to single-step through assembly code, inspect registers, and view memory contents in real-time.</p>
-              <p><strong>Results:</strong> The emulator successfully executes complex assembly programs compiled with a custom compiler. It serves as a powerful educational tool for visualizing how pipelining improves processor throughput.</p>
+              <p><strong>Challenge:</strong> To understand the low-level operation of a processor by building a functional emulator from scratch. 
+                The goal was to execute compiled S-Record files on a custom RISC architecture.</p>
+              <p><strong>My Solution:</strong> I architected a <b>4-stage pipelined CPU emulator</b> in C. The system simulates a 
+                <b>Harvard Architecture</b> (separate instruction and data memory) and supports a custom 16-bit instruction set. 
+                I implemented a full fetch-decode-execute-writeback cycle, handling data hazards and control hazards. I also built a 
+                robust <b>debugger</b> that allows users to single-step through assembly code, inspect registers, and view memory 
+                contents in real-time.</p>
+              <p><strong>Results:</strong> The emulator successfully executes complex assembly programs compiled with a custom compiler. 
+                It serves as a powerful educational tool for visualizing how pipelining improves processor throughput.</p>
           </div>
       </div>
     </article>
