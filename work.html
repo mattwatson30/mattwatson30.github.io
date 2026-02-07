@@ -268,13 +268,13 @@
         <li class="project-item" data-project-id="lm-certs">
             <div class="project-preview">
                  <div class="preview-image-container">
-                     <!-- Image 1: The Product (The Ship) -->
-                     <img src="images/lockheed-system-integration.png" alt="The Canadian River-Class Destroyer (CSC), Unclassified Photo (Lockheed Martin)" class="active" onerror="this.src='https://placehold.co/100x100?text=CSC+Ship'">
-                     <!-- Image 2: The Tech (Workflow/Data) -->
-                     <img src="images/requirements-workflow.jpg" alt="The Canadian River-Class Destroyer (CSC), Unclassified Photo (BAE Systems)" onerror="this.src='https://placehold.co/100x100?text=Data+Workflow'">
+                     <!-- Image 1 -->
+                     <img src="images/lockheed-system-integration.png" alt="The Canadian River-Class Destroyer (CSC)" class="active" onerror="this.src='https://placehold.co/100x100?text=CSC+Ship'">
+                     <!-- Image 2 -->
+                     <img src="images/BAE_image_CSC.png" alt="BAE Systems CSC Rendering" onerror="this.src='https://placehold.co/100x100?text=BAE+Render'">
                  </div>
                  <div class="preview-text">
-                     <h3>Classified Certification Ingestion Automation Software</h3>
+                     <h3>Classified Certifications Ingestion Automation Software</h3>
                      <p class="meta">Systems Engineering Intern @ Lockheed Martin</p>
                      <img src="images/logo-lockheed.png" alt="" class="preview-company-logo">
                  </div>
@@ -286,56 +286,66 @@
                         <img src="images/lockheed-system-integration.png" alt="The Canadian River-Class Destroyer (CSC), Unclassified Photo (Lockheed Martin)" onerror="this.src='https://placehold.co/800x400?text=River-Class+Destroyer'">
                     </div>
                     <div class="slide">
-                        <img src="images/BAE_image_CSC.png" alt="The Canadian River-Class Destroyer (CSC), Unclassified Photo (BAE Systems)" onerror="this.src='https://placehold.co/800x400?text=Python+Automation+Logic'">
+                        <img src="images/BAE_image_CSC.png" alt="The Canadian River-Class Destroyer (CSC), Unclassified Photo (BAE Systems)" onerror="this.src='https://placehold.co/800x400?text=BAE+Systems+Render'">
                     </div>
                     <a class="prev" onclick="manualSlideChange('lm-certs', -1)">&#10094;</a>
                     <a class="next" onclick="manualSlideChange('lm-certs', 1)">&#10095;</a>
                 </div>
                 <div class="caption-container"></div>
                 <div class="project-description">
-                    <p><strong>Problem:</strong> The River-Class Destroyer program faced a data integration bottleneck. Critical 
-                        certification data was arriving in disparate formats from <b>BAE Systems, Irving Shipbuilding, and Lloyd’s Register</b>. 
-                        Manually aligning this data with <b>ANEP-77</b> naval standards for the <b>Royal Canadian Navy</b> was error-prone and created compliance risks.</p>
-                    <p><strong>My Solution:</strong> I engineered a robust automated ingestion pipeline for <b>IBM DOORS</b> using <b>Python (Pandas), SQL, and VBA</b>. 
-                        I acted as the technical bridge between stakeholders, translating complex external requirements into specific validation logic. 
-                        My software automatically standardized, cleaned, and imported thousands of line items, rejecting non-compliant data before it entered the system.</p>
-                    <p><strong>Results:</strong> This automation eliminated <b>4,450 hours of manual processing ($380,000) annually</b>. It established a single, 
-                        error-free source of truth for the program's certification status, ensuring 100% traceability and enabling the team to meet critical design 
-                        review milestones on schedule.</p>
+                    <p><strong>Problem:</strong> The multi-billion dollar River-Class Destroyer program faced critical delays in its certification lifecycle. 
+                        Conflicting data formats and requirements from <b>BAE Systems, Irving Shipbuilding, and Lloyd’s Register</b> created a bottleneck, making 
+                        it impossible to manually verify alignment with <b>Royal Canadian Navy</b> standards (ANEP-77) on schedule.</p>
+                    <p><strong>My Solution:</strong> Acting as the Product Owner for the certification workflow, I harmonized conflicting requirements 
+                        across external stakeholders to define a unified data standard. I then engineered an automated compliance engine using <b>Python 
+                            (Pandas), SQL, and VBA</b> to enforce these rules. My software acted as the gatekeeper for the program, automatically ingesting, 
+                        validating, and rejecting thousands of certification line items based on the acceptance criteria I defined.</p>
+                    <p><strong>Results:</strong> I successfully deployed the solution to the Certifications Team, eliminating <b>4,450 hours of manual 
+                        processing ($380,000) annually</b>. By establishing a "Single Source of Truth," I ensured 100% audit traceability and accelerated the 
+                        program's ability to meet critical Critical Design Review (CDR) milestones.</p>
                 </div>
             </div>
         </li>
+        
         <!-- 5. Mobile App for Repair Truck Drivers -->
         <li class="project-item" data-project-id="jdi-app">
             <div class="project-preview">
                  <div class="preview-image-container">
-                     <img src="images/jdi-app-1.png" alt="Mobile Power BI Interface" class="active" onerror="this.src='https://placehold.co/100x100?text=App+1'">
-                     <img src="images/jdi-app-2.png" alt="Scheduling Logic" onerror="this.src='https://placehold.co/100x100?text=App+2'">
+                     <!-- Image 1: The App Interface -->
+                     <img src="images/JDI.png" alt="Mobile App used for Work Allocation" class="active" onerror="this.src='https://placehold.co/100x100?text=App+Interface'">
                  </div>
                  <div class="preview-text">
-                     <h3>Mobile App for Repair Truck Drivers</h3>
+                     <h3>Mobile Fleet Dispatch & Routing App</h3>
                      <p class="meta">Data Engineering Intern @ J.D. Irving</p>
-                     <!-- Placeholder logo for JDI if you have one, or remove -->
+                     <!-- JDI Logo (Optional) -->
                      <div style="width:20px;"></div> 
                  </div>
                  <span class="preview-icon">›</span>
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
-                    <div class="slide active"><img src="images/jdi-app-1.png" alt="Mobile Power BI Interface" onerror="this.src='https://placehold.co/800x400?text=Mobile+Interface'"></div>
-                    <div class="slide"><img src="images/jdi-app-2.png" alt="Scheduling Logic" onerror="this.src='https://placehold.co/800x400?text=Scheduling+Logic'"></div>
-                    <a class="prev" onclick="manualSlideChange('jdi-app', -1)">&#10094;</a>
-                    <a class="next" onclick="manualSlideChange('jdi-app', 1)">&#10095;</a>
+                    <!-- Slide 1 (Only one slide, so no arrows needed) -->
+                    <div class="slide active">
+                        <img src="images/JDI.png" alt="Mobile App used for Work Allocation by Fleet Mechanics" onerror="this.src='https://placehold.co/800x400?text=App+Interface'">
+                    </div>
                 </div>
                 <div class="caption-container"></div>
                 <div class="project-description">
-                    <p><strong>Problem:</strong> The Transportation & Logistics Division faced critical workflow bottlenecks in scheduling repair trucks, leading to lost revenue and inefficient routing.</p>
-                    <p><strong>My Solution:</strong> I partnered with shop managers to identify the root causes and developed a mobile <b>Power BI solution backed by SQL</b>. This tool provided real-time analytics and optimized scheduling directly to the drivers' mobile devices.</p>
-                    <p><strong>Results:</strong> The solution recovered <b>$120,000 in lost revenue</b> through optimized scheduling and improved fleet utilization.</p>
+                    <p><strong>Problem:</strong> The Repair Fleet lacked visibility into trailer locations and urgency. 
+                        Mechanics were driving blind, leading to high "wasted drive time" and expensive downtime for the customer's fleet. 
+                        I identified this operational gap and <b>self-started</b> a product initiative to solve it.</p>
+                    <p><strong>My Solution:</strong> I engineered a geospatial algorithm using <b>SQL</b> to ingest live truck bed 
+                        locations and calculate the "Nearest & Most Urgent" work order for every mechanic. I packaged this logic into a 
+                        live <b>Power BI Mobile App</b>, creating a user-friendly interface for field mechanics. I also led the change 
+                        management effort, creating user guides to drive adoption.</p>
+                    <p><strong>Results:</strong> The app is now used daily by mechanics across New Brunswick. It eliminated 
+                        <b>$60,000/year (CAD)</b> in wasted fuel/labor for the internal team and saved the customer an estimated 
+                        <b>$150,000–$300,000/year (CAD)</b> by significantly reducing trailer downtime.</p>
                 </div>
             </div>
         </li>
 
+        
         <!-- 6. CSC TDP Delivery Jira Automation -->
         <li class="project-item" data-project-id="lm-jira">
             <div class="project-preview">
