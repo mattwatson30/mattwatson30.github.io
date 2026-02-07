@@ -1,1 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technical Projects — Matthew Watson</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* --- Global Styles --- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+        --primary-blue: #0000FF; --text-primary: #212529; --text-secondary: #6c757d;
+        --background: #f8f9fa; --card-background: #ffffff; --border-color: #dee2e6;
+        --border-light: #e9ecef;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--background);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 40px 20px;
+      font-weight: 300;
+    }
 
+    /* --- Links & Headers --- */
+    a { color: var(--primary-blue); text-decoration: none; font-weight: 500; transition: opacity 0.2s ease; }
+    a:hover { text-decoration: none; opacity: 0.7; }
+    header, footer { text-align: center; max-width: 800px; margin: 0 auto; }
+    header { margin-bottom: 60px; }
+    h1 { font-weight: 600; font-size: 2.5rem; letter-spacing: 2px; }
+    
+    .back-link { font-size: 1rem; color: var(--text-secondary); display: inline-block; margin-top: 15px; }
+    
+    .projects { display: grid; grid-template-columns: 1fr; gap: 35px; max-width: 900px; margin: 0 auto; }
+    
+    .card {
+      background: var(--card-background);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 14px;
+      display: flex; flex-direction: column;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+    
+    .meta { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px; font-style: italic; }
+    
+    /* --- TOGGLE BAR --- */
+    .toggle-bar {
+        display: flex; justify-content: center; align-items: center; width: 100%; padding: 12px;
+        margin-top: 15px; background-color: #f8f9fa; border-radius: 8px; cursor: pointer;
+        color: var(--primary-blue); font-weight: 500; user-select: none;
+    }
+    .toggle-icon { margin-left: 8px; transition: transform 0.3s ease; }
+    .card.expanded .toggle-icon { transform: rotate(180deg); }
+
+    /* --- HIDDEN CONTENT --- */
+    .description-wrapper { max-height: 0; overflow: hidden; transition: max-height 0.6s ease-in-out, opacity 0.4s ease-in-out; opacity: 0; }
+    .card.expanded .description-wrapper { max-height: 5000px; opacity: 1; }
+
+    /* --- SLIDESHOW --- */
+    .slideshow-container { position: relative; max-width: 100%; margin-bottom: 15px; overflow: hidden; border-radius: 12px; background-color: #fff; }
+    .slide { display: none; width: 100%; animation: fadeEffect 0.8s ease; }
+    .slide img { display: block; width: 100%; height: 400px; object-fit: contain; object-position: center; }
+    .slide.active { display: block; }
+    @keyframes fadeEffect { from { opacity: 0.4; } to { opacity: 1; } }
+    
+    .prev, .next { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); padding: 16px; color: #333; font-weight: bold; font-size: 20px; background-color: rgba(255,255,255,0.5); }
+    .next { right: 0; }
+    
+    /* --- Footer --- */
+    footer { margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--border-color); color: var(--text-secondary); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Technical Projects</h1>
+    <a href="index.html" class="back-link">&larr; Back to Home</a>
+  </header>
+
+  <section class="projects">
+
+    <!-- === PROJECT 1: ROBOTICS COMPETITION === -->
+    <article class="card" data-project-id="robotics-comp"> 
+      <div class="slideshow-container">
+        <div class="slide active"><img src="images/dalhousie_robotics_competition.png" alt="1st Place Winning Robot Design" onerror="this.src='https://placehold.co/800x400?text=Robotics+Competition'"></div>
+        <a class="prev" onclick="manualSlideChange('robotics-comp', -1)">&#10094;</a>
+        <a class="next" onclick="manualSlideChange('robotics-comp', 1)">&#10095;</a>
+      </div>
+      
+      <h3>Autonomous Navigation Robot (1st Place Winner)</h3>
+      <p class="meta">Skills: ROS2, Python, C++, LiDAR, Sensor Fusion</p>
+      
+      <div class="toggle-bar" onclick="toggleDescription(this)">
+          <span>View Details</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+      </div>
+
+      <div class="description-wrapper">
+          <div style="padding-top: 20px;">
+              <p><strong>Challenge:</strong> To design and build an autonomous robot capable of navigating a dynamic obstacle course faster than 28 other teams. The robot had to map its environment, avoid moving obstacles, and reach a target destination without human intervention.</p>
+              <p><strong>My Solution:</strong> I engineered the autonomous navigation software stack using <b>ROS2 (Robot Operating System)</b>. I implemented a sensor fusion algorithm that combined data from a <b>LiDAR</b> and <b>IMU</b> to create a real-time costmap of the environment. I wrote custom path-planning logic in <b>Python and C++</b> to dynamically re-route the robot around obstacles.</p>
+              <p><strong>Results:</strong> Our robot placed <b>1st out of 29 teams</b> in the Dalhousie Engineering Robotics Competition. The navigation algorithm proved robust enough to handle unexpected obstacles that caused other robots to fail.</p>
+          </div>
+      </div>
+    </article>
+
+    <!-- === PROJECT 2: CPU EMULATOR === -->
+    <article class="card" data-project-id="cpu-emulator"> 
+      <div class="slideshow-container">
+        <!-- Generic Code/Architecture Image -->
+        <div class="slide active"><img src="images/cpu-architecture.png" alt="4-Stage Pipeline Architecture Diagram" onerror="this.src='https://placehold.co/800x400?text=CPU+Architecture'"></div>
+        <div class="slide"><img src="images/debugger-ui.png" alt="Custom Debugger Interface" onerror="this.src='https://placehold.co/800x400?text=Debugger+UI'"></div>
+        <a class="prev" onclick="manualSlideChange('cpu-emulator', -1)">&#10094;</a>
+        <a class="next" onclick="manualSlideChange('cpu-emulator', 1)">&#10095;</a>
+      </div>
+      
+      <h3>4-Stage Pipelined RISC CPU Emulator</h3>
+      <p class="meta">Skills: C, Computer Architecture, Assembly Language</p>
+      
+      <div class="toggle-bar" onclick="toggleDescription(this)">
+          <span>View Details</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+      </div>
+
+      <div class="description-wrapper">
+          <div style="padding-top: 20px;">
+              <p><strong>Challenge:</strong> To understand the low-level operation of a processor by building a functional emulator from scratch. The goal was to execute compiled S-Record files on a custom RISC architecture.</p>
+              <p><strong>My Solution:</strong> I architected a <b>4-stage pipelined CPU emulator</b> in C. The system simulates a <b>Harvard Architecture</b> (separate instruction and data memory) and supports a custom 16-bit instruction set. I implemented a full fetch-decode-execute-writeback cycle, handling data hazards and control hazards. I also built a robust <b>debugger</b> that allows users to single-step through assembly code, inspect registers, and view memory contents in real-time.</p>
+              <p><strong>Results:</strong> The emulator successfully executes complex assembly programs compiled with a custom compiler. It serves as a powerful educational tool for visualizing how pipelining improves processor throughput.</p>
+          </div>
+      </div>
+    </article>
+
+    <!-- === PROJECT 3: OS SCHEDULER === -->
+    <article class="card" data-project-id="os-scheduler"> 
+      <div class="slideshow-container">
+        <div class="slide active"><img src="images/os-scheduler-diagram.png" alt="Process Scheduling Logic" onerror="this.src='https://placehold.co/800x400?text=Scheduler+Logic'"></div>
+        <a class="prev" onclick="manualSlideChange('os-scheduler', -1)">&#10094;</a>
+        <a class="next" onclick="manualSlideChange('os-scheduler', 1)">&#10095;</a>
+      </div>
+      
+      <h3>Operating System Process Scheduler</h3>
+      <p class="meta">Skills: C, Multithreading, Algorithms</p>
+      
+      <div class="toggle-bar" onclick="toggleDescription(this)">
+          <span>View Details</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+      </div>
+
+      <div class="description-wrapper">
+          <div style="padding-top: 20px;">
+              <p><strong>Challenge:</strong> To implement the core logic of an Operating System scheduler capable of managing multiple processes and threads simultaneously. The assignment required handling complex state transitions (Ready, Running, Blocked) without any external libraries.</p>
+              <p><strong>My Solution:</strong> I wrote a complete process scheduler in C from scratch. The system parses a configuration file defining various processes (loops, I/O operations) and simulates their execution using a <b>Round Robin</b> algorithm with priority queues. I implemented full context switching logic, managing the saving and restoring of thread states.</p>
+              <p><strong>Results:</strong> I was the <b>only student in the class</b> to complete the entire scheduler without using provided starter code or external libraries. The final system successfully handles concurrent process execution, demonstrating deadlock avoidance and efficient CPU utilization.</p>
+          </div>
+      </div>
+    </article>
+    
+  </section>
+
+  <footer>
+    <p>
+      <a href="images/resume.pdf" target="_blank"> Download Resume</a> ·
+      <a href="mailto:matthewwatson311@gmail.com">Email Me</a> ·
+      <a href="https://linkedin.com/in/matthewwatson311" target="_blank">LinkedIn</a>
+    </p>
+    <p>© 2026 Matthew Watson</p>
+  </footer>
+
+  <script>
+    // --- TOGGLE LOGIC ---
+    function toggleDescription(btn) {
+        const card = btn.closest('.card');
+        const textSpan = btn.querySelector('span');
+        card.classList.toggle('expanded');
+        textSpan.textContent = card.classList.contains('expanded') ? "Hide Details" : "View Details";
+    }
+
+    // --- SLIDESHOW LOGIC ---
+    const slideshowData = {};
+
+    function initializeSlideshow(projectId) {
+        if (!slideshowData[projectId]) {
+            const projectItem = document.querySelector(`.card[data-project-id="${projectId}"]`);
+            if (!projectItem) return; 
+            const slides = projectItem.querySelectorAll('.slide');
+            slideshowData[projectId] = { slideIndex: 0, slides: slides, timer: null };
+        }
+    }
+
+    function showSlide(projectId, index) {
+        initializeSlideshow(projectId);
+        const data = slideshowData[projectId];
+        if (!data || !data.slides || data.slides.length === 0) return;
+        
+        if (index >= data.slides.length) index = 0;
+        if (index < 0) index = data.slides.length - 1;
+        
+        data.slides.forEach(slide => slide.classList.remove('active'));
+        data.slides[index].classList.add('active');
+        data.slideIndex = index;
+    }
+
+    function manualSlideChange(projectId, n) {
+        initializeSlideshow(projectId);
+        const data = slideshowData[projectId];
+        if (!data) return;
+        stopAutoSlide(projectId);
+        showSlide(projectId, data.slideIndex + n);
+        setTimeout(() => startAutoSlide(projectId), 8000); 
+    }
+
+    function startAutoSlide(projectId) {
+        initializeSlideshow(projectId);
+        const data = slideshowData[projectId];
+        if (!data || data.slides.length <= 1) return;
+        stopAutoSlide(projectId); 
+        data.timer = setInterval(() => {
+            showSlide(projectId, data.slideIndex + 1);
+        }, 5000);
+    }
+
+    function stopAutoSlide(projectId) {
+        if (slideshowData[projectId] && slideshowData[projectId].timer) {
+            clearInterval(slideshowData[projectId].timer);
+            slideshowData[projectId].timer = null;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const projectCards = document.querySelectorAll('.card[data-project-id]');
+        projectCards.forEach(card => {
+            const projectId = card.dataset.projectId;
+            initializeSlideshow(projectId);
+            showSlide(projectId, 0); 
+            startAutoSlide(projectId);
+        });
+    });
+  </script>
+
+</body>
+</html>
