@@ -136,10 +136,12 @@
         <li class="project-item" data-project-id="tesla-scheduling">
             <div class="project-preview">
                  <div class="preview-image-container">
-                     <!-- Replace these with your architecture diagram/graph -->
-                     <img src="images/giga_texas_factory_workers.jpeg" alt="Schedules thousands of associates daily, enforcing training compliance and ergonomic rotation." onerror="this.src='https://placehold.co/100x100?text=Workers'">
-                     <img src="images/tesla-giga-texas.jpeg" alt="Tesla Giga Texas Factory, one of Tesla's major factories using this software." class="active" onerror="this.src='https://placehold.co/100x100?text=System+Arch'">
-                     <img src="images/model_Y_assembly_line_tesla.png" alt="Tesla assembly line workers, assigned work using this software." onerror="this.src='https://placehold.co/100x100?text=Speed+Graph'">
+                     <!-- Image 1: Workers (Set to ACTIVE so it is the cover photo) -->
+                     <img src="images/giga_texas_factory_workers.jpeg" alt="Schedules thousands of associates daily, enforcing training compliance and ergonomic rotation." class="active" onerror="this.src='https://placehold.co/100x100?text=Workers'">
+                     <!-- Image 2: Factory -->
+                     <img src="images/tesla-giga-texas.jpeg" alt="Tesla Giga Texas Factory, one of Tesla's major factories using this software." onerror="this.src='https://placehold.co/100x100?text=System+Arch'">
+                     <!-- Image 3: Assembly Line -->
+                     <img src="images/model_Y_assembly_line_tesla.png" alt="Tesla Assembly Line workers, assigned work using this software." onerror="this.src='https://placehold.co/100x100?text=Speed+Graph'">
                  </div>
                  <div class="preview-text">
                      <h3>AI-Driven Employee Scheduling Software</h3>
@@ -150,20 +152,28 @@
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
-                    <div class="slide">
+                    <!-- Slide 1: Workers (Set to ACTIVE to match preview) -->
+                    <div class="slide active">
                         <img src="images/giga_texas_factory_workers.jpeg" alt="Schedules thousands of associates daily, enforcing training compliance and ergonomic rotation." onerror="this.src='https://placehold.co/800x400?text=Factory+Workers'">
                     </div>
-                    <div class="slide active"><img src="images/tesla-giga-texas.jpeg" alt="Tesla Giga Texas Factory, one of Tesla's major factories using this software." onerror="this.src='https://placehold.co/800x400?text=Architecture+Diagram'"></div>
-                    <div class="slide"><img src="images/model_Y_assembly_line_tesla.png" alt="Tesla assembly line workers, assigned work using this software." onerror="this.src='https://placehold.co/800x400?text=Performance+Graph'"></div>
+                    <!-- Slide 2: Factory -->
+                    <div class="slide">
+                        <img src="images/tesla-giga-texas.jpeg" alt="Tesla Giga Texas Factory, one of Tesla's major factories using this software." onerror="this.src='https://placehold.co/800x400?text=Architecture+Diagram'">
+                    </div>
+                    <!-- Slide 3: Assembly Line -->
+                    <div class="slide">
+                        <img src="images/model_Y_assembly_line_tesla.png" alt="Tesla Assembly Line workers, assigned work using this software." onerror="this.src='https://placehold.co/800x400?text=Performance+Graph'">
+                    </div>
+                    
                     <a class="prev" onclick="manualSlideChange('tesla-scheduling', -1)">&#10094;</a>
                     <a class="next" onclick="manualSlideChange('tesla-scheduling', 1)">&#10095;</a>
                 </div>
                 <div class="caption-container"></div>
                 <div class="project-description">
                     <p><strong>Problem:</strong> Global factory scheduling was a manual process with near-infinite complexity 
-                        (10<sup>136</sup> combinations for a single 40-employee team), leading to sub-optimal workforce allocation. A business case I developed 
-                        with Tesla's Finance Team identified a <b>$55M/year opportunity</b> on the Giga Texas Model Y line alone 
-                        due to OEE losses from untrained assignments and <b>$1.1M/year</b> in wasted supervisory labor.</p>
+                        (10<sup>136</sup> combinations for a single 40-employee team), leading to sub-optimal workforce allocation. A business 
+                        case I developed with Tesla's Finance Team identified a <b>$55M/year opportunity</b> on the Giga Texas Model Y line alone 
+                        due to OEE losses from untrained assignments and <b>$1.1M/year</b> in wasted supervisor labor.</p>
                     <p><strong>My Solution:</strong> I owned the full 0→1 lifecycle. I built a functional MVP and conducted <b>User Acceptance Testing (UAT)</b> 
                         with supervisors to validate the UI/UX. I personally developed the core optimization engine using <b>Timefold (Java/Python)</b>, 
                         which <b>outperformed the internal data engineering team's solution</b>. To ensure scalability, I engineered a "Warm Start" 
