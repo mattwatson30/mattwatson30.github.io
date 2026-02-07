@@ -263,13 +263,15 @@
                 </div>
             </div>
         </li>
-
+        
         <!-- 4. CSC Certifications Automation -->
         <li class="project-item" data-project-id="lm-certs">
             <div class="project-preview">
                  <div class="preview-image-container">
-                     <img src="images/lm-certs-1.png" alt="IBM DOORS Workflow" class="active" onerror="this.src='https://placehold.co/100x100?text=Certs+1'">
-                     <img src="images/lm-certs-2.png" alt="Python Script Logic" onerror="this.src='https://placehold.co/100x100?text=Certs+2'">
+                     <!-- Image 1: The Product (The Ship) -->
+                     <img src="images/csc-ship.jpg" alt="Canadian Surface Combatant (River-Class Destroyer)" class="active" onerror="this.src='https://placehold.co/100x100?text=CSC+Ship'">
+                     <!-- Image 2: The Tech (Workflow/Data) -->
+                     <img src="images/requirements-workflow.jpg" alt="Data Ingestion Workflow" onerror="this.src='https://placehold.co/100x100?text=Data+Workflow'">
                  </div>
                  <div class="preview-text">
                      <h3>CSC Certifications Automation Software</h3>
@@ -280,20 +282,23 @@
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
-                    <div class="slide active"><img src="images/lm-certs-1.png" alt="IBM DOORS Workflow" onerror="this.src='https://placehold.co/800x400?text=IBM+DOORS+Workflow'"></div>
-                    <div class="slide"><img src="images/lm-certs-2.png" alt="Python Script Logic" onerror="this.src='https://placehold.co/800x400?text=Python+Script'"></div>
+                    <div class="slide active">
+                        <img src="images/csc-ship.jpg" alt="The River-Class Destroyer (CSC) - Public Render" onerror="this.src='https://placehold.co/800x400?text=River-Class+Destroyer'">
+                    </div>
+                    <div class="slide">
+                        <img src="images/requirements-workflow.jpg" alt="Automated Requirements Ingestion Logic" onerror="this.src='https://placehold.co/800x400?text=Python+Automation+Logic'">
+                    </div>
                     <a class="prev" onclick="manualSlideChange('lm-certs', -1)">&#10094;</a>
                     <a class="next" onclick="manualSlideChange('lm-certs', 1)">&#10095;</a>
                 </div>
                 <div class="caption-container"></div>
                 <div class="project-description">
-                    <p><strong>Problem:</strong> Managing requirements for the Royal Canadian Navy River-Class Destroyer involved manual data processing that was slow and expensive. The team needed to align requirements with ANEP-77 and Lloyd’s Register standards across multiple stakeholders.</p>
-                    <p><strong>My Solution:</strong> I engineered an automated requirements ingestion workflow for IBM DOORS using <b>Python (Pandas), SQL, and VBA</b>. I owned the workflow from intake to rollout, translating stakeholder needs into specific import rules and acceptance criteria.</p>
-                    <p><strong>Results:</strong> The automation saved <b>4,450 work hours ($380,000) annually</b> by eliminating manual data processing and ensured full traceability and compliance across internal teams and external partners.</p>
+                    <p><strong>Problem:</strong> The River-Class Destroyer program faced a data integration bottleneck. Critical certification data was arriving in disparate formats from <strong>BAE Systems, Irving Shipbuilding, and Lloyd’s Register</strong>. Manually aligning this data with <strong>ANEP-77</strong> naval standards for the <strong>Royal Canadian Navy</strong> was error-prone and created compliance risks.</p>
+                    <p><strong>My Solution:</strong> I engineered a robust automated ingestion pipeline for <strong>IBM DOORS</strong> using <strong>Python (Pandas), SQL, and VBA</strong>. I acted as the technical bridge between stakeholders, translating complex external requirements into specific validation logic. My software automatically standardized, cleaned, and imported thousands of line items, rejecting non-compliant data before it entered the system.</p>
+                    <p><strong>Results:</strong> This automation eliminated <strong>4,450 hours of manual processing ($380,000) annually</strong>. It established a single, error-free source of truth for the program's certification status, ensuring 100% traceability and enabling the team to meet critical design review milestones on schedule.</p>
                 </div>
             </div>
         </li>
-
         <!-- 5. Mobile App for Repair Truck Drivers -->
         <li class="project-item" data-project-id="jdi-app">
             <div class="project-preview">
