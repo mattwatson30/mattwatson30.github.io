@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Technical Projects — Matthew Watson</title>
+  <title>Personal Projects — Matthew Watson</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
@@ -76,22 +76,34 @@
 <body>
 
   <header>
-    <h1>Technical Projects</h1>
+    <h1>Personal Projects</h1>
     <a href="index.html" class="back-link">&larr; Back to Home</a>
   </header>
 
   <section class="projects">
 
-    <!-- === PROJECT 1: ROBOTICS COMPETITION === -->
+   <!-- === PROJECT 1: ROBOTICS COMPETITION === -->
     <article class="card" data-project-id="robotics-comp"> 
       <div class="slideshow-container">
-        <div class="slide active"><img src="images/dalhousie_robotics_competition.png" alt="1st Place Winning Robot Design" onerror="this.src='https://placehold.co/800x400?text=Robotics+Competition'"></div>
+        <!-- Slide 1: Hero Shot -->
+        <div class="slide active">
+            <img src="images/dalhousie_robotics_competition.png" alt="1st Place Winning Robot Design" onerror="this.src='https://placehold.co/800x400?text=Winning+Robot'">
+        </div>
+        <!-- Slide 2: RViz (Technical) -->
+        <div class="slide">
+            <img src="images/RViz.png" alt="ROS2 Nav2 Path Planning Visualization in RViz" onerror="this.src='https://placehold.co/800x400?text=RViz+Visualization'">
+        </div>
+        <!-- Slide 3: Close Up (Hardware) -->
+        <div class="slide">
+            <img src="images/robot.png" alt="Hardware Integration Close-Up" onerror="this.src='https://placehold.co/800x400?text=Robot+Close-Up'">
+        </div>
+        
         <a class="prev" onclick="manualSlideChange('robotics-comp', -1)">&#10094;</a>
         <a class="next" onclick="manualSlideChange('robotics-comp', 1)">&#10095;</a>
       </div>
       
       <h3>Autonomous Navigation Robot (1st Place Winner)</h3>
-      <p class="meta">Skills: ROS2, Python, C++, LiDAR, Sensor Fusion</p>
+      <p class="meta">Skills: ROS2 (Nav2), Python/C++, Arduino, PWM Hardware Design, Linux/Bash</p>
       
       <div class="toggle-bar" onclick="toggleDescription(this)">
           <span>View Details</span>
@@ -100,9 +112,9 @@
 
       <div class="description-wrapper">
           <div style="padding-top: 20px;">
-              <p><strong>Challenge:</strong> To design and build an autonomous robot capable of navigating a dynamic obstacle course faster than 28 other teams. The robot had to map its environment, avoid moving obstacles, and reach a target destination without human intervention.</p>
-              <p><strong>My Solution:</strong> I engineered the autonomous navigation software stack using <b>ROS2 (Robot Operating System)</b>. I implemented a sensor fusion algorithm that combined data from a <b>LiDAR</b> and <b>IMU</b> to create a real-time costmap of the environment. I wrote custom path-planning logic in <b>Python and C++</b> to dynamically re-route the robot around obstacles.</p>
-              <p><strong>Results:</strong> Our robot placed <b>1st out of 29 teams</b> in the Dalhousie Engineering Robotics Competition. The navigation algorithm proved robust enough to handle unexpected obstacles that caused other robots to fail.</p>
+              <p><strong>Challenge:</strong> To design an autonomous robot capable of navigating a dynamic obstacle course and collecting "SPICE" (LED targets) faster than 28 other teams. The robot had to autonomously identify team-specific frequencies (80Hz vs 40Hz), navigate via waypoints, and return home within a strict 5-minute window.</p>
+              <p><strong>My Solution:</strong> I engineered a full-stack robotic system. On the hardware side, I designed a custom PWM LED driver circuit controlled by an Arduino to simulate game targets. For software, I implemented the <b>ROS2 Nav2 stack</b>, optimizing the global costmap parameters (robot radius, loop rate) to enable tighter, smoother path planning. I wrote custom <b>Bash scripts</b> to automate the startup sequence, ensuring the hardware nodes and navigation stack launched instantly upon boot.</p>
+              <p><strong>Results:</strong> Our robot achieved a <b>97.5% SPICE collection rate</b> (117/120) and placed <b>1st out of 29 teams</b>. We executed a consistent strategy, scoring an average of 34.5 points per run (well above the 25-point requirement) and never conceded a single loss throughout the competition.</p>
           </div>
       </div>
     </article>
