@@ -94,7 +94,6 @@
             overflow: hidden;
             border-radius: 12px;
             background-color: #eee;
-            /* we animate height via JS for smoothness */
             transition: height 0.45s cubic-bezier(0.2,0,0.2,1);
         }
         .slide {
@@ -133,192 +132,219 @@
     </header>
 
     <ul class="project-list">
-        <li class="project-item" data-project-id="tesla-cell">
+        
+        <!-- 1. AI-Driven Employee Scheduling Software -->
+        <li class="project-item" data-project-id="tesla-scheduling">
             <div class="project-preview">
                  <div class="preview-image-container">
-                     <img src="images/tesla-cybertruck-seats.png" alt="2025 Cybertruck Seats (Open-Source Photo)" class="active">
-                     <img src="images/robot_cell.png" alt="Example of a Fanuc Robotic Manufacturing Cell">
+                     <img src="images/tesla-schedule-1.png" alt="Scheduling Dashboard Interface" class="active" onerror="this.src='https://placehold.co/100x100?text=Schedule+1'">
+                     <img src="images/tesla-schedule-2.png" alt="Optimization Logic Flowchart" onerror="this.src='https://placehold.co/100x100?text=Schedule+2'">
                  </div>
                  <div class="preview-text">
-                     <h3>Cybertruck Robotic Cell Re-Design</h3>
-                     <p class="meta">Role: Cybertruck Manufacturing Equipment Engineering Intern @ Tesla</p>
-                      <img src="images/logo-tesla.png" alt="" class="preview-company-logo">
+                     <h3>AI-Driven Employee Scheduling Software</h3>
+                     <p class="meta">Technical Product Owner Intern @ Tesla</p>
+                     <img src="images/logo-tesla.png" alt="" class="preview-company-logo">
                  </div>
                  <span class="preview-icon">›</span>
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
-                    <div class="slide active"><img src="images/tesla-cybertruck-seats.png" alt="2025 Cybertruck Seats (Open-Source Photo)"></div>
-                    <div class="slide"><img src="images/robot_cell.png" alt="Example of a Fanuc Robotic Manufacturing Cell"></div>
-                    <a class="prev" onclick="manualSlideChange('tesla-cell', -1)">&#10094;</a>
-                    <a class="next" onclick="manualSlideChange('tesla-cell', 1)">&#10095;</a>
+                    <div class="slide active"><img src="images/tesla-schedule-1.png" alt="Scheduling Dashboard Interface" onerror="this.src='https://placehold.co/800x400?text=Scheduling+Dashboard'"></div>
+                    <div class="slide"><img src="images/tesla-schedule-2.png" alt="Optimization Logic Flowchart" onerror="this.src='https://placehold.co/800x400?text=Optimization+Logic'"></div>
+                    <a class="prev" onclick="manualSlideChange('tesla-scheduling', -1)">&#10094;</a>
+                    <a class="next" onclick="manualSlideChange('tesla-scheduling', 1)">&#10095;</a>
                 </div>
                 <div class="caption-container"></div>
                 <div class="project-description">
-                    <p><strong>Problem:</strong> A key robotic cell on the Cybertruck production line was improperly disposing of rejected seat structures. This resulted in hundreds of thousands of dollars in annual production downtime for manual retrieval.</p>
-                    <p><strong>My Solution:</strong> As the sole owner of this project, I engineered a complete mechanical and robotic solution. I designed a custom, non-intrusive rejection chute from the ground up using Solidworks, ensuring it integrated seamlessly into the existing cell's tight footprint. I then re-designed and implement a new robotic end-of-arm tooling solution to adress the root cause of the issue.</p>
-                    <p><strong>Results:</strong> I drove the project through the full lifecycle, leading a cross-functional team of stakeholders from manufacturing, compliance, and maintenance testing to successfully implement my design. The solution completely eliminated the scrap issue and associated downtime, delivering an annual savings of <b>over $190,000</b> while improving cell safety and maintaining the original workflow for production associates.</p>
+                    <p><strong>Problem:</strong> Global factory scheduling was a fragmented, manual process that lacked optimization, leading to inefficiencies in workforce allocation. A business case estimate identified a <b>$55M/year opportunity</b> for improvement on the Giga Texas Model Y line alone.</p>
+                    <p><strong>My Solution:</strong> I led the 0→1 development of a global workforce scheduling platform. I defined the product vision and roadmap, then developed an optimization-based MVP using <b>Python, Java, and SQL</b>. I served as the technical product owner, aligning Engineering, Operations, and Finance teams on requirements and leading weekly stakeholder reviews.</p>
+                    <p><strong>Results:</strong> I successfully drove multi-site stakeholder alignment across Austin, Fremont, and Berlin. The project was transitioned to a dedicated engineering team for production build, setting the standard for multi-line implementation across global factories.</p>
                 </div>
             </div>
         </li>
 
-        <li class="project-item" data-project-id="lm-integration">
+        <!-- 2. Process Design/Simulation Software -->
+        <li class="project-item" data-project-id="tesla-sim">
             <div class="project-preview">
                  <div class="preview-image-container">
-                     <img src="images/lockheed-system-integration.png" alt="Unclassified High-Level CSC Ship Rendering" class="active">
-                     <img src="images/laser_photo.png" alt="Unclassified Example: Similar Laser Warning System">
-                     <img src="images/laser_3.png" alt="Unclassified Example: Similar System Integration">
-                  </div>
-                <div class="preview-text">
-                    <h3>Advanced Classified System Design Engineer</h3>
-                    <p class="meta">Role: Mechanical Design Engineering Intern @ Lockheed Martin</p>
-                    <img src="images/logo-lockheed.png" alt="" class="preview-company-logo">
-                </div>
-                <span class="preview-icon">›</span>
-            </div>
-            <div class="project-details">
-                 <div class="slideshow-container">
-                     <div class="slide active"><img src="images/lockheed-system-integration.png" alt="Unclassified High-Level CSC Ship Rendering"></div>
-                     <div class="slide"><img src="images/laser_photo.png" alt="Unclassified Example: Similar Laser Warning System"></div>
-                     <div class="slide"><img src="images/laser_3.png" alt="Unclassified Example: Similar System Integration"></div>
-                     <a class="prev" onclick="manualSlideChange('lm-integration', -1)">&#10094;</a>
-                     <a class="next" onclick="manualSlideChange('lm-integration', 1)">&#10095;</a>
+                     <img src="images/tesla-sim-1.png" alt="Simulation Interface" class="active" onerror="this.src='https://placehold.co/100x100?text=Sim+1'">
+                     <img src="images/tesla-sim-2.png" alt="Line Design Visualization" onerror="this.src='https://placehold.co/100x100?text=Sim+2'">
                  </div>
-                 <div class="caption-container"></div>
-                 <div class="project-description">
-                     <p><strong>Problem:</strong> Tasked as the integration lead for a proprietary, mission-critical system on the CSC, I was responsible for navigating conflicting constraints from external vendors and internal RF, electrical, structural, and mechanical design teams. The challenge was to find a viable integration path that did not compromise system performance, ship layout, or classified design integrity, including necessitating <b>redesign of sections of the ship's hull</b>.</p>
-                     <p><strong>My Solution:</strong> I took extreme ownership, serving as the single point of contact between <b>4 key vendors and internal cross-functional teams</b>. Leveraging my security clearance which vendors lacked, I <b>personally took the initiative</b> to drive the technical design iterations within the classified environment. Using SolidWorks, I modeled and proposed design changes to resolve complex physical, thermal, and RF constraints, and <b>led the hull redesign effort</b> collaborating with the internal mechanical team and the primary structural vendor. My key responsibility was distilling highly technical, classified requirements into actionable, unclassified tasks for vendors.</p>
-                     <p><strong>Results:</strong> By <b>leading the integration and design iterations with vendors and presenting solutions to upper management</b>, I successfully aligned all stakeholders on a final, approved integration path, including the necessary hull modifications. This cleared a major bottleneck for a critical program milestone, ensuring the project remained on schedule while meeting all system requirements within a secure framework.</p>
+                 <div class="preview-text">
+                     <h3>Model Y & Cybertruck Process Design/Simulation Software</h3>
+                     <p class="meta">Pilot Engineering Intern @ Tesla</p>
+                     <img src="images/logo-tesla.png" alt="" class="preview-company-logo">
                  </div>
-            </div>
-        </li>
-
-        <li class="project-item" data-project-id="lm-topside">
-            <div class="project-preview">
-                 <div class="preview-image-container">
-                      <img src="images/lockheed-topside-design.png" alt="Open-Source Unclassified Example CAD rendering" class="active">
-                      <img src="images/LOS.png" alt="Lockheed-Approved Unclassified Example of Line-of-Sight analysis">
-                      <img src="images/rf_pattern.png" alt="Open-Source Unclassified Example of RF Antenna Pattern">
-                 </div>
-                <div class="preview-text">
-                     <h3>CSC Topside Mechanical Design & Integration</h3>
-                    <p class="meta">Role: Mechanical Design Engineering Intern @ Lockheed Martin</p>
-                    <img src="images/logo-lockheed.png" alt="" class="preview-company-logo">
-                </div>
                  <span class="preview-icon">›</span>
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
-                    <div class="slide active"><img src="images/lockheed-topside-design.png" alt="Open-Source Unclassified Example CAD rendering"></div>
-                    <div class="slide"><img src="images/LOS.png" alt="Lockheed-Approved Unclassified Example of Line-of-Sight analysis"></div>
-                     <div class="slide"><img src="images/rf_pattern.png" alt="Open-Source Unclassified Example of RF Antenna Pattern"></div>
-                    <a class="prev" onclick="manualSlideChange('lm-topside', -1)">&#10094;</a>
-                    <a class="next" onclick="manualSlideChange('lm-topside', 1)">&#10095;</a>
+                    <div class="slide active"><img src="images/tesla-sim-1.png" alt="Simulation Interface" onerror="this.src='https://placehold.co/800x400?text=Simulation+Interface'"></div>
+                    <div class="slide"><img src="images/tesla-sim-2.png" alt="Line Design Visualization" onerror="this.src='https://placehold.co/800x400?text=Line+Visualization'"></div>
+                    <a class="prev" onclick="manualSlideChange('tesla-sim', -1)">&#10094;</a>
+                    <a class="next" onclick="manualSlideChange('tesla-sim', 1)">&#10095;</a>
                 </div>
                 <div class="caption-container"></div>
                 <div class="project-description">
-                    <p><strong>Problem:</strong> Relocating critical topside equipment on the CSC required complex mechanical integration solutions to satisfy competing constraints from RF performance, thermal loads, structural integrity, aerodynamic factors, and vendor specifications. Failure to find mechanically sound placements would impact system functionality and project timelines.</p>
-                    <p><strong>My Solution:</strong> I led the mechanical design effort for several key equipment placements. This involved creating detailed feasibility studies and 3D models in SolidWorks, utilizing tools like Line-of-Sight analysis to evaluate integration options against all constraints. I collaborated closely with internal RF, Thermal, and Aero analysis teams to incorporate their findings into the mechanical designs, and worked directly with equipment vendors to ensure mechanical compatibility. I then presented the technical trade-offs and <b>proposed recommended solutions to senior management</b>.</p>
-                    <p><strong>Results:</strong> My mechanical design analyses and cross-functional leadership resulted in the successful approval and implementation path for <b>9 critical equipment placements</b> within 4 months. This work ensured the mechanical integrity and functional performance of the topside systems while balancing complex interdisciplinary requirements.</p>
+                    <p><strong>Problem:</strong> Engineers working on Model Y and Cybertruck lines lacked a unified tool to visualize line designs and detect timing issues before physical implementation, leading to costly iteration cycles.</p>
+                    <p><strong>My Solution:</strong> I shipped an internal engineering design simulation product tailored for <b>20+ engineers</b>. The software visualizes line designs in real-time and automatically detects timing bottlenecks and process clashes.</p>
+                    <p><strong>Results:</strong> The tool standardized design validation across the team, significantly accelerating the iteration speed for new process designs and reducing the risk of physical implementation errors.</p>
                 </div>
-                 <div class="details-links">
-                     <!-- Link to PDF if you have it uploaded, otherwise this will 404 -->
-                     <a href="images/Mech_Design_Lockheed_TW.pdf" target="_blank">View Project Context PDF</a>
-                 </div>
             </div>
         </li>
 
-        <li class="project-item" data-project-id="lm-cfd">
+        <!-- 3. Audit Automation -->
+        <li class="project-item" data-project-id="tesla-audit">
             <div class="project-preview">
                  <div class="preview-image-container">
-                      <img src="images/lockheed-cfd.png" alt="CFD thermal analysis" class="active">
-                      <img src="images/cfd_calc.png" alt="Thermodynamic calculation method">
-                      <img src="images/cfd_ship.png" alt="Unclassified example of aerodynamic simulation">
+                     <img src="images/tesla-audit-1.png" alt="Audit Dashboard" class="active" onerror="this.src='https://placehold.co/100x100?text=Audit+1'">
+                     <img src="images/tesla-audit-2.png" alt="Automated Report Example" onerror="this.src='https://placehold.co/100x100?text=Audit+2'">
                  </div>
                  <div class="preview-text">
-                    <h3>Helicopter Landing Thermal Analysis (CFD)</h3>
-                    <p class="meta">Role: Computational Fluid Dynamics (CFD) Engineering Intern @ Lockheed Martin</p>
-                    <img src="images/logo-lockheed.png" alt="" class="preview-company-logo">
+                     <h3>Model Y & Cybertruck Audit Automation</h3>
+                     <p class="meta">Pilot Engineering Intern @ Tesla</p>
+                     <img src="images/logo-tesla.png" alt="" class="preview-company-logo">
                  </div>
-                <span class="preview-icon">›</span>
+                 <span class="preview-icon">›</span>
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
-                    <div class="slide active"><img src="images/lockheed-cfd.png" alt="CFD thermal analysis"></div>
-                    <div class="slide"><img src="images/cfd_calc.png" alt="Thermodynamic calculation method"></div>
-                    <div class="slide"><img src="images/cfd_ship.png" alt="Unclassified example of aerodynamic simulation"></div>
-                    <a class="prev" onclick="manualSlideChange('lm-cfd', -1)">&#10094;</a>
-                    <a class="next" onclick="manualSlideChange('lm-cfd', 1)">&#10095;</a>
+                    <div class="slide active"><img src="images/tesla-audit-1.png" alt="Audit Dashboard" onerror="this.src='https://placehold.co/800x400?text=Audit+Dashboard'"></div>
+                    <div class="slide"><img src="images/tesla-audit-2.png" alt="Automated Report Example" onerror="this.src='https://placehold.co/800x400?text=Report+Example'"></div>
+                    <a class="prev" onclick="manualSlideChange('tesla-audit', -1)">&#10094;</a>
+                    <a class="next" onclick="manualSlideChange('tesla-audit', 1)">&#10095;</a>
                 </div>
                 <div class="caption-container"></div>
                 <div class="project-description">
-                     <p><strong>Problem:</strong> The Canadian Surface Combatant (CSC) program needed to validate safe helicopter landing conditions, but it was unknown how hot turbine exhaust would affect the flight deck under dozens of different headwind angles, engine throttles, and outtake arrangements. The team lacked the critical thermal data required for RANS/LES simulations.</p>
-                     <p><strong>My Solution:</strong> I <b>developed the foundational thermodynamic model</b> to solve this problem. I first <b>calculated the previously unknown engine exhaust mass flow rates and temperatures</b> for all required scenarios, working with vendors to establish proper power distribution. Using this data, I <b>developed, meshed, and analyzed over 20 CSC ship model iterations</b> in ANSYS Fluent to model all combinations of headwind angles and engine uptake conditions. I also collaborated with the RF team on antenna coupling analyses.</p>
-                     <p><strong>Results:</strong> My simulations generated thermal contour maps showing the maximum temperature over the flight deck for every possible condition. I <b>consolidated this complex data into a single, concise 'logic board'</b> that was delivered to vendors, enabling them to validate safe helicopter landing envelopes for the multi-billion dollar program.</p>
+                    <p><strong>Problem:</strong> Maintaining process compliance on the Model Y and Cybertruck lines required manual, time-consuming audits that were prone to human error and data lag.</p>
+                    <p><strong>My Solution:</strong> I developed an automated auditing system that continuously validates process parameters against engineering standards. This involved integrating data streams from the line directly into a reporting framework.</p>
+                    <p><strong>Results:</strong> This automation reduced the manual workload for the quality and engineering teams, ensuring real-time compliance visibility and faster reaction times to process deviations.</p>
                 </div>
-                 <div class="details-links">
-                     <a href="images/lockheed_project.pdf" target="_blank">View Project Context PDF</a>
-                 </div>
             </div>
         </li>
 
-         <li class="project-item" data-project-id="lm-los">
-             <div class="project-preview">
+        <!-- 4. CSC Certifications Automation -->
+        <li class="project-item" data-project-id="lm-certs">
+            <div class="project-preview">
                  <div class="preview-image-container">
-                    <img src="images/lockheed-los-analysis.png" alt="Line-of-sight analysis diagram" class="active">
-                      <img src="images/los_discrepancy.png" alt="Diagram showing LOS analysis discrepancy">
+                     <img src="images/lm-certs-1.png" alt="IBM DOORS Workflow" class="active" onerror="this.src='https://placehold.co/100x100?text=Certs+1'">
+                     <img src="images/lm-certs-2.png" alt="Python Script Logic" onerror="this.src='https://placehold.co/100x100?text=Certs+2'">
                  </div>
                  <div class="preview-text">
-                     <h3>Company-Wide Line-of-Sight (LOS) Process Overhaul</h3>
-                      <p class="meta">Role: Mechanical Design Engineering Intern @ Lockheed Martin</p>
-                      <img src="images/logo-lockheed.png" alt="" class="preview-company-logo">
+                     <h3>CSC Certifications Automation Software</h3>
+                     <p class="meta">Systems Engineering Intern @ Lockheed Martin</p>
+                     <img src="images/logo-lockheed.png" alt="" class="preview-company-logo">
                  </div>
-                  <span class="preview-icon">›</span>
-               </div>
-               <div class="project-details">
-                 <div class="slideshow-container">
-                     <div class="slide active"><img src="images/lockheed-los-analysis.png" alt="Line-of-sight analysis diagram"></div>
-                      <div class="slide"><img src="images/los_discrepancy.png" alt="Diagram showing LOS analysis discrepancy"></div>
-                      <a class="prev" onclick="manualSlideChange('lm-los', -1)">&#10094;</a>
-                      <a class="next" onclick="manualSlideChange('lm-los', 1)">&#10095;</a>
-                 </div>
-                 <div class="caption-container"></div>
-                 <div class="project-description">
-                      <p><strong>Problem:</strong> The existing company procedure for conducting line-of-sight (LOS) analysis for critical topside equipment on the Canadian Surface Combatant (CSC) program contained significant discrepancies, leading to inaccurate results and potential rework.</p>
-                      <p><strong>My Solution:</strong> After identifying the root cause of the errors, I led the complete redevelopment of a new, more accurate LOS analysis procedure using SolidWorks. I created all documentation for the new standard and personally trained other engineers on its proper implementation to ensure company-wide adoption.</p>
-                      <p><strong>Results:</strong> The new procedure I developed was formally adopted and improved process accuracy by <b>over 8%</b>. This enhancement reduced the risk of costly design flaws and is now the standard method used for the multi-billion dollar CSC program.</p>
-                 </div>
+                 <span class="preview-icon">›</span>
             </div>
-        </li>
-
-        <li class="project-item" data-project-id="rtx-auto">
-             <div class="project-preview">
-                 <div class="preview-image-container">
-                      <img src="images/powerbi.png" alt="Data flow: Python to VBA to Power BI" class="active">
-                      <img src="images/rtx-automation.png" alt="Process automation flowchart">
-                 </div>
-                 <div class="preview-text">
-                    <h3>PW800 Manufacturing Automation Dashboard</h3>
-                    <p class="meta">Role: Aerospace Manufacturing Engineering Intern @ RTX (Pratt & Whitney)</p>
-                      <img src="images/logo-rtx.png" alt="" class="preview-company-logo">
-                 </div>
-                  <span class="preview-icon">›</span>
-               </div>
             <div class="project-details">
-                 <div class="slideshow-container">
-                      <div class="slide active"><img src="images/powerbi.png" alt="Data flow: Python to VBA to Power BI"></div>
-                     <div class="slide"><img src="images/rtx-automation.png" alt="Process automation flowchart"></div>
-                     <a class="prev" onclick="manualSlideChange('rtx-auto', -1)">&#10094;</a>
-                     <a class="next" onclick="manualSlideChange('rtx-auto', 1)">&#10095;</a>
-                 </div>
-                 <div class="caption-container"></div>
-                 <div class="project-description">
-                     <p><strong>Problem:</strong> Strategic decisions for the PW800 Turbine production line were hindered by outdated Python scripts with a non-technical (Jupyter Notebook) UI. This made vital manufacturing metrics from SAP inaccessible to robotics technicians and leadership, forcing a slow, manual data-pulling process that took <b>8 hours every week</b> and was prone to errors.</p>
-                     <p><strong>My Solution:</strong> I took the initiative to re-engineer the entire process. I <b>translated the core logic from the legacy Python scripts into robust VBA macros</b>, embedding them directly into Excel. This allowed technicians to run complex data queries from SAP by simply clicking a button. I then connected these automated Excel files to a <b>Power BI frontend</b>, creating an intuitive, user-friendly dashboard that updated automatically.</p>
-                     <p><strong>Results:</strong> The new system completely eliminated the manual data refresh process and provided live, accurate metrics to all stakeholders. The tool was adopted <b>company-wide by 5 cross-functional teams</b> (Engineering, Quality, Logistics, Technicians, and Leadership), making critical production data accessible for the first time and serving as the new baseline for strategic optimization.</p>
-                 </div>
+                <div class="slideshow-container">
+                    <div class="slide active"><img src="images/lm-certs-1.png" alt="IBM DOORS Workflow" onerror="this.src='https://placehold.co/800x400?text=IBM+DOORS+Workflow'"></div>
+                    <div class="slide"><img src="images/lm-certs-2.png" alt="Python Script Logic" onerror="this.src='https://placehold.co/800x400?text=Python+Script'"></div>
+                    <a class="prev" onclick="manualSlideChange('lm-certs', -1)">&#10094;</a>
+                    <a class="next" onclick="manualSlideChange('lm-certs', 1)">&#10095;</a>
+                </div>
+                <div class="caption-container"></div>
+                <div class="project-description">
+                    <p><strong>Problem:</strong> Managing requirements for the Royal Canadian Navy River-Class Destroyer involved manual data processing that was slow and expensive. The team needed to align requirements with ANEP-77 and Lloyd’s Register standards across multiple stakeholders.</p>
+                    <p><strong>My Solution:</strong> I engineered an automated requirements ingestion workflow for IBM DOORS using <b>Python (Pandas), SQL, and VBA</b>. I owned the workflow from intake to rollout, translating stakeholder needs into specific import rules and acceptance criteria.</p>
+                    <p><strong>Results:</strong> The automation saved <b>4,450 work hours ($380,000) annually</b> by eliminating manual data processing and ensured full traceability and compliance across internal teams and external partners.</p>
+                </div>
             </div>
         </li>
+
+        <!-- 5. Mobile App for Repair Truck Drivers -->
+        <li class="project-item" data-project-id="jdi-app">
+            <div class="project-preview">
+                 <div class="preview-image-container">
+                     <img src="images/jdi-app-1.png" alt="Mobile Power BI Interface" class="active" onerror="this.src='https://placehold.co/100x100?text=App+1'">
+                     <img src="images/jdi-app-2.png" alt="Scheduling Logic" onerror="this.src='https://placehold.co/100x100?text=App+2'">
+                 </div>
+                 <div class="preview-text">
+                     <h3>Mobile App for Repair Truck Drivers</h3>
+                     <p class="meta">Data Engineering Intern @ J.D. Irving</p>
+                     <!-- Placeholder logo for JDI if you have one, or remove -->
+                     <div style="width:20px;"></div> 
+                 </div>
+                 <span class="preview-icon">›</span>
+            </div>
+            <div class="project-details">
+                <div class="slideshow-container">
+                    <div class="slide active"><img src="images/jdi-app-1.png" alt="Mobile Power BI Interface" onerror="this.src='https://placehold.co/800x400?text=Mobile+Interface'"></div>
+                    <div class="slide"><img src="images/jdi-app-2.png" alt="Scheduling Logic" onerror="this.src='https://placehold.co/800x400?text=Scheduling+Logic'"></div>
+                    <a class="prev" onclick="manualSlideChange('jdi-app', -1)">&#10094;</a>
+                    <a class="next" onclick="manualSlideChange('jdi-app', 1)">&#10095;</a>
+                </div>
+                <div class="caption-container"></div>
+                <div class="project-description">
+                    <p><strong>Problem:</strong> The Transportation & Logistics Division faced critical workflow bottlenecks in scheduling repair trucks, leading to lost revenue and inefficient routing.</p>
+                    <p><strong>My Solution:</strong> I partnered with shop managers to identify the root causes and developed a mobile <b>Power BI solution backed by SQL</b>. This tool provided real-time analytics and optimized scheduling directly to the drivers' mobile devices.</p>
+                    <p><strong>Results:</strong> The solution recovered <b>$120,000 in lost revenue</b> through optimized scheduling and improved fleet utilization.</p>
+                </div>
+            </div>
+        </li>
+
+        <!-- 6. CSC TDP Delivery Jira Automation -->
+        <li class="project-item" data-project-id="lm-jira">
+            <div class="project-preview">
+                 <div class="preview-image-container">
+                     <img src="images/lm-jira-1.png" alt="Jira Automation Flow" class="active" onerror="this.src='https://placehold.co/100x100?text=Jira+1'">
+                     <img src="images/lm-jira-2.png" alt="Data Validation Script" onerror="this.src='https://placehold.co/100x100?text=Jira+2'">
+                 </div>
+                 <div class="preview-text">
+                     <h3>CSC TDP Delivery Jira Automation</h3>
+                     <p class="meta">Electrical Engineering Intern @ Lockheed Martin</p>
+                     <img src="images/logo-lockheed.png" alt="" class="preview-company-logo">
+                 </div>
+                 <span class="preview-icon">›</span>
+            </div>
+            <div class="project-details">
+                <div class="slideshow-container">
+                    <div class="slide active"><img src="images/lm-jira-1.png" alt="Jira Automation Flow" onerror="this.src='https://placehold.co/800x400?text=Jira+Flow'"></div>
+                    <div class="slide"><img src="images/lm-jira-2.png" alt="Data Validation Script" onerror="this.src='https://placehold.co/800x400?text=Validation+Script'"></div>
+                    <a class="prev" onclick="manualSlideChange('lm-jira', -1)">&#10094;</a>
+                    <a class="next" onclick="manualSlideChange('lm-jira', 1)">&#10095;</a>
+                </div>
+                <div class="caption-container"></div>
+                <div class="project-description">
+                    <p><strong>Problem:</strong> Supply chain and engineering teams were facing a critical data integrity issue that required manual review of Technical Data Packages (TDPs), costing significant time and money.</p>
+                    <p><strong>My Solution:</strong> I developed an automated validation script using <b>Python (Pandas, NumPy)</b> to clean and verify data before it entered the Jira workflow. I collaborated with supply chain and engineering teams to define validation rules and integrate the solution into existing procurement workflows.</p>
+                    <p><strong>Results:</strong> The automation saved <b>$129,000 annually</b> by eliminating the need for manual review and ensuring higher data quality for the program.</p>
+                </div>
+            </div>
+        </li>
+
+        <!-- 7. Reporting Metrics Data Automation Pipeline -->
+        <li class="project-item" data-project-id="metrics-pipeline">
+            <div class="project-preview">
+                 <div class="preview-image-container">
+                     <img src="images/pipeline-1.png" alt="Pipeline Architecture" class="active" onerror="this.src='https://placehold.co/100x100?text=Pipeline+1'">
+                     <img src="images/pipeline-2.png" alt="Reporting Dashboard" onerror="this.src='https://placehold.co/100x100?text=Pipeline+2'">
+                 </div>
+                 <div class="preview-text">
+                     <h3>Reporting Metrics Data Automation Pipeline</h3>
+                     <p class="meta">Data Engineering Intern</p>
+                     <!-- Placeholder logo or remove -->
+                     <div style="width:20px;"></div>
+                 </div>
+                 <span class="preview-icon">›</span>
+            </div>
+            <div class="project-details">
+                <div class="slideshow-container">
+                    <div class="slide active"><img src="images/pipeline-1.png" alt="Pipeline Architecture" onerror="this.src='https://placehold.co/800x400?text=Pipeline+Architecture'"></div>
+                    <div class="slide"><img src="images/pipeline-2.png" alt="Reporting Dashboard" onerror="this.src='https://placehold.co/800x400?text=Dashboard+View'"></div>
+                    <a class="prev" onclick="manualSlideChange('metrics-pipeline', -1)">&#10094;</a>
+                    <a class="next" onclick="manualSlideChange('metrics-pipeline', 1)">&#10095;</a>
+                </div>
+                <div class="caption-container"></div>
+                <div class="project-description">
+                    <p><strong>Problem:</strong> Key operational metrics were siloed in disparate systems, requiring manual extraction and formatting to generate reports for leadership.</p>
+                    <p><strong>My Solution:</strong> I built a robust data pipeline that automates the extraction, transformation, and loading (ETL) of reporting metrics. This ensured that data was consistently cleaned and available for real-time reporting.</p>
+                    <p><strong>Results:</strong> The pipeline reduced reporting latency from days to minutes, enabling leadership to make data-driven decisions based on the most current operational status.</p>
+                </div>
+            </div>
+        </li>
+
     </ul>
 
     <footer>
@@ -340,7 +366,6 @@
         function waitForImageLoad(img, timeout = 4000) {
             return new Promise(resolve => {
                 if (!img) return resolve();
-                // If already loaded
                 if (img.complete && img.naturalWidth) return resolve();
                 const onDone = () => {
                     img.removeEventListener('load', onDone);
@@ -349,7 +374,6 @@
                 };
                 img.addEventListener('load', onDone);
                 img.addEventListener('error', onDone);
-                // fallback
                 setTimeout(() => {
                     img.removeEventListener('load', onDone);
                     img.removeEventListener('error', onDone);
@@ -358,7 +382,7 @@
             });
         }
 
-        // --- compute pixel height for container to preserve natural aspect ratio (no crop) ---
+        // --- compute pixel height for container ---
         function computeHeightForImage(container, img) {
             if (!container || !img) return 300;
             const naturalW = img.naturalWidth || img.width || 1;
@@ -367,7 +391,6 @@
             if (naturalW && naturalH) {
                 return Math.max(120, Math.round(width * naturalH / naturalW));
             }
-            // fallback to current rendered height
             try {
                 const rect = img.getBoundingClientRect();
                 if (rect && rect.height > 0) return rect.height;
@@ -375,17 +398,14 @@
             return Math.max(120, Math.round(width * 0.6));
         }
 
-        // --- keep per-container ResizeObserver to update height responsively while open ---
+        // --- keep per-container ResizeObserver ---
         const resizeObservers = new Map();
         function attachResizeObserver(container, activeImg, projectId) {
             if (!container) return;
-            // already attached?
             if (resizeObservers.has(container)) return;
             const ro = new ResizeObserver(() => {
-                // only adjust if open / has active slide
                 const data = slideshowData[projectId];
                 if (!data) return;
-                // pick active slide img
                 const active = container.querySelector('.slide.active img') || activeImg;
                 if (!active) return;
                 const h = computeHeightForImage(container, active);
@@ -449,7 +469,7 @@
              const data = previewSlideshowData[projectId];
              if (!data || data.previewImages.length <= 1) return;
              stopPreviewAutoSlide(projectId);
-             showPreviewImage(projectId, 0); // Start immediately
+             showPreviewImage(projectId, 0); 
              data.previewTimer = setInterval(() => { showPreviewImage(projectId, data.previewIndex + 1); }, 3000);
         }
         function stopPreviewAutoSlide(projectId) {
@@ -459,7 +479,7 @@
              }
         }
 
-        // --- Show a main slideshow slide (smooth, waits for image) ---
+        // --- Show a main slideshow slide ---
         function showSlide(projectId, index) {
             initializeSlideshow(projectId);
             const data = slideshowData[projectId];
@@ -467,7 +487,6 @@
             if (index >= data.slides.length) index = 0;
             if (index < 0) index = data.slides.length - 1;
 
-            // if same slide requested, update caption only
             if (data.slideIndex === index) {
                 if (data.captionElement) {
                     data.captionElement.style.opacity = 0;
@@ -482,23 +501,14 @@
             const targetSlide = data.slides[index];
             const targetImg = targetSlide.querySelector('img');
 
-            // Stop preview animation for safety
             stopPreviewAutoSlide(projectId);
 
-            // ensure target image loaded (avoid blank)
             return waitForImageLoad(targetImg, 4000).then(() => {
-                // compute the height we will animate to
                 const container = data.containerElement;
                 const targetHeight = computeHeightForImage(container, targetImg);
-
-                // set explicit pixel height to animate to; do not set to '' yet
-                // (we'll keep explicit height while open so layout is stable)
                 container.style.height = targetHeight + 'px';
-
-                // force a reflow so height change registers
                 container.getBoundingClientRect();
 
-                // remove active from others and add to target with rAF so opacity transition triggers
                 data.slides.forEach(s => s.classList.remove('active'));
                 requestAnimationFrame(() => {
                     requestAnimationFrame(() => {
@@ -513,11 +523,7 @@
                         }
                     });
                 });
-
-                // attach ResizeObserver to keep height responsive while open
                 attachResizeObserver(container, targetImg, projectId);
-
-                // return resolved promise for calling code
                 return Promise.resolve();
             });
         }
@@ -525,8 +531,7 @@
         function manualSlideChange(projectId, n) {
              initializeSlideshow(projectId);
              const data = slideshowData[projectId];
-             stopAutoSlide(projectId); // Stop main timer
-             // call showSlide and when it finishes, restart auto after delay
+             stopAutoSlide(projectId); 
              Promise.resolve(showSlide(projectId, data.slideIndex + n)).then(() => {
                  setTimeout(() => startAutoSlide(projectId), 8000);
              });
@@ -547,7 +552,6 @@
             }
         }
 
-        // animate container collapse (promise-based)
         function animateHeightTo(container, fromPx, toPx, timeout = 650) {
             return new Promise(resolve => {
                 if (!container) return resolve();
@@ -560,48 +564,35 @@
                     resolve();
                 };
                 container.addEventListener('transitionend', onEnd);
-                // set start
                 container.style.height = fromPx + 'px';
-                // force reflow
                 container.getBoundingClientRect();
-                // animate to
                 requestAnimationFrame(() => {
                     container.style.height = toPx + 'px';
                 });
-                // fallback
                 setTimeout(() => { if (!done) { done = true; container.removeEventListener('transitionend', onEnd); resolve(); } }, timeout + 100);
             });
         }
 
-        // --- Accordion Click Handler: open/close sequence robustly ---
         projectItems.forEach(item => {
             const summary = item.querySelector('.project-preview');
             const projectId = item.getAttribute('data-project-id');
-
-            // start small preview auto-slideshow
             startPreviewAutoSlide(projectId);
 
             summary.addEventListener('click', async () => {
                 const wasActive = item.classList.contains('active');
                 const list = item.closest('.project-list');
 
-                // Close others first (animate their collapse)
                 for (const otherItem of projectItems) {
                     if (otherItem !== item && otherItem.classList.contains('active')) {
                         const otherId = otherItem.getAttribute('data-project-id');
                         otherItem.classList.remove('active');
                         const otherData = slideshowData[otherId];
-                        // stop large slideshow
                         if (otherData) stopAutoSlide(otherId);
-                        // animate collapse of its container if present
                         const otherContainer = otherItem.querySelector('.slideshow-container');
                         if (otherContainer) {
                             otherItem.classList.add('closing');
-                            // ensure explicit height exists
                             const curH = otherContainer.getBoundingClientRect().height || otherContainer.clientHeight || 0;
-                            // animate to 0
                             await animateHeightTo(otherContainer, curH, 0);
-                            // cleanup
                             otherContainer.style.height = '';
                             otherItem.classList.remove('closing');
                             detachResizeObserver(otherContainer);
@@ -610,8 +601,7 @@
                     }
                 }
 
-                // toggle current item
-                if (!wasActive) { // opening sequence
+                if (!wasActive) { 
                     item.classList.add('active');
                     list.classList.add('item-active');
                     initializeSlideshow(projectId);
@@ -619,29 +609,20 @@
 
                     const data = slideshowData[projectId];
                     const container = data.containerElement;
-
-                    // compute initial height for current (or first) slide
                     const initialSlide = container.querySelector('.slide') || data.slides[0];
                     const initialImg = initialSlide ? initialSlide.querySelector('img') : null;
 
-                    // wait for image load and then set/animate height to that image's height
                     if (initialImg) await waitForImageLoad(initialImg, 4000);
                     const targetH = computeHeightForImage(container, initialImg || container.querySelector('img'));
-                    // animate from 0 to target
                     await animateHeightTo(container, 0, targetH);
-
-                    // show first slide (ensures caption updated and opacity fade)
                     await showSlide(projectId, 0);
-                    // start auto rotating large slides
                     startAutoSlide(projectId);
-                } else { // closing sequence
-                    // ensure we keep the slide visible until collapse ends to prevent description peeking
+                } else { 
                     const data = slideshowData[projectId];
                     const container = data ? data.containerElement : (item.querySelector('.slideshow-container'));
                     if (container) {
                         item.classList.add('closing');
                         stopAutoSlide(projectId);
-                        // compute current pixel height to animate from
                         const curH = container.getBoundingClientRect().height || container.clientHeight || 0;
                         await animateHeightTo(container, curH, 0);
                         container.style.height = '';
@@ -655,14 +636,12 @@
             });
         });
 
-        // Add transition to caption container CSS
-         const styleSheet = document.styleSheets[0];
+        const styleSheet = document.styleSheets[0];
          try {
              styleSheet.insertRule('.caption-container { transition: opacity 0.15s ease-in-out; }', styleSheet.cssRules.length);
              styleSheet.insertRule('.project-list.item-active .project-item:not(.active) { transition: opacity 0.4s ease, max-height 0.4s ease, margin-bottom 0.4s ease, border-color 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease; }', styleSheet.cssRules.length);
-         } catch (e) { /* ignore insertion errors */ }
+         } catch (e) { }
 
-        // --- NEW: Open specific project on page load if hash or ?project= is present ---
         (function openProjectFromURL() {
             try {
                 const hashId = window.location.hash ? decodeURIComponent(window.location.hash.substring(1)) : '';
@@ -681,13 +660,10 @@
             } catch (e) { console.error('openProjectFromURL error:', e); }
         })();
 
-        // small defensive: start preview timers for items that may not have been initialized above
         projectItems.forEach(p => {
             const id = p.getAttribute('data-project-id');
             if (!previewSlideshowData[id] || !previewSlideshowData[id].previewTimer) startPreviewAutoSlide(id);
         });
-
     </script>
-
 </body>
 </html>
