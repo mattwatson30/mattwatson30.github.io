@@ -233,7 +233,7 @@
       </div>
       
       <!-- ADDED CAPTION CONTAINER (Matches Brother's Layout) -->
-      <div class="caption-container">1st Place Winning Robot Design</div>
+      <div class="caption-container">1st Place Winning Robot, Pictured During Competition</div>
       
       <h3>Autonomous Navigation Robot (1st Place Winner)</h3>
       <p class="meta">Skills: ROS2 (Nav2), Python/C++, Arduino, PWM Hardware Design, Linux/Bash</p>
@@ -245,9 +245,18 @@
 
       <div class="description-wrapper">
           <div style="padding-top: 20px;">
-              <p><strong>Challenge:</strong> To design an autonomous robot capable of navigating a dynamic obstacle course and collecting "SPICE" (LED targets) faster than 28 other teams. The robot had to autonomously identify team-specific frequencies (80Hz vs 40Hz), navigate via waypoints, and return home within a strict 5-minute window.</p>
-              <p><strong>My Solution:</strong> I engineered a full-stack robotic system. On the hardware side, I designed a custom PWM LED driver circuit controlled by an Arduino to simulate game targets. For software, I implemented the <b>ROS2 Nav2 stack</b>, optimizing the global costmap parameters (robot radius, loop rate) to enable tighter, smoother path planning. I wrote custom <b>Bash scripts</b> to automate the startup sequence, ensuring the hardware nodes and navigation stack launched instantly upon boot.</p>
-              <p><strong>Results:</strong> Our robot achieved a <b>97.5% SPICE collection rate</b> (117/120) and placed <b>1st out of 29 teams</b>. We executed a consistent strategy, scoring an average of 34.5 points per run (well above the 25-point requirement) and never conceded a single loss throughout the competition.</p>
+          <div style="padding-top: 20px;">
+              <p><strong>Challenge:</strong> To design an autonomous robot capable of navigating a dynamic obstacle course and 
+                collecting LED targets faster than 28 other teams. The robot had to autonomously identify team-specific frequencies 
+                (80Hz vs 40Hz), navigate via waypoints, and return home within a strict 5-minute window.</p>
+              <p><strong>My Solution:</strong> I engineered a full-stack robotic system using <b>Python, C++, and C</b>. 
+                On the hardware side, I integrated <b>LiDAR and Ultrasonic sensors</b> for real-time obstacle detection and designed a 
+                custom PWM LED driver circuit controlled by an Arduino. For software, I implemented the <b>ROS2 Nav2 stack</b>, 
+                optimizing global costmap parameters to enable tighter path planning. I wrote custom <b>Bash scripts</b> to automate the 
+                startup sequence, ensuring the hardware nodes and navigation stack launched instantly upon boot.</p>
+              <p><strong>Results:</strong> Our robot achieved a <b>97.5% collection rate</b> (117/120) and placed <b>1st out of 
+                29 teams</b>. We executed a consistent strategy, scoring an average of 34.5 points per run (well above the 25-point requirement) 
+                and never conceded a single loss throughout the competition.</p>
           </div>
       </div>
     </article>
