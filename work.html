@@ -615,13 +615,26 @@
                 }
             });
         });
-        setTimeout(() => {
+        window.addEventListener('load', () => {
             const hash = window.location.hash.substring(1);
             if(hash) {
-                const target = document.querySelector(`.project-item[data-project-id="${hash}"] .project-preview`);
-                if(target) target.click();
+                const targetItem = document.querySelector(`.project-item[data-project-id="${hash}"]`);
+                if(targetItem) {
+                    const preview = targetItem.querySelector('.project-preview');
+                    
+                    // 1. Click to open
+                    if(preview) preview.click();
+
+                    // 2. Wait a moment for expansion, then scroll
+                    setTimeout(() => {
+                        targetItem.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'center' // Centers the item in the middle of the screen
+                        });
+                    }, 300); // 300ms delay ensures expansion has started
+                }
             }
-        }, 100);
+        });
 
         projectItems.forEach(p => {
             const id = p.getAttribute('data-project-id');
