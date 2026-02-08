@@ -596,26 +596,29 @@
                 } else {
                     item.classList.add('active');
                     stopPreviewAutoSlide(projectId);
-                    showSlide(projectId, 0); // Show instantly (no waiting for images)
+                    showSlide(projectId, 0); 
                     startAutoSlide(projectId);
                 }
             });
         });
 
-        // --- Deep Link Fix (Scrolls to Top) ---
+        // --- DEEP LINK SCROLL FIX (Forces Top Alignment) ---
         window.addEventListener('load', () => {
             const hash = window.location.hash.substring(1);
             if(hash) {
                 const targetItem = document.querySelector(`.project-item[data-project-id="${hash}"]`);
                 if(targetItem) {
                     const preview = targetItem.querySelector('.project-preview');
+                    
+                    // Click to open
                     if(preview) preview.click();
 
+                    // Scroll logic with offset
                     setTimeout(() => {
-                        targetItem.scrollIntoView({ 
-                            behavior: 'smooth', 
-                            block: 'start' 
-                        });
+                        const yOffset = -20; // 20px padding from top
+                        const y = targetItem.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                        
+                        window.scrollTo({top: y, behavior: 'smooth'});
                     }, 350); 
                 }
             }
