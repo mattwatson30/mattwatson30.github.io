@@ -277,16 +277,24 @@ l <!DOCTYPE html>
     </article>
 
     <!-- === PROJECT 2: CPU EMULATOR === -->
-    <article class="card" data-project-id="cpu-emulator"> 
+        <article class="card" data-project-id="cpu-emulator"> 
       <div class="slideshow-container">
-        <!-- Generic Code/Architecture Image -->
-        <div class="slide active"><img src="images/cpu-architecture.png" alt="4-Stage Pipeline Architecture Diagram" onerror="this.src='https://placehold.co/800x550?text=CPU+Architecture'"></div>
-        <div class="slide"><img src="images/debugger-ui.png" alt="Custom Debugger Interface" onerror="this.src='https://placehold.co/800x550?text=Debugger+UI'"></div>
+        <!-- Slide 1: Video Demo -->
+        <div class="slide active">
+            <video autoplay loop muted playsinline>
+                <source src="images/cpu_emulator.mp4" type="video/mp4">
+            </video>
+        </div>
+        <!-- Slide 2: Architecture Diagram -->
+        <div class="slide">
+            <img src="images/assembly_language_file.png" alt="Pre-assembled ASM instructions that run on the Emulator" onerror="this.src='https://placehold.co/800x550?text=CPU+Architecture'">
+        </div>
+        
         <a class="prev" onclick="manualSlideChange('cpu-emulator', -1)">&#10094;</a>
         <a class="next" onclick="manualSlideChange('cpu-emulator', 1)">&#10095;</a>
       </div>
       
-      <div class="caption-container">4-Stage Pipeline Architecture Diagram</div>
+      <div class="caption-container">Live Demo: Stepping through Assembly Instructions</div>
       
       <h3>4-Stage Pipelined RISC CPU Emulator</h3>
       <p class="meta">Skills: C, Computer Architecture, Assembly Language</p>
@@ -307,6 +315,13 @@ l <!DOCTYPE html>
                 contents in real-time.</p>
               <p><strong>Results:</strong> The emulator successfully executes complex assembly programs compiled with a custom compiler. 
                 It serves as a powerful educational tool for visualizing how pipelining improves processor throughput.</p>
+              
+              <!-- Added Source Code Note for Consistency -->
+              <div style="margin-top: 25px; border-top: 1px solid #e9ecef; padding-top: 15px;">
+                <span style="color: #6c757d; font-size: 0.9rem; font-style: italic;">
+                    <i class="fas fa-code"></i> (Source code available upon request)
+                </span>
+              </div>
           </div>
       </div>
     </article>
