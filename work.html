@@ -483,16 +483,7 @@
             </div>
         </li>
     </ul>
-
-    <footer>
-        <p>
-            <a href="images/resume.pdf" target="_blank"> Download Resume</a> ·
-            <a href="mailto:matthewwatson311@gmail.com">Email Me</a> ·
-            <a href="https://linkedin.com/in/matthewwatson311" target="_blank">LinkedIn</a>
-        </p>
-        <p>© 2026 Matthew Watson</p>
-    </footer>
-        <script>
+    <script>
         // --- Optimized Accordion Logic ---
         const projectItems = Array.from(document.querySelectorAll('.project-item'));
         const slideshowData = {};
@@ -577,7 +568,7 @@
             }
         }
 
-        // --- Click Handler (Auto-Collapse Mode) ---
+        // --- Click Handler (Auto-Collapse + Instant Open) ---
         projectItems.forEach(item => {
             const summary = item.querySelector('.project-preview');
             const projectId = item.getAttribute('data-project-id');
@@ -605,24 +596,21 @@
                 } else {
                     item.classList.add('active');
                     stopPreviewAutoSlide(projectId);
-                    showSlide(projectId, 0);
+                    showSlide(projectId, 0); // Show instantly (no waiting for images)
                     startAutoSlide(projectId);
                 }
             });
         });
 
-        // --- FIXED DEEP LINKING (Scrolls to Top) ---
+        // --- Deep Link Fix (Scrolls to Top) ---
         window.addEventListener('load', () => {
             const hash = window.location.hash.substring(1);
             if(hash) {
                 const targetItem = document.querySelector(`.project-item[data-project-id="${hash}"]`);
                 if(targetItem) {
                     const preview = targetItem.querySelector('.project-preview');
-                    
-                    // Click to open
                     if(preview) preview.click();
 
-                    // Scroll to TOP after expansion starts
                     setTimeout(() => {
                         targetItem.scrollIntoView({ 
                             behavior: 'smooth', 
@@ -638,5 +626,17 @@
             if (!previewSlideshowData[id]) startPreviewAutoSlide(id);
         });
     </script>
+    <footer>
+        <p>
+            <a href="images/resume.pdf" target="_blank"> Download Resume</a> ·
+            <a href="mailto:matthewwatson311@gmail.com">Email Me</a> ·
+            <a href="https://linkedin.com/in/matthewwatson311" target="_blank">LinkedIn</a>
+        </p>
+        <p>© 2026 Matthew Watson</p>
+    </footer>
+
+
+
+    
 </body>
 </html>
