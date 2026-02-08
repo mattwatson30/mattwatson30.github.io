@@ -583,27 +583,38 @@
             const summary = item.querySelector('.project-preview');
             const projectId = item.getAttribute('data-project-id');
 
+            // Start preview initially
             startPreviewAutoSlide(projectId);
 
             summary.addEventListener('click', () => {
-                // Toggle active class on click
-                item.classList.toggle('active');
-                
-                const isActive = item.classList.contains('active');
+                const wasActive = item.classList.contains('active');
 
-                if (isActive) {
-                    // Open: Stop preview, start main slideshow
+                // 1. Close ALL other open items first
+                projectItems.forEach(other => {
+                    if (other !== item && other.classList.contains('active')) {
+                        other.classList.remove('active');
+                        // Stop main slideshow and restart preview for the closed item
+                        const otherId = other.getAttribute('data-project-id');
+                        stopAutoSlide(otherId);
+                        startPreviewAutoSlide(otherId);
+                    }
+                });
+
+                // 2. Toggle the specific item clicked
+                if (wasActive) {
+                    // If it was open, close it
+                    item.classList.remove('active');
+                    stopAutoSlide(projectId);
+                    startPreviewAutoSlide(projectId);
+                } else {
+                    // If it was closed, open it
+                    item.classList.add('active');
                     stopPreviewAutoSlide(projectId);
                     showSlide(projectId, 0);
                     startAutoSlide(projectId);
-                } else {
-                    // Close: Stop main slideshow, restart preview
-                    stopAutoSlide(projectId);
-                    startPreviewAutoSlide(projectId);
                 }
             });
         });
-
         setTimeout(() => {
             const hash = window.location.hash.substring(1);
             if(hash) {
