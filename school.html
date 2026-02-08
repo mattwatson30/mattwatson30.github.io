@@ -56,10 +56,10 @@
     }
     .back-link:hover { color: var(--primary-blue); opacity: 1; }
     
-    /* --- GRID LAYOUT (Side-by-Side) --- */
+    /* --- GRID LAYOUT --- */
     .projects {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 Columns */
+      grid-template-columns: repeat(2, 1fr); 
       gap: 30px;
       max-width: 1200px; 
       margin: 0 auto;
@@ -80,22 +80,63 @@
       box-shadow: 0 6px 20px rgba(0, 0, 255, 0.15);
     }
     
-    /* Media Styling */
-    .card img, .card video { 
-        width: 100%; 
-        height: 300px; 
-        object-fit: cover; /* Ensures nice fill */
-        border-radius: 10px; 
-        margin-bottom: 20px; 
+    /* --- Slideshow Styles (Mini Version for Cards) --- */
+    .slideshow-container {
+        position: relative;
+        width: 100%;
+        height: 300px; /* Fixed height for consistency */
+        overflow: hidden;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        background-color: #fff;
         border: 1px solid #eee;
     }
-    /* Special fitting for DALIS logo so it isn't cropped */
-    .card img.contain-fit {
-        object-fit: contain;
-        padding: 20px;
-        background: #fff;
+    
+    .slide {
+        display: none;
+        width: 100%;
+        height: 100%;
     }
     
+    .slide.active {
+        display: block;
+        animation: fade 0.5s ease;
+    }
+    
+    .slide img, .slide video { 
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; 
+        display: block;
+    }
+    
+    /* Special fitting for DALIS logo */
+    .slide img.contain-fit {
+        object-fit: contain;
+        padding: 20px;
+    }
+
+    /* Arrows */
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: auto;
+        padding: 10px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        user-select: none;
+        background-color: rgba(0,0,0,0.3);
+        border-radius: 0 3px 3px 0;
+        transition: 0.3s;
+    }
+    .next { right: 0; border-radius: 3px 0 0 3px; }
+    .prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
+    
+    @keyframes fade { from {opacity: .6} to {opacity: 1} }
+
     .meta { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px; font-style: italic; }
     .card p { margin-bottom: 15px; color: #495057; font-size: 0.95rem; }
     
@@ -111,7 +152,6 @@
         color: var(--text-primary); 
     }
 
-    /* Push links to bottom of card */
     .links { margin-top: auto; padding-top: 15px; border-top: 1px solid var(--border-light); }
     .links a { font-weight: 600; font-size: 0.9rem; }
 
@@ -125,7 +165,7 @@
     }
     footer p:first-child a { margin: 0 10px; }
 
-    /* --- Responsive (Stack on Mobile) --- */
+    /* --- Responsive --- */
     @media (max-width: 900px) {
         .projects { grid-template-columns: 1fr; }
     }
@@ -140,33 +180,43 @@
 
   <section class="projects">
 
-    <!-- === CARD 1: CAPSTONE (Video + Report) === -->
+    <!-- === CARD 1: CAPSTONE (Slideshow) === -->
     <article class="card" id="cardiac-imaging">
-      <!-- Video Autoplays -->
-      <video autoplay loop muted playsinline>
-          <source src="images/cardiac_video.mp4" type="video/mp4">
-      </video>
+      <div class="slideshow-container" id="slideshow-cardiac">
+          
+          <!-- Slide 1: Video -->
+          <div class="slide active">
+              <video autoplay loop muted playsinline>
+                  <source src="images/cardiac_imaging_camera_exposures.mp4" type="video/mp4">
+              </video>
+          </div>
+          
+          <!-- Slide 2: Box Photo -->
+          <div class="slide">
+              <img src="images/quinn_lab_box.png" alt="Custom Hardware Chassis">
+          </div>
+          
+          <!-- Slide 3: Camera Photo -->
+          <div class="slide">
+              <img src="images/quinn_lab_camera.png" alt="Camera Setup">
+          </div>
+
+          <!-- Arrows -->
+          <a class="prev" onclick="changeSlide('slideshow-cardiac', -1)">&#10094;</a>
+          <a class="next" onclick="changeSlide('slideshow-cardiac', 1)">&#10095;</a>
+      </div>
       
       <h3>Embedded Control System for Cardiac Imaging</h3>
-      <p class="meta">Quinn Laboratory @ Dalhousie University</p>
+      <p class="meta">Capstone Project @ Dalhousie University</p>
       
       <p>
-        <strong>Problem:</strong> The Cardiac Autoregulation & Arrhythmias Laboratory at Dalhousie University 
-        required a precise, user-configurable system to synchronize 
-        high-intensity LEDs with high-speed cameras for cardiac fluorescence imaging. Existing solutions were rigid 
-        and lacked the millisecond-level synchronization needed to capture rapid cardiac electrical activity without artifacts.
+        <strong>Problem:</strong> The Quinn Laboratory required a precise, user-configurable system to synchronize high-intensity LEDs with high-speed cameras for cardiac fluorescence imaging. Existing solutions were rigid and lacked the millisecond-level synchronization needed to capture rapid cardiac electrical activity without artifacts.
       </p>
       <p>
-        <strong>My Solution:</strong> I developed a full-stack control system. On the desktop side, I built a 
-        <b>Python GUI (PyQt6)</b> that allows researchers to define complex pulse patterns. This communicates via 
-        serial to an <b>ATmega328P microcontroller</b>, where I wrote bare-metal firmware using <b>Hardware Timers 
-          and Interrupts</b> to generate precise 20kHz PWM signals. I also designed the power stage using <b>IRLZ44N 
-            MOSFETs</b> to drive the 24V LED arrays.
+        <strong>My Solution:</strong> I architected a full-stack control system. On the desktop side, I built a <b>Python GUI (PyQt6)</b> that allows researchers to define complex pulse patterns. This communicates via serial to an <b>ATmega328P microcontroller</b>, where I wrote bare-metal firmware using <b>Hardware Timers and Interrupts</b> to generate precise 20kHz PWM signals. I also designed the power stage using <b>IRLZ44N MOSFETs</b> to drive the 24V LED arrays.
       </p>
       <p>
-        <strong>Results:</strong> The system achieved a <b>trigger latency of < 200µs</b> and frequency accuracy 
-        error of <b>less than 5%</b>. It is now the standard operating equipment for the lab, allowing researchers 
-        to capture high-fidelity cardiac fluorescence imaging data.
+        <strong>Results:</strong> The system achieved a <b>trigger latency of < 200µs</b> and frequency accuracy error of <b>less than 5%</b>. It is now the standard operating equipment for the lab, allowing researchers to capture high-fidelity calcium wave data.
       </p>
 
       <div class="links">
@@ -176,10 +226,13 @@
       </div>
     </article>
 
-    <!-- === CARD 2: DALIS (Logo + App) === -->
+    <!-- === CARD 2: DALIS (Static Logo) === -->
     <article class="card">
-      <!-- Added 'contain-fit' class so the logo isn't cropped -->
-      <img src="images/logo-dalis.png" alt="Dalhousie Investment Society Logo" class="contain-fit" onerror="this.src='https://placehold.co/600x300?text=DALIS'">
+      <div class="slideshow-container">
+          <div class="slide active">
+              <img src="images/logo-dalis.png" alt="Dalhousie Investment Society Logo" class="contain-fit">
+          </div>
+      </div>
       
       <h3>Quantitative Risk Management App</h3>
       <p class="meta">Director of Technology @ Dalhousie Investment Society</p>
@@ -195,7 +248,6 @@
       </p>
       
       <div class="links">
-        <!-- Placeholder link if you have code or a video later -->
         <span style="color: #6c757d; font-size: 0.85rem;">(Internal Tool - Code available upon request)</span>
       </div>
     </article>
@@ -210,6 +262,32 @@
     </p>
     <p>© 2026 Matthew Watson</p>
   </footer>
+
+  <script>
+    // Simple Slideshow Logic for Grid Cards
+    function changeSlide(containerId, n) {
+        const container = document.getElementById(containerId);
+        const slides = container.getElementsByClassName("slide");
+        let activeIndex = -1;
+
+        // Find current active index
+        for (let i = 0; i < slides.length; i++) {
+            if (slides[i].classList.contains("active")) {
+                activeIndex = i;
+                slides[i].classList.remove("active");
+                break;
+            }
+        }
+
+        // Calculate new index
+        let newIndex = activeIndex + n;
+        if (newIndex >= slides.length) newIndex = 0;
+        if (newIndex < 0) newIndex = slides.length - 1;
+
+        // Show new slide
+        slides[newIndex].classList.add("active");
+    }
+  </script>
 
 </body>
 </html>
