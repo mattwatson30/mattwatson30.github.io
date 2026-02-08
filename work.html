@@ -44,7 +44,6 @@
             padding: 20px; cursor: pointer; display: flex; align-items: center; gap: 20px;
             transition: background-color 0.2s ease;
             position: relative; 
-            /* Removed opacity/max-height transitions that were hiding other items */
         }
         .project-preview:hover { background-color: #fcfcfc; }
         
@@ -55,15 +54,18 @@
         .project-preview h3 { font-size: 1.25rem; font-weight: 500; margin-bottom: 5px; color: var(--text-primary); padding-right: 40px; }
         .project-preview .meta { font-size: 0.9rem; color: var(--text-secondary); font-style: italic; font-weight: 300; }
 
-        /* --- Logo: UPDATED SIZE --- */
+        /* --- Logo Styling (ADJUST SIZE HERE) --- */
         .preview-company-logo {
             position: absolute;
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            height: 50px; /* Increased from 20px */
+            
+            /* CHANGE THIS VALUE TO MAKE LOGOS BIGGER/SMALLER */
+            height: 50px; 
+            
             max-width: 120px;
-            opacity: 0.6; /* Increased opacity slightly */
+            opacity: 0.6;
             filter: grayscale(100%);
             transition: filter 0.3s ease, opacity 0.3s ease;
         }
@@ -78,12 +80,11 @@
         /* --- Project Details (Hidden Content) --- */
         .project-details {
             max-height: 0; overflow: hidden;
-            /* Faster transition (0.3s) for instant feel */
             transition: max-height 0.3s ease-in-out, padding-top 0.3s ease, padding-bottom 0.3s ease;
             border-top: 1px solid transparent; padding: 0 30px;
         }
         .project-item.active .project-details { 
-            max-height: 2000px; /* Large enough to fit content */
+            max-height: 2000px; 
             padding-top: 30px; 
             padding-bottom: 30px; 
             border-top-color: var(--border-light); 
@@ -92,9 +93,20 @@
         .project-description { margin-top: 30px; }
         .project-description p { margin-bottom: 15px; color: #495057; font-weight: 300; }
         
-        /* BOLD TEXT STYLING */
-        .project-description strong { font-weight: 600; color: var(--primary-blue); display: block; margin-bottom: 5px; }
-        .project-description p b { font-weight: 600; color: var(--primary-blue); }
+        /* --- BOLD TEXT STYLING (FIXED) --- */
+        /* Headers (Problem/Solution) -> BLUE */
+        .project-description strong { 
+            font-weight: 600; 
+            color: var(--primary-blue); 
+            display: block; 
+            margin-bottom: 5px; 
+        }
+        
+        /* Inline Keywords -> DARK GREY (Not Blue) */
+        .project-description p b { 
+            font-weight: 600; 
+            color: var(--text-primary); 
+        }
         
         .details-links { margin-top: 25px; }
 
@@ -106,7 +118,6 @@
             overflow: hidden;
             border-radius: 12px;
             background-color: #ffffff;
-            /* FORCE FIXED HEIGHT so text doesn't jump */
             height: 550px !important; 
         }
         
@@ -193,11 +204,10 @@
                         (10<sup>136</sup> combinations for a single 40-employee team). A business case I developed with Tesla's Finance Team 
                         identified a <b>$55M/year opportunity</b> on the Giga Texas Model Y line alone due to OEE losses from untrained 
                         assignments and <b>$1.1M/year</b> in wasted supervisory labor.</p>
-                    <p><strong>My Solution:</strong> I developed a <b>constraint-based scheduling platform</b> that automatically assigns Production 
-                        Associates to workstations while enforcing strict safety, training, and ergonomic rotation rules. I drove the full 0→1 lifecycle, 
-                        translating operational needs into a prioritized roadmap and building the MVP. Technically, I coded the optimization engine using 
-                        <b>Timefold (Java/Python)</b>—which outperformed the internal data team's solution—and engineered a "Warm Start" strategy 
-                        that reduced generation latency by <b>95% (from 8.62s to 0.47s per team)</b>.</p>
+                    <p><strong>My Solution:</strong> I drove the full 0→1 product lifecycle, <b>translating complex operational constraints into a prioritized product roadmap</b>. 
+                        I built a functional MVP and led weekly stakeholder reviews to bridge the gap between Engineering and Operations. 
+                        On the technical side, I personally developed the core optimization engine using <b>Timefold (Java/Python)</b> and 
+                        engineered a "Warm Start" server strategy that reduced generation latency by <b>95% (from 8.62s to 0.47s per team)</b>.</p>
                     <p><strong>Results:</strong> Acting as the Technical Product Owner, I managed the <b>backlog and rollout strategy</b> for the transition 
                         to a full-stack engineering team, delivering comprehensive UI/UX specifications. Powered by my algorithm, this software is now used 
                         to <b>schedule thousands of factory workers every day</b> across Austin, Fremont, and Berlin, enforcing 100% training compliance.</p>
@@ -252,7 +262,7 @@
             <div class="project-preview">
                  <div class="preview-image-container">
                      <img src="images/CT_line_2.jpg" alt="Cybertruck Production Audits and Metrics Automation" class="active" onerror="this.src='https://placehold.co/100x100?text=SQL+Python'">
-                     <img src="images/mY_expanded.png" alt="Model Y Production Audits and Metrics Automation" onerror="this.src='https://placehold.co/100x100?text=Cybertruck'">
+                     <img src="images/mY_expanded.png" alt="Model Y Production Audits and Metrics Automation" onerror="this.src='https://placehold.co/100x100?text=Model+Y'">
                  </div>
                  <div class="preview-text">
                      <h3>Model Y & Cybertruck Process Audit & Analytics Portal</h3>
@@ -275,7 +285,7 @@
                 <div class="caption-container"></div>
                 <div class="project-description">
                     <p><strong>Problem:</strong> Process Engineering data was fragmented across disparate systems.
-                        Engineers wasted hours manually cross-referencing the <strong>EBOM vs. MBOM</strong> and auditing 
+                        Engineers wasted hours manually cross-referencing the <b>EBOM vs. MBOM</b> and auditing 
                         Work Instructions for completeness (e.g., missing photos), creating a lag in root cause analysis 
                         for cycle time deviations.</p>
                     <p><strong>My Solution:</strong> I architected a centralized Process Engineering Portal using 
@@ -389,13 +399,16 @@
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
+                    <!-- Slide 1 -->
                     <div class="slide active">
                         <img src="images/JDI.png" alt="Mobile App used for Work Allocation by Fleet Mechanics" onerror="this.src='https://placehold.co/800x400?text=App+Interface'">
                     </div>
+                    <!-- Slide 2 -->
                     <div class="slide">
                         <img src="images/JDI_truck.png" alt="J.D. Irving Fleet Truck" onerror="this.src='https://placehold.co/800x400?text=Fleet+Truck'">
                     </div>
                     
+                    <!-- Arrows added back since there are now 2 images -->
                     <a class="prev" onclick="manualSlideChange('jdi-app', -1)">&#10094;</a>
                     <a class="next" onclick="manualSlideChange('jdi-app', 1)">&#10095;</a>
                 </div>
