@@ -56,10 +56,10 @@
     }
     .back-link:hover { color: var(--primary-blue); opacity: 1; }
     
-    /* --- GRID LAYOUT --- */
+    /* --- GRID LAYOUT (Side-by-Side) --- */
     .projects {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); 
+      grid-template-columns: repeat(2, 1fr); /* 2 Columns */
       gap: 30px;
       max-width: 1200px; 
       margin: 0 auto;
@@ -80,7 +80,7 @@
       box-shadow: 0 6px 20px rgba(0, 0, 255, 0.15);
     }
     
-    /* --- Slideshow Styles (Mini Version for Cards) --- */
+    /* --- Slideshow Styles (For the Cardiac Card) --- */
     .slideshow-container {
         position: relative;
         width: 100%;
@@ -103,20 +103,25 @@
         animation: fade 0.5s ease;
     }
     
-    .slide img, .slide video { 
+    /* Media Styling */
+    .slide img, .slide video, .card > img { 
         width: 100%; 
         height: 100%; 
-        object-fit: cover; 
+        object-fit: cover; /* Ensures nice fill */
         display: block;
     }
     
-    /* Special fitting for DALIS logo */
-    .slide img.contain-fit {
+    /* Special fitting for DALIS logo so it isn't cropped */
+    .card > img.contain-fit {
         object-fit: contain;
         padding: 20px;
+        height: 300px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #eee;
     }
 
-    /* Arrows */
+    /* Arrows for Slideshow */
     .prev, .next {
         cursor: pointer;
         position: absolute;
@@ -152,6 +157,7 @@
         color: var(--text-primary); 
     }
 
+    /* Push links to bottom of card */
     .links { margin-top: auto; padding-top: 15px; border-top: 1px solid var(--border-light); }
     .links a { font-weight: 600; font-size: 0.9rem; }
 
@@ -165,7 +171,7 @@
     }
     footer p:first-child a { margin: 0 10px; }
 
-    /* --- Responsive --- */
+    /* --- Responsive (Stack on Mobile) --- */
     @media (max-width: 900px) {
         .projects { grid-template-columns: 1fr; }
     }
@@ -207,16 +213,25 @@
       </div>
       
       <h3>Embedded Control System for Cardiac Imaging</h3>
-      <p class="meta">Capstone Project @ Dalhousie University</p>
+      <p class="meta">Quinn Laboratory @ Dalhousie University</p>
       
       <p>
-        <strong>Problem:</strong> The Quinn Laboratory required a precise, user-configurable system to synchronize high-intensity LEDs with high-speed cameras for cardiac fluorescence imaging. Existing solutions were rigid and lacked the millisecond-level synchronization needed to capture rapid cardiac electrical activity without artifacts.
+        <strong>Problem:</strong> The Cardiac Autoregulation & Arrhythmias Laboratory at Dalhousie University 
+        required a precise, user-configurable system to synchronize 
+        high-intensity LEDs with high-speed cameras for cardiac fluorescence imaging. Existing solutions were rigid 
+        and lacked the millisecond-level synchronization needed to capture rapid cardiac electrical activity without artifacts.
       </p>
       <p>
-        <strong>My Solution:</strong> I architected a full-stack control system. On the desktop side, I built a <b>Python GUI (PyQt6)</b> that allows researchers to define complex pulse patterns. This communicates via serial to an <b>ATmega328P microcontroller</b>, where I wrote bare-metal firmware using <b>Hardware Timers and Interrupts</b> to generate precise 20kHz PWM signals. I also designed the power stage using <b>IRLZ44N MOSFETs</b> to drive the 24V LED arrays.
+        <strong>My Solution:</strong> I developed a full-stack control system. On the desktop side, I built a 
+        <b>Python GUI (PyQt6)</b> that allows researchers to define complex pulse patterns. This communicates via 
+        serial to an <b>ATmega328P microcontroller</b>, where I wrote bare-metal firmware using <b>Hardware Timers 
+          and Interrupts</b> to generate precise 20kHz PWM signals. I also designed the power stage using <b>IRLZ44N 
+            MOSFETs</b> to drive the 24V LED arrays.
       </p>
       <p>
-        <strong>Results:</strong> The system achieved a <b>trigger latency of < 200µs</b> and frequency accuracy error of <b>less than 5%</b>. It is now the standard operating equipment for the lab, allowing researchers to capture high-fidelity calcium wave data.
+        <strong>Results:</strong> The system achieved a <b>trigger latency of < 200µs</b> and frequency accuracy 
+        error of <b>less than 5%</b>. It is now the standard operating equipment for the lab, allowing researchers 
+        to capture high-fidelity cardiac fluorescence imaging data.
       </p>
 
       <div class="links">
@@ -228,11 +243,8 @@
 
     <!-- === CARD 2: DALIS (Static Logo) === -->
     <article class="card">
-      <div class="slideshow-container">
-          <div class="slide active">
-              <img src="images/logo-dalis.png" alt="Dalhousie Investment Society Logo" class="contain-fit">
-          </div>
-      </div>
+      <!-- Static Image (No Slideshow needed) -->
+      <img src="images/logo-dalis.png" alt="Dalhousie Investment Society Logo" class="contain-fit" onerror="this.src='https://placehold.co/600x300?text=DALIS'">
       
       <h3>Quantitative Risk Management App</h3>
       <p class="meta">Director of Technology @ Dalhousie Investment Society</p>
