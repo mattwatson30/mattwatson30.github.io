@@ -191,30 +191,27 @@
     <article class="card" id="cardiac-imaging">
       <div class="slideshow-container" id="slideshow-cardiac">
           
-          <!-- Slide 1: Video -->
+          <!-- Slide 1: Video 1 -->
           <div class="slide active">
               <video autoplay loop muted playsinline>
                   <source src="images/cardiac_video.mp4" type="video/mp4">
               </video>
           </div>
-          <!-- Slide 3: Camera Photo -->
+          <!-- Slide 2: Camera Photo -->
           <div class="slide">
               <img src="images/quinn_lab_camera.png" alt="Camera Setup">
           </div>
-            <!-- Slide 1: Video -->
+          <!-- Slide 3: Video 2 -->
           <div class="slide">
               <video autoplay loop muted playsinline>
                   <source src="images/cardiac_imaging_camera_exposures.mp4" type="video/mp4">
               </video>
           </div>
-            <!-- Slide 2: Box Photo -->
+          <!-- Slide 4: Box Photo -->
           <div class="slide">
               <img src="images/quinn_lab_box.png" alt="Custom Hardware Chassis">
           </div>
-        
 
-        
-        
           <!-- Arrows -->
           <a class="prev" onclick="changeSlide('slideshow-cardiac', -1)">&#10094;</a>
           <a class="next" onclick="changeSlide('slideshow-cardiac', 1)">&#10095;</a>
@@ -284,8 +281,20 @@
   </footer>
 
   <script>
-    // Simple Slideshow Logic for Grid Cards
-    function changeSlide(containerId, n) {
+    // --- SLIDESHOW LOGIC WITH AUTO-TIMER ---
+    const slideTimers = {}; // Store timers for each slideshow
+
+    function startTimer(containerId) {
+        // Clear existing timer if any
+        if (slideTimers[containerId]) clearInterval(slideTimers[containerId]);
+        
+        // Start new timer: Auto-switch every 5 seconds
+        slideTimers[containerId] = setInterval(() => {
+            changeSlide(containerId, 1, false); // false = not manual
+        }, 5000);
+    }
+
+    function changeSlide(containerId, n, isManual = true) {
         const container = document.getElementById(containerId);
         const slides = container.getElementsByClassName("slide");
         let activeIndex = -1;
@@ -306,7 +315,18 @@
 
         // Show new slide
         slides[newIndex].classList.add("active");
+
+        // If user clicked manually, reset the timer so they have 5s to look at the new slide
+        if (isManual) {
+            startTimer(containerId);
+        }
     }
+
+    // Initialize timers on load
+    document.addEventListener('DOMContentLoaded', () => {
+        // Start timer for the cardiac slideshow
+        startTimer('slideshow-cardiac');
+    });
   </script>
 
 </body>
