@@ -213,7 +213,7 @@
               <img src="images/quinn_lab_box.png" alt="Custom Hardware Chassis">
           </div>
             <div class="slide">
-              <img src="images/cardiac_gui.png" alt="Graphical User Interface">
+              <img src="images/cardiac_GUI.png" alt="Graphical User Interface">
           </div>
           <div class="slide">
               <img src="images/cardiac_circuit.png" alt="Circuit Schematic">
@@ -254,21 +254,52 @@
     </article>
 
     <!-- === CARD 2: DALIS (Static Logo) === -->
-    <article class="card">
-      <!-- Static Image (No Slideshow needed) -->
-      <img src="images/logo-dalis.png" alt="Dalhousie Investment Society Logo" class="contain-fit" onerror="this.src='https://placehold.co/600x300?text=DALIS'">
+        <article class="card">
+      <div class="slideshow-container" id="slideshow-dalis">
+          
+          <!-- Slide 1: Main App Interface -->
+          <div class="slide active">
+              <img src="images/dalis-quant-app.png" alt="Quantitative Analysis App Interface">
+          </div>
+          
+          <!-- Slide 2: Logo -->
+          <div class="slide">
+              <img src="images/logo-dalis.png" alt="Dalhousie Investment Society Logo" class="contain-fit">
+          </div>
+          
+          <!-- Slide 3: Data Visualization 1 -->
+          <div class="slide">
+              <img src="images/dalis_image_2.png" alt="Risk Management Analytics">
+          </div>
+          
+          <!-- Slide 4: Data Visualization 2 -->
+          <div class="slide">
+              <img src="images/dalis_image_3.png" alt="Portfolio Analysis">
+          </div>
+
+          <!-- Arrows -->
+          <a class="prev" onclick="changeSlide('slideshow-dalis', -1)">&#10094;</a>
+          <a class="next" onclick="changeSlide('slideshow-dalis', 1)">&#10095;</a>
+      </div>
       
       <h3>Quantitative Risk Management App</h3>
       <p class="meta">Director of Technology @ Dalhousie Investment Society</p>
       
       <p>
-        <strong>Problem:</strong> The Investment Society managed four distinct portfolios (Commodities, Global Macro, Real-Estate, Forex) but lacked visibility into cross-portfolio risk. Without a centralized way to track daily Profit and Loss (PNL), the teams could not effectively hedge trades against market volatility.
+        <strong>Problem:</strong> The Investment Society managed four distinct portfolios (Commodities, Global Macro, Real-Estate, 
+        Forex) but lacked visibility into cross-portfolio risk. Without a centralized way to track daily Profit and Loss (PNL), 
+        the teams could not effectively hedge trades against market volatility.
       </p>
       <p>
-        <strong>My Solution:</strong> I engineered a full-stack quantitative analysis application using <b>Python</b>. I utilized the <b>Bloomberg API</b> to pull raw trade ticket data and used <b>Pandas/NumPy</b> to calculate daily PNL across all four sectors. I designed a <b>Tkinter GUI</b> that provides analysts with automated hedging suggestions based on real-time stock correlation matrices and Monte Carlo risk simulations.
+        <strong>My Solution:</strong> I engineered a full-stack quantitative analysis application using <b>Python</b>. I utilized 
+        the <b>Bloomberg API</b> to pull raw trade ticket data and used <b>Pandas/NumPy</b> to calculate daily PNL across all four sectors. 
+        I designed a <b>Tkinter GUI</b> that provides analysts with automated hedging suggestions based on real-time stock correlation 
+        matrices and Monte Carlo risk simulations.
       </p>
       <p>
-        <strong>Results:</strong> The application became the central source of truth for the society's performance tracking. By enabling data-driven hedging strategies between portfolios, the Commodities team saw an <b>8% increase in monthly P&L</b> immediately following adoption.
+        <strong>Results:</strong> The application became the central source of truth for the society's performance tracking. 
+        By enabling data-driven hedging strategies between portfolios, the Commodities team saw an <b>8% increase in 
+          monthly P&L</b> immediately following adoption.
       </p>
       
       <div class="links">
@@ -333,6 +364,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         // Start timer for the cardiac slideshow
         startTimer('slideshow-cardiac');
+        startTimer('slideshow-dalis');
     });
   </script>
 
