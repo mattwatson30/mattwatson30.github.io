@@ -625,13 +625,13 @@
                     // 1. Click to open
                     if(preview) preview.click();
 
-                    // 2. Wait a moment for expansion, then scroll
+                    // 2. Wait for expansion, then scroll to TOP
                     setTimeout(() => {
                         targetItem.scrollIntoView({ 
                             behavior: 'smooth', 
-                            block: 'center' // Centers the item in the middle of the screen
+                            block: 'start' // Puts the item at the TOP of the screen
                         });
-                    }, 300); // 300ms delay ensures expansion has started
+                    }, 350); 
                 }
             }
         });
