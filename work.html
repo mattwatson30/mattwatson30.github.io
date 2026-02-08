@@ -492,12 +492,12 @@
         </p>
         <p>© 2026 Matthew Watson</p>
     </footer>
-
     <script>
-        // --- Optimized Accordion Logic ---
+        // --- Accordion Logic & Slideshow Data ---
         const projectItems = Array.from(document.querySelectorAll('.project-item'));
         const slideshowData = {};
         const previewSlideshowData = {};
+        const slideTimers = {}; // Main slideshow timers
 
         // --- Slideshow Logic ---
         function showSlide(projectId, index) {
@@ -538,19 +538,20 @@
         }
 
         function startAutoSlide(projectId) {
-            if (slideshowData[projectId] && slideshowData[projectId].timer) clearInterval(slideshowData[projectId].timer);
+            if (slideTimers[projectId]) clearInterval(slideTimers[projectId]);
+            // Initialize if needed
             if (!slideshowData[projectId]) showSlide(projectId, 0);
             
-            slideshowData[projectId].timer = setInterval(() => {
+            slideTimers[projectId] = setInterval(() => {
                 const current = slideshowData[projectId].slideIndex;
                 showSlide(projectId, current + 1);
             }, 5000);
         }
 
         function stopAutoSlide(projectId) {
-            if (slideshowData[projectId] && slideshowData[projectId].timer) {
-                clearInterval(slideshowData[projectId].timer);
-                slideshowData[projectId].timer = null;
+            if (slideTimers[projectId]) {
+                clearInterval(slideTimers[projectId]);
+                slideTimers[projectId] = null;
             }
         }
 
@@ -587,55 +588,50 @@
             startPreviewAutoSlide(projectId);
 
             summary.addEventListener('click', () => {
-                const wasActive = item.classList.contains('active');
+                // Toggle active class
+                item.classList.toggle('active');
+                const isActive = item.classList.contains('active');
 
-                // 1. Close ALL other open items first
-                projectItems.forEach(other => {
-                    if (other !== item && other.classList.contains('active')) {
-                        other.classList.remove('active');
-                        // Stop main slideshow and restart preview for the closed item
-                        const otherId = other.getAttribute('data-project-id');
-                        stopAutoSlide(otherId);
-                        startPreviewAutoSlide(otherId);
-                    }
-                });
-
-                // 2. Toggle the specific item clicked
-                if (wasActive) {
-                    // If it was open, close it
-                    item.classList.remove('active');
-                    stopAutoSlide(projectId);
-                    startPreviewAutoSlide(projectId);
-                } else {
-                    // If it was closed, open it
-                    item.classList.add('active');
+                if (isActive) {
+                    // Open: Stop preview, start main slideshow
                     stopPreviewAutoSlide(projectId);
                     showSlide(projectId, 0);
                     startAutoSlide(projectId);
+                } else {
+                    // Close: Stop main slideshow, restart preview
+                    stopAutoSlide(projectId);
+                    startPreviewAutoSlide(projectId);
                 }
             });
         });
+
+        // --- DEEP LINKING LOGIC (This fixes your issue) ---
         window.addEventListener('load', () => {
+            // 1. Get the ID from the URL (e.g., "lm-sonar")
             const hash = window.location.hash.substring(1);
+            
             if(hash) {
+                // 2. Find the project item with that ID
                 const targetItem = document.querySelector(`.project-item[data-project-id="${hash}"]`);
+                
                 if(targetItem) {
                     const preview = targetItem.querySelector('.project-preview');
                     
-                    // 1. Click to open
+                    // 3. Simulate a click to open it
                     if(preview) preview.click();
 
-                    // 2. Wait for expansion, then scroll to TOP
+                    // 4. Scroll to it (align to top)
                     setTimeout(() => {
                         targetItem.scrollIntoView({ 
                             behavior: 'smooth', 
-                            block: 'start' // Puts the item at the TOP of the screen
+                            block: 'start' 
                         });
                     }, 350); 
                 }
             }
         });
 
+        // Initialize previews
         projectItems.forEach(p => {
             const id = p.getAttribute('data-project-id');
             if (!previewSlideshowData[id]) startPreviewAutoSlide(id);
