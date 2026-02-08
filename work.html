@@ -36,21 +36,18 @@
             background-color: var(--card-background); border: 1px solid var(--border-light);
             border-radius: 18px; margin-bottom: 30px; overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            transition: box-shadow 0.3s ease, margin-bottom 0.4s ease, border-color 0.4s ease, background-color 0.4s ease;
+            transition: box-shadow 0.3s ease, margin-bottom 0.3s ease, border-color 0.3s ease;
         }
 
         /* --- Project Preview (Clickable Header) --- */
         .project-preview {
             padding: 20px; cursor: pointer; display: flex; align-items: center; gap: 20px;
-            transition: background-color 0.2s ease, opacity 0.4s ease, max-height 0.4s ease, padding 0.4s ease;
-            position: relative; max-height: 200px; opacity: 1;
+            transition: background-color 0.2s ease;
+            position: relative; 
+            /* Removed opacity/max-height transitions that were hiding other items */
         }
         .project-preview:hover { background-color: #fcfcfc; }
-        .project-list.item-active .project-item:not(.active) .project-preview {
-            opacity: 0; max-height: 0; padding-top: 0; padding-bottom: 0;
-            pointer-events: none; border-width: 0; margin-bottom: 0;
-        }
-        .project-list.item-active .project-item:not(.active) { margin-bottom: 0; box-shadow: none; border-color: transparent; background-color: transparent; }
+        
         .preview-image-container { width: 100px; height: 100px; border-radius: 12px; overflow: hidden; flex-shrink: 0; position: relative; background-color: #eee; }
         .preview-image-container img { display: block; width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.8s ease-in-out; }
         .preview-image-container img.active { opacity: 1; }
@@ -58,16 +55,21 @@
         .project-preview h3 { font-size: 1.25rem; font-weight: 500; margin-bottom: 5px; color: var(--text-primary); padding-right: 40px; }
         .project-preview .meta { font-size: 0.9rem; color: var(--text-secondary); font-style: italic; font-weight: 300; }
 
-        /* --- Logo: vertically center within header preview --- */
+        /* --- Logo: UPDATED SIZE --- */
         .preview-company-logo {
             position: absolute;
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            height: 20px;
-            max-width: 80px;
-            opacity: 0.4;
+            height: 50px; /* Increased from 20px */
+            max-width: 120px;
+            opacity: 0.6; /* Increased opacity slightly */
             filter: grayscale(100%);
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+        .project-preview:hover .preview-company-logo {
+            filter: grayscale(0%);
+            opacity: 1;
         }
 
         .preview-icon { display: inline-block; font-size: 1.5rem; color: var(--text-secondary); transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); margin-left: 15px; flex-shrink: 0; line-height: 1; transform: rotate(0deg); }
@@ -76,15 +78,25 @@
         /* --- Project Details (Hidden Content) --- */
         .project-details {
             max-height: 0; overflow: hidden;
-            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding-top 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding-bottom 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            /* Faster transition (0.3s) for instant feel */
+            transition: max-height 0.3s ease-in-out, padding-top 0.3s ease, padding-bottom 0.3s ease;
             border-top: 1px solid transparent; padding: 0 30px;
         }
-        .project-item.active .project-details { max-height: 2500px; padding-top: 30px; padding-bottom: 30px; border-top-color: var(--border-light); }
+        .project-item.active .project-details { 
+            max-height: 2000px; /* Large enough to fit content */
+            padding-top: 30px; 
+            padding-bottom: 30px; 
+            border-top-color: var(--border-light); 
+        }
+        
         .project-description { margin-top: 30px; }
         .project-description p { margin-bottom: 15px; color: #495057; font-weight: 300; }
+        
+        /* BOLD TEXT STYLING */
         .project-description strong { font-weight: 600; color: var(--primary-blue); display: block; margin-bottom: 5px; }
-        .project-description p b { font-weight: 500; color: var(--text-primary); }
-         .details-links { margin-top: 25px; }
+        .project-description p b { font-weight: 600; color: var(--primary-blue); }
+        
+        .details-links { margin-top: 25px; }
 
         /* --- Slideshow Styles --- */
          .slideshow-container {
@@ -93,11 +105,9 @@
             margin: 0 auto;
             overflow: hidden;
             border-radius: 12px;
-            background-color: #ffffff; /* White background for letterboxing */
-            
+            background-color: #ffffff;
             /* FORCE FIXED HEIGHT so text doesn't jump */
             height: 550px !important; 
-            transition: none; /* Disable height animation since height is fixed */
         }
         
         .slide {
@@ -105,17 +115,17 @@
             left: 0;
             top: 0;
             width: 100%;
-            height: 100%; /* Fill the container */
+            height: 100%; 
             opacity: 0;
-            transition: opacity 0.8s ease; /* Slower fade for smoother look */
+            transition: opacity 0.8s ease; 
             pointer-events: none;
         }
         
         .slide img {
             display: block;
             width: 100%;
-            height: 100%; /* Match container height */
-            object-fit: contain; /* Ensures image isn't stretched/cropped */
+            height: 100%; 
+            object-fit: contain; 
             object-position: center;
         }
         
@@ -135,7 +145,7 @@
              body { padding: 30px 15px; } header { margin-top: 60px; } .project-preview { padding: 15px; gap: 15px; }
              .project-item.active .project-details { padding: 20px; } .preview-image-container { width: 70px; height: 70px; border-radius: 8px;}
              .project-preview h3 { font-size: 1.1rem; padding-right: 30px; } .project-preview .meta { font-size: 0.85rem;}
-             .preview-company-logo { height: 16px; } .preview-icon { margin-left: 10px; font-size: 1.2rem; }
+             .preview-company-logo { height: 30px; } .preview-icon { margin-left: 10px; font-size: 1.2rem; }
              .prev, .next { font-size: 16px; padding: 12px; } .slide img { max-height: 400px; object-fit: contain; }
         }
     </style>
@@ -152,11 +162,8 @@
         <li class="project-item" data-project-id="tesla-scheduling">
             <div class="project-preview">
                  <div class="preview-image-container">
-                     <!-- Image 1: Workers (Set to ACTIVE so it is the cover photo) -->
                      <img src="images/giga_texas_factory_workers.jpeg" alt="Schedules thousands of associates daily, enforcing training compliance and ergonomic rotation." class="active" onerror="this.src='https://placehold.co/100x100?text=Workers'">
-                     <!-- Image 2: Factory -->
                      <img src="images/tesla-giga-texas_new.jpeg" alt="Tesla Giga Texas Factory, one of Tesla's major factories using this software." onerror="this.src='https://placehold.co/100x100?text=System+Arch'">
-                     <!-- Image 3: Assembly Line -->
                      <img src="images/model_Y_assembly_line_tesla.png" alt="Tesla Assembly Line workers, assigned work using this software." onerror="this.src='https://placehold.co/100x100?text=Speed+Graph'">
                  </div>
                  <div class="preview-text">
@@ -168,19 +175,15 @@
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
-                    <!-- Slide 1: Workers (Set to ACTIVE to match preview) -->
                     <div class="slide active">
                         <img src="images/giga_texas_factory_workers.jpeg" alt="Schedules thousands of associates daily, enforcing training compliance and ergonomic rotation." onerror="this.src='https://placehold.co/800x400?text=Factory+Workers'">
                     </div>
-                    <!-- Slide 2: Factory -->
                     <div class="slide">
                         <img src="images/tesla-giga-texas_new.jpeg" alt="Tesla Giga Texas Factory, one of Tesla's major factories using this software." onerror="this.src='https://placehold.co/800x400?text=Architecture+Diagram'">
                     </div>
-                    <!-- Slide 3: Assembly Line -->
                     <div class="slide">
                         <img src="images/model_Y_assembly_line_tesla.png" alt="Tesla Assembly Line workers, assigned work using this software." onerror="this.src='https://placehold.co/800x400?text=Performance+Graph'">
                     </div>
-                    
                     <a class="prev" onclick="manualSlideChange('tesla-scheduling', -1)">&#10094;</a>
                     <a class="next" onclick="manualSlideChange('tesla-scheduling', 1)">&#10095;</a>
                 </div>
@@ -189,23 +192,19 @@
                     <p><strong>Problem:</strong> Global factory scheduling was a manual process with near-infinite complexity 
                         (10<sup>136</sup> combinations for a single 40-employee team). A business case I developed with Tesla's Finance Team 
                         identified a <b>$55M/year opportunity</b> on the Giga Texas Model Y line alone due to OEE losses from untrained 
-                        assignments and <b>$1.1M/year</b> in wasted supervisor labor.</p>
+                        assignments and <b>$1.1M/year</b> in wasted supervisory labor.</p>
                     <p><strong>My Solution:</strong> I developed a <b>constraint-based scheduling platform</b> that automatically assigns Production 
-                        Associates to workstations while enforcing strict safety, training, and ergonomic rotation rules. I drove the full 0→1 product 
-                        lifecycle, <b>translating complex operational constraints 
-                        into a prioritized product roadmap</b>. 
-                        I built a functional MVP and led weekly stakeholder reviews to bridge the gap between Engineering and Operations. I personally developed the core optimization engine using <b>Timefold (Java/Python)</b>, 
-                        which <b>outperformed the internal data engineering team's solution</b>. To ensure scalability, I engineered a "Warm Start" 
-                        server strategy that reduced generation latency by <b>95% (from 8.62s to 0.47s per team)</b>.</p>
-                    <p><strong>Results:</strong> Acting as the Technical Product Owner, I managed the <b>backlog and rollout strategy</b> for the 
-                        transition 
-                        to a full-stack engineering team, delivering comprehensive UI/UX specifications. Powered by my algorithm, 
-                        this software is now used 
-                        to <b>schedule thousands of factory workers every day</b> across Austin, Fremont, and Berlin, enforcing 100% 
-                        training compliance.</p>
+                        Associates to workstations while enforcing strict safety, training, and ergonomic rotation rules. I drove the full 0→1 lifecycle, 
+                        translating operational needs into a prioritized roadmap and building the MVP. Technically, I coded the optimization engine using 
+                        <b>Timefold (Java/Python)</b>—which outperformed the internal data team's solution—and engineered a "Warm Start" strategy 
+                        that reduced generation latency by <b>95% (from 8.62s to 0.47s per team)</b>.</p>
+                    <p><strong>Results:</strong> Acting as the Technical Product Owner, I managed the <b>backlog and rollout strategy</b> for the transition 
+                        to a full-stack engineering team, delivering comprehensive UI/UX specifications. Powered by my algorithm, this software is now used 
+                        to <b>schedule thousands of factory workers every day</b> across Austin, Fremont, and Berlin, enforcing 100% training compliance.</p>
                 </div>
             </div>
         </li>
+
         <li class="project-item" data-project-id="tesla-sim">
             <div class="project-preview">
                  <div class="preview-image-container">
@@ -249,13 +248,10 @@
             </div>
         </li>
 
-        <!-- 3. Audit Automation -->
         <li class="project-item" data-project-id="tesla-audit">
             <div class="project-preview">
                  <div class="preview-image-container">
-                     <!-- Image 1: CT -->
                      <img src="images/CT_line_2.jpg" alt="Cybertruck Production Audits and Metrics Automation" class="active" onerror="this.src='https://placehold.co/100x100?text=SQL+Python'">
-                     <!-- Image 2: MY -->
                      <img src="images/mY_expanded.png" alt="Model Y Production Audits and Metrics Automation" onerror="this.src='https://placehold.co/100x100?text=Cybertruck'">
                  </div>
                  <div class="preview-text">
@@ -279,7 +275,7 @@
                 <div class="caption-container"></div>
                 <div class="project-description">
                     <p><strong>Problem:</strong> Process Engineering data was fragmented across disparate systems.
-                        Engineers wasted hours manually cross-referencing the <b>EBOM vs. MBOM</b> and auditing 
+                        Engineers wasted hours manually cross-referencing the <strong>EBOM vs. MBOM</strong> and auditing 
                         Work Instructions for completeness (e.g., missing photos), creating a lag in root cause analysis 
                         for cycle time deviations.</p>
                     <p><strong>My Solution:</strong> I architected a centralized Process Engineering Portal using 
@@ -295,17 +291,14 @@
             </div>
         </li>
         
-        <!-- 7. Sonar Systems Integration (TLFAS & HMS) -->
         <li class="project-item" data-project-id="lm-sonar">
             <div class="project-preview">
                  <div class="preview-image-container">
-                     <!-- Image 1: TLFAS -->
                      <img src="images/csc_sonar.png" alt="Unclassified - Towed Low Frequency Active Sonar (TLFAS) Array" class="active" onerror="this.src='https://placehold.co/100x100?text=TLFAS+Array'">
-                     <!-- Image 2: HMS -->
                      <img src="images/hms.jpg" alt="Unclassified - Hull Mounted Sonar (HMS) Dome" onerror="this.src='https://placehold.co/100x100?text=HMS+Dome'">
                  </div>
                  <div class="preview-text">
-                     <h3>Navigation Systems Integration Engineer</h3>
+                     <h3>Sonar & Navigation Systems Integration</h3>
                      <p class="meta">Role: Systems Engineering Intern @ Lockheed Martin</p>
                      <img src="images/logo-lockheed.png" alt="" class="preview-company-logo">
                  </div>
@@ -341,13 +334,10 @@
             </div>
         </li>
         
-        <!-- 4. CSC Certifications Automation -->
         <li class="project-item" data-project-id="lm-certs">
             <div class="project-preview">
                  <div class="preview-image-container">
-                     <!-- Image 1 -->
                      <img src="images/lockheed-system-integration.png" alt="The Canadian River-Class Destroyer (CSC)" class="active" onerror="this.src='https://placehold.co/100x100?text=CSC+Ship'">
-                     <!-- Image 2 -->
                      <img src="images/BAE_image_CSC.png" alt="BAE Systems CSC Rendering" onerror="this.src='https://placehold.co/100x100?text=BAE+Render'">
                  </div>
                  <div class="preview-text">
@@ -384,13 +374,10 @@
             </div>
         </li>
         
-        <!-- 5. Mobile App for Repair Truck Drivers -->
         <li class="project-item" data-project-id="jdi-app">
             <div class="project-preview">
                  <div class="preview-image-container">
-                     <!-- Image 1: The App Interface -->
                      <img src="images/JDI.png" alt="Mobile App used for Work Allocation" class="active" onerror="this.src='https://placehold.co/100x100?text=App+Interface'">
-                     <!-- Image 2: The Truck (Context) -->
                      <img src="images/JDI_truck.png" alt="J.D. Irving Fleet Truck" onerror="this.src='https://placehold.co/100x100?text=Fleet+Truck'">
                  </div>
                  <div class="preview-text">
@@ -402,16 +389,13 @@
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
-                    <!-- Slide 1 -->
                     <div class="slide active">
                         <img src="images/JDI.png" alt="Mobile App used for Work Allocation by Fleet Mechanics" onerror="this.src='https://placehold.co/800x400?text=App+Interface'">
                     </div>
-                    <!-- Slide 2 -->
                     <div class="slide">
                         <img src="images/JDI_truck.png" alt="J.D. Irving Fleet Truck" onerror="this.src='https://placehold.co/800x400?text=Fleet+Truck'">
                     </div>
                     
-                    <!-- Arrows added back since there are now 2 images -->
                     <a class="prev" onclick="manualSlideChange('jdi-app', -1)">&#10094;</a>
                     <a class="next" onclick="manualSlideChange('jdi-app', 1)">&#10095;</a>
                 </div>
@@ -431,7 +415,6 @@
             </div>
         </li>
         
-        <!-- 6. CSC TDP Delivery Jira Automation -->
         <li class="project-item" data-project-id="lm-jira">
             <div class="project-preview">
                  <div class="preview-image-container">
@@ -471,8 +454,6 @@
                 </div>
             </div>
         </li>
-  
-
     </ul>
 
     <footer>
@@ -485,312 +466,127 @@
     </footer>
 
     <script>
-        // --- Accordion Logic & Slideshow Data ---
+        // --- Optimized Accordion Logic ---
         const projectItems = Array.from(document.querySelectorAll('.project-item'));
         const slideshowData = {};
         const previewSlideshowData = {};
 
-        // --- Utilities: wait for image to be ready ---
-        function waitForImageLoad(img, timeout = 4000) {
-            return new Promise(resolve => {
-                if (!img) return resolve();
-                if (img.complete && img.naturalWidth) return resolve();
-                const onDone = () => {
-                    img.removeEventListener('load', onDone);
-                    img.removeEventListener('error', onDone);
-                    resolve();
-                };
-                img.addEventListener('load', onDone);
-                img.addEventListener('error', onDone);
-                setTimeout(() => {
-                    img.removeEventListener('load', onDone);
-                    img.removeEventListener('error', onDone);
-                    resolve();
-                }, timeout);
-            });
-        }
-
-        // --- compute pixel height for container ---
-        function computeHeightForImage(container, img) {
-            if (!container || !img) return 300;
-            const naturalW = img.naturalWidth || img.width || 1;
-            const naturalH = img.naturalHeight || img.height || 1;
-            const width = container.clientWidth || container.offsetWidth || 600;
-            if (naturalW && naturalH) {
-                return Math.max(120, Math.round(width * naturalH / naturalW));
-            }
-            try {
-                const rect = img.getBoundingClientRect();
-                if (rect && rect.height > 0) return rect.height;
-            } catch (e) {}
-            return Math.max(120, Math.round(width * 0.6));
-        }
-
-        // --- keep per-container ResizeObserver ---
-        const resizeObservers = new Map();
-        function attachResizeObserver(container, activeImg, projectId) {
-            if (!container) return;
-            if (resizeObservers.has(container)) return;
-            const ro = new ResizeObserver(() => {
-                const data = slideshowData[projectId];
-                if (!data) return;
-                const active = container.querySelector('.slide.active img') || activeImg;
-                if (!active) return;
-                const h = computeHeightForImage(container, active);
-                container.style.height = h + 'px';
-            });
-            ro.observe(container);
-            resizeObservers.set(container, ro);
-        }
-        function detachResizeObserver(container) {
-            const ro = resizeObservers.get(container);
-            if (ro) {
-                try { ro.disconnect(); } catch(e){}
-                resizeObservers.delete(container);
-            }
-        }
-
-        // --- Initialize Data ---
-        function initializeSlideshow(projectId) {
+        // --- Slideshow Logic ---
+        function showSlide(projectId, index) {
             if (!slideshowData[projectId]) {
                 const projectItem = document.querySelector(`.project-item[data-project-id="${projectId}"]`);
                 const slides = Array.from(projectItem.querySelectorAll('.project-details .slide'));
-                const captions = slides.map(slide => {
-                    const img = slide.querySelector('img');
-                    return img ? (img.alt || '') : '';
-                });
-                slideshowData[projectId] = {
-                    slideIndex: 0,
-                    slides: slides,
-                    captions: captions,
-                    timer: null,
-                    captionElement: projectItem.querySelector('.project-details .caption-container'),
-                    containerElement: projectItem.querySelector('.slideshow-container'),
-                    projectItem: projectItem
+                const captions = slides.map(s => s.querySelector('img') ? s.querySelector('img').alt : '');
+                slideshowData[projectId] = { 
+                    slideIndex: 0, 
+                    slides: slides, 
+                    captions: captions, 
+                    captionElement: projectItem.querySelector('.caption-container'),
+                    timer: null
                 };
             }
-        }
-        function initializePreviewSlideshow(projectId) {
-            if (!previewSlideshowData[projectId]) {
-                const projectItem = document.querySelector(`.project-item[data-project-id="${projectId}"]`);
-                const previewContainer = projectItem.querySelector('.preview-image-container');
-                const previewImages = Array.from(previewContainer.querySelectorAll('img'));
-                previewSlideshowData[projectId] = {
-                    previewIndex: 0, previewImages: previewImages, previewTimer: null
-                };
-            }
-        }
 
-        // --- Preview small image slideshow ---
-        function showPreviewImage(projectId, index) {
-             initializePreviewSlideshow(projectId);
-             const data = previewSlideshowData[projectId];
-             if (!data || !data.previewImages || data.previewImages.length === 0) return;
-             if (index >= data.previewImages.length) { index = 0; }
-             if (index < 0) { index = data.previewImages.length - 1; }
-             data.previewImages.forEach(img => img.classList.remove('active'));
-             data.previewImages[index].classList.add('active');
-             data.previewIndex = index;
-        }
-        function startPreviewAutoSlide(projectId) {
-             initializePreviewSlideshow(projectId);
-             const data = previewSlideshowData[projectId];
-             if (!data || data.previewImages.length <= 1) return;
-             stopPreviewAutoSlide(projectId);
-             showPreviewImage(projectId, 0); 
-             data.previewTimer = setInterval(() => { showPreviewImage(projectId, data.previewIndex + 1); }, 3000);
-        }
-        function stopPreviewAutoSlide(projectId) {
-             if (previewSlideshowData[projectId] && previewSlideshowData[projectId].previewTimer) {
-                 clearInterval(previewSlideshowData[projectId].previewTimer);
-                 previewSlideshowData[projectId].previewTimer = null;
-             }
-        }
-
-        // --- Show a main slideshow slide ---
-        function showSlide(projectId, index) {
-            initializeSlideshow(projectId);
             const data = slideshowData[projectId];
-            if (!data || !data.slides || data.slides.length === 0) return;
+            if (!data || !data.slides.length) return;
+
             if (index >= data.slides.length) index = 0;
             if (index < 0) index = data.slides.length - 1;
 
-            if (data.slideIndex === index) {
-                if (data.captionElement) {
-                    data.captionElement.style.opacity = 0;
-                    setTimeout(() => {
-                        data.captionElement.textContent = data.captions[index] || '';
-                        data.captionElement.style.opacity = 1;
-                    }, 150);
-                }
-                return;
+            data.slides.forEach(s => s.classList.remove('active'));
+            data.slides[index].classList.add('active');
+            data.slideIndex = index;
+
+            if (data.captionElement) {
+                data.captionElement.textContent = data.captions[index] || '';
             }
-
-            const targetSlide = data.slides[index];
-            const targetImg = targetSlide.querySelector('img');
-
-            stopPreviewAutoSlide(projectId);
-
-            return waitForImageLoad(targetImg, 4000).then(() => {
-                const container = data.containerElement;
-                const targetHeight = computeHeightForImage(container, targetImg);
-                container.style.height = targetHeight + 'px';
-                container.getBoundingClientRect();
-
-                data.slides.forEach(s => s.classList.remove('active'));
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        targetSlide.classList.add('active');
-                        data.slideIndex = index;
-                        if (data.captionElement) {
-                            data.captionElement.style.opacity = 0;
-                            setTimeout(() => {
-                                data.captionElement.textContent = data.captions[index] || '';
-                                data.captionElement.style.opacity = 1;
-                            }, 150);
-                        }
-                    });
-                });
-                attachResizeObserver(container, targetImg, projectId);
-                return Promise.resolve();
-            });
         }
 
         function manualSlideChange(projectId, n) {
-             initializeSlideshow(projectId);
-             const data = slideshowData[projectId];
-             stopAutoSlide(projectId); 
-             Promise.resolve(showSlide(projectId, data.slideIndex + n)).then(() => {
-                 setTimeout(() => startAutoSlide(projectId), 8000);
-             });
-         }
-        function startAutoSlide(projectId) {
-             initializeSlideshow(projectId);
-            const data = slideshowData[projectId];
-            if (!data || data.slides.length <= 1) return;
+            const data = slideshowData[projectId] || {};
+            const currentIndex = data.slideIndex || 0;
+            showSlide(projectId, currentIndex + n);
             stopAutoSlide(projectId);
-             data.timer = setInterval(() => {
-                 showSlide(projectId, data.slideIndex + 1);
+            startAutoSlide(projectId);
+        }
+
+        function startAutoSlide(projectId) {
+            if (slideshowData[projectId] && slideshowData[projectId].timer) clearInterval(slideshowData[projectId].timer);
+            if (!slideshowData[projectId]) showSlide(projectId, 0);
+            
+            slideshowData[projectId].timer = setInterval(() => {
+                const current = slideshowData[projectId].slideIndex;
+                showSlide(projectId, current + 1);
             }, 5000);
         }
+
         function stopAutoSlide(projectId) {
             if (slideshowData[projectId] && slideshowData[projectId].timer) {
-                 clearInterval(slideshowData[projectId].timer);
-                 slideshowData[projectId].timer = null;
+                clearInterval(slideshowData[projectId].timer);
+                slideshowData[projectId].timer = null;
             }
         }
 
-        function animateHeightTo(container, fromPx, toPx, timeout = 650) {
-            return new Promise(resolve => {
-                if (!container) return resolve();
-                let done = false;
-                const onEnd = (e) => {
-                    if (e && e.target !== container) return;
-                    if (done) return;
-                    done = true;
-                    container.removeEventListener('transitionend', onEnd);
-                    resolve();
-                };
-                container.addEventListener('transitionend', onEnd);
-                container.style.height = fromPx + 'px';
-                container.getBoundingClientRect();
-                requestAnimationFrame(() => {
-                    container.style.height = toPx + 'px';
-                });
-                setTimeout(() => { if (!done) { done = true; container.removeEventListener('transitionend', onEnd); resolve(); } }, timeout + 100);
-            });
+        // --- Preview Slideshow (Mini images) ---
+        function startPreviewAutoSlide(projectId) {
+            const projectItem = document.querySelector(`.project-item[data-project-id="${projectId}"]`);
+            if(!projectItem) return;
+            const images = projectItem.querySelectorAll('.preview-image-container img');
+            if(images.length <= 1) return;
+
+            let idx = 0;
+            if(previewSlideshowData[projectId]) clearInterval(previewSlideshowData[projectId]);
+
+            previewSlideshowData[projectId] = setInterval(() => {
+                images[idx].classList.remove('active');
+                idx = (idx + 1) % images.length;
+                images[idx].classList.add('active');
+            }, 3000);
         }
 
+        function stopPreviewAutoSlide(projectId) {
+            if(previewSlideshowData[projectId]) {
+                clearInterval(previewSlideshowData[projectId]);
+                previewSlideshowData[projectId] = null;
+            }
+        }
+
+        // --- Click Handler ---
         projectItems.forEach(item => {
             const summary = item.querySelector('.project-preview');
             const projectId = item.getAttribute('data-project-id');
+
             startPreviewAutoSlide(projectId);
 
-            summary.addEventListener('click', async () => {
-                const wasActive = item.classList.contains('active');
-                const list = item.closest('.project-list');
+            summary.addEventListener('click', () => {
+                // Toggle active class on click
+                item.classList.toggle('active');
+                
+                const isActive = item.classList.contains('active');
 
-                for (const otherItem of projectItems) {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        const otherId = otherItem.getAttribute('data-project-id');
-                        otherItem.classList.remove('active');
-                        const otherData = slideshowData[otherId];
-                        if (otherData) stopAutoSlide(otherId);
-                        const otherContainer = otherItem.querySelector('.slideshow-container');
-                        if (otherContainer) {
-                            otherItem.classList.add('closing');
-                            const curH = otherContainer.getBoundingClientRect().height || otherContainer.clientHeight || 0;
-                            await animateHeightTo(otherContainer, curH, 0);
-                            otherContainer.style.height = '';
-                            otherItem.classList.remove('closing');
-                            detachResizeObserver(otherContainer);
-                        }
-                        startPreviewAutoSlide(otherId);
-                    }
-                }
-
-                if (!wasActive) { 
-                    item.classList.add('active');
-                    list.classList.add('item-active');
-                    initializeSlideshow(projectId);
+                if (isActive) {
+                    // Open: Stop preview, start main slideshow
                     stopPreviewAutoSlide(projectId);
-
-                    const data = slideshowData[projectId];
-                    const container = data.containerElement;
-                    const initialSlide = container.querySelector('.slide') || data.slides[0];
-                    const initialImg = initialSlide ? initialSlide.querySelector('img') : null;
-
-                    if (initialImg) await waitForImageLoad(initialImg, 4000);
-                    const targetH = computeHeightForImage(container, initialImg || container.querySelector('img'));
-                    await animateHeightTo(container, 0, targetH);
-                    await showSlide(projectId, 0);
+                    showSlide(projectId, 0);
                     startAutoSlide(projectId);
-                } else { 
-                    const data = slideshowData[projectId];
-                    const container = data ? data.containerElement : (item.querySelector('.slideshow-container'));
-                    if (container) {
-                        item.classList.add('closing');
-                        stopAutoSlide(projectId);
-                        const curH = container.getBoundingClientRect().height || container.clientHeight || 0;
-                        await animateHeightTo(container, curH, 0);
-                        container.style.height = '';
-                        item.classList.remove('closing');
-                        detachResizeObserver(container);
-                    }
-                    item.classList.remove('active');
-                    list.classList.remove('item-active');
+                } else {
+                    // Close: Stop main slideshow, restart preview
+                    stopAutoSlide(projectId);
                     startPreviewAutoSlide(projectId);
                 }
             });
         });
 
-        const styleSheet = document.styleSheets[0];
-         try {
-             styleSheet.insertRule('.caption-container { transition: opacity 0.15s ease-in-out; }', styleSheet.cssRules.length);
-             styleSheet.insertRule('.project-list.item-active .project-item:not(.active) { transition: opacity 0.4s ease, max-height 0.4s ease, margin-bottom 0.4s ease, border-color 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease; }', styleSheet.cssRules.length);
-         } catch (e) { }
-
-        (function openProjectFromURL() {
-            try {
-                const hashId = window.location.hash ? decodeURIComponent(window.location.hash.substring(1)) : '';
-                const params = new URLSearchParams(window.location.search);
-                const projParam = params.get('project') ? decodeURIComponent(params.get('project')) : '';
-                const targetId = hashId || projParam;
-                if (!targetId) return;
-
-                const targetPreview = document.querySelector(`.project-item[data-project-id="${targetId}"] .project-preview`);
-                if (targetPreview) {
-                    setTimeout(() => {
-                        targetPreview.click();
-                        try { targetPreview.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) {}
-                    }, 180);
-                }
-            } catch (e) { console.error('openProjectFromURL error:', e); }
-        })();
+        setTimeout(() => {
+            const hash = window.location.hash.substring(1);
+            if(hash) {
+                const target = document.querySelector(`.project-item[data-project-id="${hash}"] .project-preview`);
+                if(target) target.click();
+            }
+        }, 100);
 
         projectItems.forEach(p => {
             const id = p.getAttribute('data-project-id');
-            if (!previewSlideshowData[id] || !previewSlideshowData[id].previewTimer) startPreviewAutoSlide(id);
+            if (!previewSlideshowData[id]) startPreviewAutoSlide(id);
         });
     </script>
 </body>
