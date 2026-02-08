@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Academic Projects — Matthew Watson</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome for Toggle Icons -->
+  <!-- Font Awesome for PDF Icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
@@ -45,7 +45,7 @@
     h1 { font-weight: 600; font-size: 2.5rem; letter-spacing: 2px; }
     h3 { font-weight: 500; margin-bottom: 10px; font-size: 1.3rem; }
 
-    /* --- Layout & Cards --- */
+    /* --- Back Link --- */
     .back-link {
       font-size: 1rem;
       color: var(--text-secondary);
@@ -56,18 +56,19 @@
     }
     .back-link:hover { color: var(--primary-blue); opacity: 1; }
     
+    /* --- GRID LAYOUT (Side-by-Side) --- */
     .projects {
       display: grid;
-      grid-template-columns: 1fr; 
-      gap: 35px;
-      max-width: 900px; 
+      grid-template-columns: repeat(2, 1fr); /* 2 Columns */
+      gap: 30px;
+      max-width: 1200px; 
       margin: 0 auto;
     }
     
     .card {
       background: var(--card-background);
       border: 1px solid var(--border-color);
-      padding: 20px;
+      padding: 25px;
       border-radius: 14px;
       display: flex;
       flex-direction: column;
@@ -75,130 +76,44 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.06);
     }
     .card:hover {
-      box-shadow: 0 6px 20px rgba(0, 0, 255, 0.1);
+      transform: translateY(-6px);
+      box-shadow: 0 6px 20px rgba(0, 0, 255, 0.15);
+    }
+    
+    /* Media Styling */
+    .card img, .card video { 
+        width: 100%; 
+        height: 300px; 
+        object-fit: cover; /* Ensures nice fill */
+        border-radius: 10px; 
+        margin-bottom: 20px; 
+        border: 1px solid #eee;
+    }
+    /* Special fitting for DALIS logo so it isn't cropped */
+    .card img.contain-fit {
+        object-fit: contain;
+        padding: 20px;
+        background: #fff;
     }
     
     .meta { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px; font-style: italic; }
+    .card p { margin-bottom: 15px; color: #495057; font-size: 0.95rem; }
     
-    /* --- TEXT STYLING (MATCHING WORK.HTML) --- */
-    .card p { margin-bottom: 10px; color: #495057; }
-    
-    /* Headers like "Challenge:" -> BLUE */
+    /* Bolding Styles */
     .card strong { 
         color: var(--primary-blue); 
         font-weight: 600; 
         display: block; 
         margin-bottom: 5px; 
     }
-    
-    /* Inline keywords like "ROS2" -> BLACK/DARK */
     .card p b { 
-        font-weight: 500; /* Matching work.html */
+        font-weight: 500; 
         color: var(--text-primary); 
     }
 
-    .links { margin-top: 20px; }
-
-    .card p a, .links a {
-      color: var(--primary-blue);
-      font-weight: 500;
-      text-decoration: underline;
-      transition: opacity 0.2s ease;
-    }
-    .card p a:hover, .links a:hover {
-      opacity: 0.7;
-    }
-
-    /* --- DESCRIPTION TOGGLE STYLES --- */
-    .description-wrapper {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.6s ease-in-out, opacity 0.4s ease-in-out;
-        opacity: 0;
-    }
-    .card.expanded .description-wrapper {
-        max-height: 5000px; 
-        opacity: 1;
-    }
-    
-    .toggle-bar {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        padding: 12px;
-        margin-top: 15px;
-        background-color: #f8f9fa;
-        border-radius: 8px;
-        cursor: pointer;
-        color: var(--primary-blue);
-        font-weight: 500;
-        transition: background-color 0.2s ease;
-        user-select: none;
-    }
-    .toggle-bar:hover {
-        background-color: #e9ecef;
-    }
-    .toggle-icon {
-        margin-left: 8px;
-        transition: transform 0.3s ease;
-    }
-    .card.expanded .toggle-icon {
-        transform: rotate(180deg);
-    }
-
-    /* --- Slideshow Styles --- */
-    .slideshow-container { 
-        position: relative; 
-        max-width: 100%; 
-        margin-bottom: 15px;
-        overflow: hidden; 
-        border-radius: 12px;
-        background-color: #ffffff; 
-    }
-    .slide { display: none; width: 100%; animation: fadeEffect 0.8s ease; }
-    
-    /* Fixed Image Styling - Matched to 550px */
-    .slide img, .slide video { 
-        display: block; 
-        width: 100%; 
-        height: 550px; 
-        object-fit: contain; 
-        object-position: center;
-        background-color: #ffffff;
-    }
-    
-    .slide.active { display: block; }
-    @keyframes fadeEffect { from { opacity: 0.4; } to { opacity: 1; } }
-    
-    .prev, .next { 
-        cursor: pointer; 
-        position: absolute; 
-        top: 50%; 
-        transform: translateY(-50%); 
-        width: auto; 
-        padding: 16px; 
-        color: #333; 
-        font-weight: bold; 
-        font-size: 20px; 
-        background-color: rgba(255, 255, 255, 0.5); 
-        border-radius: 0 3px 3px 0; 
-        user-select: none; 
-        transition: background-color 0.3s ease; 
-    }
-    .next { right: 0; border-radius: 3px 0 0 3px; }
-    .prev:hover, .next:hover { background-color: rgba(255, 255, 255, 0.8); }
-
-    /* --- Caption Styles --- */
-    .caption-container { 
-        text-align: center; 
-        padding: 10px 0 5px 0; 
-        color: var(--text-secondary); 
-        font-size: 0.9rem; 
-        min-height: 1.5em; 
-        font-style: italic; 
-        transition: opacity 0.15s ease-in-out; 
-    }
+    /* Push links to bottom of card */
+    .links { margin-top: auto; padding-top: 15px; border-top: 1px solid var(--border-light); }
+    .links a { font-weight: 600; font-size: 0.9rem; }
 
     /* --- Footer --- */
     footer {
@@ -210,10 +125,9 @@
     }
     footer p:first-child a { margin: 0 10px; }
 
-    /* --- Responsive Adjustments --- */
-    @media (max-width: 768px) {
-        .prev, .next { font-size: 16px; padding: 12px; }
-        .slide img, .slide video { height: 350px; }
+    /* --- Responsive (Stack on Mobile) --- */
+    @media (max-width: 900px) {
+        .projects { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -226,86 +140,54 @@
 
   <section class="projects">
 
-    <!-- === PROJECT 1: CAPSTONE (CARDIAC) === -->
-    <!-- === PROJECT 1: CAPSTONE (CARDIAC) === -->
-    <article class="card" data-project-id="cardiac-imaging"> 
-      <div class="slideshow-container">
-        <!-- Slide 1: Video -->
-        <div class="slide active">
-            <video autoplay loop muted playsinline>
-                <source src="images/cardiac_video.mp4" type="video/mp4">
-            </video>
-        </div>
-        <!-- Slide 2: Image -->
-        <div class="slide">
-            <img src="images/dalhousie_cardiac_imaging_calcium.png" alt="Cardiac Imaging Setup" onerror="this.src='https://placehold.co/800x550?text=Setup+Photo'">
-        </div>
-        
-        <a class="prev" onclick="manualSlideChange('cardiac-imaging', -1)">&#10094;</a>
-        <a class="next" onclick="manualSlideChange('cardiac-imaging', 1)">&#10095;</a>
-      </div>
-      
-      <div class="caption-container">High-Precision Fluorescence Imaging of Cardiac Tissue</div>
+    <!-- === CARD 1: CAPSTONE (Video + Report) === -->
+    <article class="card" id="cardiac-imaging">
+      <!-- Video Autoplays -->
+      <video autoplay loop muted playsinline>
+          <source src="images/cardiac_video.mp4" type="video/mp4">
+      </video>
       
       <h3>Embedded Control System for Cardiac Imaging</h3>
-      <p class="meta">Skills: Embedded C, Python (PyQt6), Hardware Timers, MOSFET Circuit Design</p>
+      <p class="meta">Capstone Project @ Dalhousie University</p>
       
-      <div class="toggle-bar" onclick="toggleDescription(this)">
-          <span>View Details</span>
-          <i class="fas fa-chevron-down toggle-icon"></i>
-      </div>
+      <p>
+        <strong>Problem:</strong> The Quinn Laboratory required a precise, user-configurable system to synchronize high-intensity LEDs with high-speed cameras for cardiac fluorescence imaging. Existing solutions were rigid and lacked the millisecond-level synchronization needed to capture rapid cardiac electrical activity without artifacts.
+      </p>
+      <p>
+        <strong>My Solution:</strong> I architected a full-stack control system. On the desktop side, I built a <b>Python GUI (PyQt6)</b> that allows researchers to define complex pulse patterns. This communicates via serial to an <b>ATmega328P microcontroller</b>, where I wrote bare-metal firmware using <b>Hardware Timers and Interrupts</b> to generate precise 20kHz PWM signals. I also designed the power stage using <b>IRLZ44N MOSFETs</b> to drive the 24V LED arrays.
+      </p>
+      <p>
+        <strong>Results:</strong> The system achieved a <b>trigger latency of < 200µs</b> and frequency accuracy error of <b>less than 5%</b>. It is now the standard operating equipment for the lab, allowing researchers to capture high-fidelity calcium wave data.
+      </p>
 
-      <div class="description-wrapper">
-          <div style="padding-top: 20px;">
-              <p><strong>Problem:</strong> The Quinn Laboratory required a precise, user-configurable system to synchronize high-intensity 
-                LEDs with high-speed cameras for cardiac fluorescence imaging. Existing solutions were rigid, requiring manual hardware 
-                changes to adjust illumination patterns, and lacked the millisecond-level synchronization needed to capture rapid cardiac
-                electrical activity without artifacts.</p>
-              <p><strong>My Solution:</strong> I architected a full-stack control system. On the desktop side, I built a 
-                <b>Python GUI (PyQt6)</b> that allows researchers to define complex pulse patterns, brightness (PWM), and trigger modes. 
-                This communicates via serial to an <b>ATmega328P microcontroller</b>, where I wrote bare-metal firmware using <b>Hardware 
-                  Timers and Interrupts</b> (avoiding blocking delays) to generate precise 20kHz PWM signals. I also designed the power 
-                stage using <b>IRLZ44N MOSFETs</b> to drive the 24V LED arrays efficiently.</p>
-              <p><strong>Results:</strong> The system achieved a <b>trigger latency of < 200µs</b> and a frequency accuracy error of <b>less 
-                than 5%</b> across the 1Hz–2000Hz range. It is now the standard operating equipment for the lab, allowing researchers to reproduce 
-                experimental conditions instantly and capture high-fidelity calcium wave data for arrhythmia research.</p>
-              
-              <!-- PDF DOWNLOAD LINK -->
-              <div class="links">
-                <a href="images/Fall2025_SYP2_Group09_Long.pdf" target="_blank">
-                    <i class="fas fa-file-pdf"></i> View Full Technical Report (PDF)
-                </a>
-              </div>
-          </div>
+      <div class="links">
+        <a href="images/Fall2025_SYP2_Group09_Long.pdf" target="_blank">
+            <i class="fas fa-file-pdf"></i> View Full Technical Report (PDF)
+        </a>
       </div>
     </article>
 
-    <!-- === PROJECT 2: DALIS === -->
-    <article class="card" data-project-id="dalis-project"> 
-      <div class="slideshow-container">
-        <!-- Slide 1: Logo -->
-        <div class="slide active">
-            <img src="images/logo-dalis.png" alt="Dalhousie Investment Society Logo" onerror="this.src='https://placehold.co/800x550?text=DALIS'">
-        </div>
-        <!-- Add more slides here if you have screenshots of the app later -->
-      </div>
-      
-      <div class="caption-container">Quantitative Risk Management App</div>
+    <!-- === CARD 2: DALIS (Logo + App) === -->
+    <article class="card">
+      <!-- Added 'contain-fit' class so the logo isn't cropped -->
+      <img src="images/logo-dalis.png" alt="Dalhousie Investment Society Logo" class="contain-fit" onerror="this.src='https://placehold.co/600x300?text=DALIS'">
       
       <h3>Quantitative Risk Management App</h3>
       <p class="meta">Director of Technology @ Dalhousie Investment Society</p>
       
-      <div class="toggle-bar" onclick="toggleDescription(this)">
-          <span>View Details</span>
-          <i class="fas fa-chevron-down toggle-icon"></i>
-      </div>
-
-      <div class="description-wrapper">
-          <div style="padding-top: 20px;">
-              <p><strong>Problem:</strong> The Investment Society managed four distinct portfolios (Commodities, Global Macro, Real-Estate, Forex) but lacked visibility into cross-portfolio risk. Without a centralized way to track daily Profit and Loss (PNL) or correlation exposure, the teams could not effectively hedge trades, leaving the fund vulnerable to market volatility.</p>
-              <p><strong>My Solution:</strong> I engineered a full-stack quantitative analysis application using <b>Python</b>. I utilized the <b>Bloomberg API</b> to pull raw trade ticket data and used <b>Pandas/NumPy</b> to calculate daily PNL across all four sectors. I designed a <b>Tkinter GUI</b> that provides analysts with automated hedging suggestions based on real-time stock correlation matrices and Monte Carlo risk simulations.</p>
-              <p><strong>Results:</strong> The application became the central source of truth for the society's performance tracking. By enabling data-driven hedging strategies between portfolios, the Commodities team saw an <b>8% increase in monthly P&L</b> immediately following adoption.</p>
-          </div>
+      <p>
+        <strong>Problem:</strong> The Investment Society managed four distinct portfolios (Commodities, Global Macro, Real-Estate, Forex) but lacked visibility into cross-portfolio risk. Without a centralized way to track daily Profit and Loss (PNL), the teams could not effectively hedge trades against market volatility.
+      </p>
+      <p>
+        <strong>My Solution:</strong> I engineered a full-stack quantitative analysis application using <b>Python</b>. I utilized the <b>Bloomberg API</b> to pull raw trade ticket data and used <b>Pandas/NumPy</b> to calculate daily PNL across all four sectors. I designed a <b>Tkinter GUI</b> that provides analysts with automated hedging suggestions based on real-time stock correlation matrices and Monte Carlo risk simulations.
+      </p>
+      <p>
+        <strong>Results:</strong> The application became the central source of truth for the society's performance tracking. By enabling data-driven hedging strategies between portfolios, the Commodities team saw an <b>8% increase in monthly P&L</b> immediately following adoption.
+      </p>
+      
+      <div class="links">
+        <!-- Placeholder link if you have code or a video later -->
+        <span style="color: #6c757d; font-size: 0.85rem;">(Internal Tool - Code available upon request)</span>
       </div>
     </article>
     
@@ -319,113 +201,6 @@
     </p>
     <p>© 2026 Matthew Watson</p>
   </footer>
-
-  <script>
-    // --- TOGGLE LOGIC ---
-    function toggleDescription(btn) {
-        const card = btn.closest('.card');
-        const textSpan = btn.querySelector('span');
-        card.classList.toggle('expanded');
-        textSpan.textContent = card.classList.contains('expanded') ? "Hide Details" : "View Details";
-    }
-
-    // --- SLIDESHOW LOGIC ---
-    const slideshowData = {};
-
-    function initializeSlideshow(projectId) {
-        if (!slideshowData[projectId]) {
-            const projectItem = document.querySelector(`.card[data-project-id="${projectId}"]`);
-            if (!projectItem) return; 
-            const slides = projectItem.querySelectorAll('.slide');
-            const captions = Array.from(slides).map(slide => {
-                if(slide.querySelector('img')) return slide.querySelector('img').alt;
-                if(slide.querySelector('video')) return "Video Demo";
-                return "";
-            });
-            slideshowData[projectId] = {
-                slideIndex: 0, 
-                slides: slides, 
-                captions: captions, 
-                timer: null,
-                captionElement: projectItem.querySelector('.caption-container')
-            };
-        }
-    }
-
-    function showSlide(projectId, index) {
-        initializeSlideshow(projectId);
-        const data = slideshowData[projectId];
-        if (!data || !data.slides || data.slides.length === 0) return;
-        
-        if (index >= data.slides.length) index = 0;
-        if (index < 0) index = data.slides.length - 1;
-        
-        data.slides.forEach(slide => slide.classList.remove('active'));
-        data.slides[index].classList.add('active');
-        data.slideIndex = index;
-        
-        if (data.captionElement) {
-            data.captionElement.style.opacity = 0;
-            setTimeout(() => {
-                data.captionElement.textContent = data.captions[index] || '';
-                data.captionElement.style.opacity = 1;
-            }, 150);
-        }
-    }
-
-    function manualSlideChange(projectId, n) {
-        initializeSlideshow(projectId);
-        const data = slideshowData[projectId];
-        if (!data) return;
-        stopAutoSlide(projectId);
-        showSlide(projectId, data.slideIndex + n);
-        setTimeout(() => startAutoSlide(projectId), 8000); 
-    }
-
-    function startAutoSlide(projectId) {
-        initializeSlideshow(projectId);
-        const data = slideshowData[projectId];
-        if (!data || data.slides.length <= 1) return;
-        stopAutoSlide(projectId); 
-        data.timer = setInterval(() => {
-            showSlide(projectId, data.slideIndex + 1);
-        }, 5000);
-    }
-
-    function stopAutoSlide(projectId) {
-        if (slideshowData[projectId] && slideshowData[projectId].timer) {
-            clearInterval(slideshowData[projectId].timer);
-            slideshowData[projectId].timer = null;
-        }
-    }
-
-    // --- INITIALIZATION & DEEP LINKING ---
-    document.addEventListener('DOMContentLoaded', () => {
-        // 1. Init all slideshows
-        const projectCards = document.querySelectorAll('.card[data-project-id]');
-        projectCards.forEach(card => {
-            const projectId = card.dataset.projectId;
-            initializeSlideshow(projectId);
-            showSlide(projectId, 0); 
-            startAutoSlide(projectId);
-        });
-
-        // 2. Check URL Hash for Deep Linking (e.g., #cardiac-imaging)
-        const hash = window.location.hash.substring(1); 
-        if (hash) {
-            const targetCard = document.querySelector(`.card[data-project-id="${hash}"]`);
-            if (targetCard) {
-                const toggleBtn = targetCard.querySelector('.toggle-bar');
-                if (toggleBtn) {
-                    toggleDescription(toggleBtn);
-                }
-                setTimeout(() => {
-                    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 500);
-            }
-        }
-    });
-  </script>
 
 </body>
 </html>
