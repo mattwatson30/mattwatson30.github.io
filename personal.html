@@ -276,8 +276,7 @@ l <!DOCTYPE html>
       </div>
     </article>
 
-    <!-- === PROJECT 2: CPU EMULATOR === -->
-        <article class="card" data-project-id="cpu-emulator"> 
+    <article class="card" data-project-id="cpu-emulator"> 
       <div class="slideshow-container">
         <!-- Slide 1: Video Demo -->
         <div class="slide active">
@@ -285,9 +284,13 @@ l <!DOCTYPE html>
                 <source src="images/cpu_emulator.mp4" type="video/mp4">
             </video>
         </div>
-        <!-- Slide 2: Architecture Diagram -->
+        <!-- Slide 2: ASM File (UPDATED) -->
         <div class="slide">
-            <img src="images/assembly_language_file.png" alt="Pre-assembled ASM instructions that run on the Emulator" onerror="this.src='https://placehold.co/800x550?text=CPU+Architecture'">
+            <img src="images/assembly_language_file.png" alt="Pre-assembled ASM instructions that run on the Emulator" onerror="this.src='https://placehold.co/800x550?text=ASM+Code'">
+        </div>
+        <!-- Slide 3: Debugger UI -->
+        <div class="slide">
+            <img src="images/debugger-ui.png" alt="Custom Debugger Interface" onerror="this.src='https://placehold.co/800x550?text=Debugger+UI'">
         </div>
         
         <a class="prev" onclick="manualSlideChange('cpu-emulator', -1)">&#10094;</a>
@@ -316,7 +319,6 @@ l <!DOCTYPE html>
               <p><strong>Results:</strong> The emulator successfully executes complex assembly programs compiled with a custom compiler. 
                 It serves as a powerful educational tool for visualizing how pipelining improves processor throughput.</p>
               
-              <!-- Added Source Code Note for Consistency -->
               <div style="margin-top: 25px; border-top: 1px solid #e9ecef; padding-top: 15px;">
                 <span style="color: #6c757d; font-size: 0.9rem; font-style: italic;">
                     <i class="fas fa-code"></i> (Source code available upon request)
