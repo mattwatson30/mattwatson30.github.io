@@ -54,16 +54,14 @@
         .project-preview h3 { font-size: 1.25rem; font-weight: 500; margin-bottom: 5px; color: var(--text-primary); padding-right: 40px; }
         .project-preview .meta { font-size: 0.9rem; color: var(--text-secondary); font-style: italic; font-weight: 300; }
 
-        /* --- Logo Styling (ADJUST SIZE HERE) --- */
+        /* --- Logo: UPDATED SIZE --- */
         .preview-company-logo {
             position: absolute;
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            
-            /* CHANGE THIS VALUE TO MAKE LOGOS BIGGER/SMALLER */
+            /* Larger Logos */
             height: 50px; 
-            
             max-width: 120px;
             opacity: 0.6;
             filter: grayscale(100%);
@@ -80,6 +78,7 @@
         /* --- Project Details (Hidden Content) --- */
         .project-details {
             max-height: 0; overflow: hidden;
+            /* Faster transition (0.3s) for instant feel */
             transition: max-height 0.3s ease-in-out, padding-top 0.3s ease, padding-bottom 0.3s ease;
             border-top: 1px solid transparent; padding: 0 30px;
         }
@@ -93,7 +92,7 @@
         .project-description { margin-top: 30px; }
         .project-description p { margin-bottom: 15px; color: #495057; font-weight: 300; }
         
-        /* --- BOLD TEXT STYLING (FIXED) --- */
+        /* --- BOLD TEXT STYLING --- */
         /* Headers (Problem/Solution) -> BLUE */
         .project-description strong { 
             font-weight: 600; 
@@ -118,6 +117,7 @@
             overflow: hidden;
             border-radius: 12px;
             background-color: #ffffff;
+            /* FORCE FIXED HEIGHT so text doesn't jump */
             height: 550px !important; 
         }
         
@@ -186,31 +186,27 @@
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
+                    <!-- Slide 1: Workers -->
                     <div class="slide active">
                         <img src="images/giga_texas_factory_workers.jpeg" alt="Schedules thousands of associates daily, enforcing training compliance and ergonomic rotation." onerror="this.src='https://placehold.co/800x400?text=Factory+Workers'">
                     </div>
+                    <!-- Slide 2: Factory -->
                     <div class="slide">
                         <img src="images/tesla-giga-texas_new.jpeg" alt="Tesla Giga Texas Factory, one of Tesla's major factories using this software." onerror="this.src='https://placehold.co/800x400?text=Architecture+Diagram'">
                     </div>
+                    <!-- Slide 3: Assembly Line -->
                     <div class="slide">
                         <img src="images/model_Y_assembly_line_tesla.png" alt="Tesla Assembly Line workers, assigned work using this software." onerror="this.src='https://placehold.co/800x400?text=Performance+Graph'">
                     </div>
+                    
                     <a class="prev" onclick="manualSlideChange('tesla-scheduling', -1)">&#10094;</a>
                     <a class="next" onclick="manualSlideChange('tesla-scheduling', 1)">&#10095;</a>
                 </div>
                 <div class="caption-container"></div>
                 <div class="project-description">
-                    <p><strong>Problem:</strong> Global factory scheduling was a manual process with near-infinite complexity 
-                        (10<sup>136</sup> combinations for a single 40-employee team). A business case I developed with Tesla's Finance Team 
-                        identified a <b>$55M/year opportunity</b> on the Giga Texas Model Y line alone due to OEE losses from untrained 
-                        assignments and <b>$1.1M/year</b> in wasted supervisory labor.</p>
-                    <p><strong>My Solution:</strong> I drove the full 0→1 product lifecycle, <b>translating complex operational constraints into a prioritized product roadmap</b>. 
-                        I built a functional MVP and led weekly stakeholder reviews to bridge the gap between Engineering and Operations. 
-                        On the technical side, I personally developed the core optimization engine using <b>Timefold (Java/Python)</b> and 
-                        engineered a "Warm Start" server strategy that reduced generation latency by <b>95% (from 8.62s to 0.47s per team)</b>.</p>
-                    <p><strong>Results:</strong> Acting as the Technical Product Owner, I managed the <b>backlog and rollout strategy</b> for the transition 
-                        to a full-stack engineering team, delivering comprehensive UI/UX specifications. Powered by my algorithm, this software is now used 
-                        to <b>schedule thousands of factory workers every day</b> across Austin, Fremont, and Berlin, enforcing 100% training compliance.</p>
+                    <p><strong>Problem:</strong> Global factory scheduling was a manual process with near-infinite complexity (10<sup>136</sup> combinations for a single 40-employee team). A business case I developed with Tesla's Finance Team identified a <b>$$55M/year opportunity</b> on the Giga Texas Model Y line alone due to OEE losses from untrained assignments and <b>$$1.1M/year</b> in wasted supervisory labor.</p>
+                    <p><strong>My Solution:</strong> I developed a <b>constraint-based scheduling platform</b> that automatically assigns Production Associates to workstations while enforcing strict safety, training, and ergonomic rotation rules. I drove the full 0→1 product lifecycle, <b>translating complex operational constraints into a prioritized product roadmap</b>. I built a functional MVP and led weekly stakeholder reviews to bridge the gap between Engineering and Operations. I personally developed the core optimization engine using <b>Timefold (Java/Python)</b>, which <b>outperformed the internal data engineering team's solution</b>. To ensure scalability, I engineered a "Warm Start" server strategy that reduced generation latency by <b>95% (from 8.62s to 0.47s per team)</b>.</p>
+                    <p><strong>Results:</strong> Acting as the Technical Product Owner, I managed the <b>backlog and rollout strategy</b> for the transition to a full-stack engineering team, delivering comprehensive UI/UX specifications. Powered by my algorithm, this software is now used to <b>schedule thousands of factory workers every day</b> across Austin, Fremont, and Berlin, enforcing 100% training compliance.</p>
                 </div>
             </div>
         </li>
