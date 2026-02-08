@@ -204,9 +204,22 @@
                 </div>
                 <div class="caption-container"></div>
                 <div class="project-description">
-                    <p><strong>Problem:</strong> Global factory scheduling was a manual process with near-infinite complexity (10<sup>136</sup> combinations for a single 40-employee team). A business case I developed with Tesla's Finance Team identified a <b>$$55M/year opportunity</b> on the Giga Texas Model Y line alone due to OEE losses from untrained assignments and <b>$$1.1M/year</b> in wasted supervisory labor.</p>
-                    <p><strong>My Solution:</strong> I developed a <b>constraint-based scheduling platform</b> that automatically assigns Production Associates to workstations while enforcing strict safety, training, and ergonomic rotation rules. I drove the full 0→1 product lifecycle, <b>translating complex operational constraints into a prioritized product roadmap</b>. I built a functional MVP and led weekly stakeholder reviews to bridge the gap between Engineering and Operations. I personally developed the core optimization engine using <b>Timefold (Java/Python)</b>, which <b>outperformed the internal data engineering team's solution</b>. To ensure scalability, I engineered a "Warm Start" server strategy that reduced generation latency by <b>95% (from 8.62s to 0.47s per team)</b>.</p>
-                    <p><strong>Results:</strong> Acting as the Technical Product Owner, I managed the <b>backlog and rollout strategy</b> for the transition to a full-stack engineering team, delivering comprehensive UI/UX specifications. Powered by my algorithm, this software is now used to <b>schedule thousands of factory workers every day</b> across Austin, Fremont, and Berlin, enforcing 100% training compliance.</p>
+                    <p><strong>Problem:</strong> Global factory scheduling was a manual process with near-infinite complexity 
+                        (10<sup>136</sup> combinations for a single 40-employee team). A business case I developed with Tesla's 
+                        Finance Team identified a <b>$55M/year opportunity on the Giga Texas Model Y line alone</b> due to OEE 
+                        losses from untrained assignments and <b>$1.1M/year</b> in wasted supervisor labor.</p>
+                    <p><strong>My Solution:</strong> I developed a <b>constraint-based scheduling platform</b> that automatically assigns 
+                        Production Associates to workstations while enforcing strict safety, training, and ergonomic rotation rules. 
+                        <b>I drove the full 0→1 product lifecycle</b>, translating complex operational constraints into a prioritized product 
+                        roadmap. I built a functional MVP and led weekly stakeholder reviews with international teams
+                        to bridge the gap between Engineering 
+                        and Operations. <b>I personally developed the core optimization engine using Timefold (Java/Python), 
+                        which outperformed the internal data engineering team's solution</b>. To ensure scalability, I engineered a "Warm Start" 
+                        server strategy that reduced generation latency by <b>95% (from 8.62s to 0.47s per team)</b>.</p>
+                    <p><strong>Results:</strong> Acting as the Technical Product Owner, I managed the <b>backlog and rollout 
+                        strategy</b> for the transition to a full-stack engineering team, delivering comprehensive UI/UX specifications. 
+                        Powered by my algorithm, this software is now used to <b>schedule thousands of factory workers every day</b> across 
+                        Austin, Fremont, and Berlin, enforcing 100% training compliance.</p>
                 </div>
             </div>
         </li>
@@ -241,15 +254,15 @@
                         relied on manual calculations and physical trials. Engineers lacked a unified tool to 
                         visualize spatial constraints (reach, walking distance) and temporal constraints (cycle time) 
                         before implementation, leading to costly line-side iteration.</p>
-                    <p><strong>My Solution:</strong> I owned the full product lifecycle, from <b>developing the initial MVP</b> 
-                        to leading User Acceptance Testing (UAT) with Process Engineers. I engineered a
+                    <p><strong>My Solution:</strong> I engineered a
                         simulation engine using <b>Waypoint Logic</b> to map spatial movements (lineside tools-to-vehicle) 
-                        and integrated MODAPTS standards for precise timing analysis. I iterated on the UI/UX based on 
+                        and integrated MODAPTS standards for precise timing analysis. I owned the full product lifecycle, from <b>developing the initial MVP</b> 
+                        to leading User Acceptance Testing (UAT) with Process Engineers. I iterated on the UI/UX based on 
                         direct user feedback to ensure the tool met the rigorous demands of Tesla's Process Engineering teams.</p>
                     <p><strong>Results:</strong> I successfully deployed the tool to <b>20+ Pilot and Process Engineers</b>, 
                         establishing it as the standard for pre-production validation. By enabling a virtual "sandbox" for task 
                         rebalancing and tool placement, I eliminated the need for physical trial-and-error, reducing line-stop 
-                        risks and accelerating new process introduction (NPI) cycles.</p>
+                        risks and accelerating new product introduction (NPI) cycles.</p>
                 </div>
             </div>
         </li>
@@ -284,13 +297,13 @@
                         Engineers wasted hours manually cross-referencing the <b>EBOM vs. MBOM</b> and auditing 
                         Work Instructions for completeness (e.g., missing photos), creating a lag in root cause analysis 
                         for cycle time deviations.</p>
-                    <p><strong>My Solution:</strong> I architected a centralized Process Engineering Portal using 
+                    <p><strong>My Solution:</strong> I developed a centralized Process Engineering Portal using 
                         <b>Advanced SQL and Python (Pandas)</b>. I built automated ETL pipelines to cross-validate 
                         data between the internal Work Instruction software and the Manufacturing Execution System (MES). The 
                         system automatically flags discrepancies—such as BOM mismatches or missing instruction imagery—and visualizes 
                         real-time cycle time analytics via an internal BI dashboard.</p>
-                    <p><strong>Results:</strong> This portal became the single source of truth for the Process team. 
-                        It automated the assignment of correction tasks to <b>Manufacturing Technicians</b>, 
+                    <p><strong>Results:</strong> <b>This portal became the single source of truth for the Model Y and Cybertruck Process Engineering teams</b>. 
+                        It automated the assignment of correction tasks to Manufacturing Technicians, 
                         ensuring work instructions are audit-ready, and enabled engineers to perform <b>rapid root 
                         cause analysis</b> on production bottlenecks without manual data scrubbing.</p>
                 </div>
@@ -414,7 +427,7 @@
                         lacked real-time visibility into their trailer repair operations. Mechanics were driving blind across Eastern Canada, 
                         leading to high "wasted drive time" and expensive downtime for the customer's massive fleet. I identified this 
                         operational gap and <b>self-started</b> a product initiative to solve it.</p>
-                    <p><strong>My Solution:</strong> I engineered a geospatial algorithm using <b>SQL</b> to ingest live truck bed locations and 
+                    <p><strong>My Solution:</strong> I engineered a geospatial algorithm using <b>SQL & Python (Pandas)</b> to ingest live truck bed locations and 
                         calculate the "Nearest & Most Urgent" work order for every mechanic. I packaged this logic into a live <b>Power BI Mobile App</b>, 
                         creating a user-friendly interface for field mechanics. I also led the change management effort, creating user guides to drive adoption.</p>
                     <p><strong>Results:</strong> The app is now used daily by mechanics across Eastern Canada. It eliminated <b>$60,000/year</b> 
