@@ -314,12 +314,13 @@ l <!DOCTYPE html>
     <!-- === PROJECT 3: OS SCHEDULER === -->
     <article class="card" data-project-id="os-scheduler"> 
       <div class="slideshow-container">
-        <div class="slide active"><img src="images/os-scheduler-diagram.png" alt="Process Scheduling Logic" onerror="this.src='https://placehold.co/800x550?text=Scheduler+Logic'"></div>
-        <a class="prev" onclick="manualSlideChange('os-scheduler', -1)">&#10094;</a>
-        <a class="next" onclick="manualSlideChange('os-scheduler', 1)">&#10095;</a>
+        <!-- Single Slide (No Arrows needed) -->
+        <div class="slide active">
+            <img src="images/os_code.png" alt="Process Scheduler Source Code" onerror="this.src='https://placehold.co/800x550?text=Source+Code'">
+        </div>
       </div>
       
-      <div class="caption-container">Process Scheduling Logic</div>
+      <div class="caption-container">Process Scheduling Logic (C Implementation)</div>
       
       <h3>Operating System Process Scheduler</h3>
       <p class="meta">Skills: C, Multithreading, Algorithms</p>
@@ -331,9 +332,22 @@ l <!DOCTYPE html>
 
       <div class="description-wrapper">
           <div style="padding-top: 20px;">
-              <p><strong>Challenge:</strong> To implement the core logic of an Operating System scheduler capable of managing multiple processes and threads simultaneously. The assignment required handling complex state transitions (Ready, Running, Blocked) without any external libraries.</p>
-              <p><strong>My Solution:</strong> I wrote a complete process scheduler in C from scratch. The system parses a configuration file defining various processes (loops, I/O operations) and simulates their execution using a <b>Round Robin</b> algorithm with priority queues. I implemented full context switching logic, managing the saving and restoring of thread states.</p>
-              <p><strong>Results:</strong> I was the <b>only student in the class</b> to complete the entire scheduler without using provided starter code or external libraries. The final system successfully handles concurrent process execution, demonstrating deadlock avoidance and efficient CPU utilization.</p>
+              <p><strong>Challenge:</strong> To implement the core logic of an Operating System scheduler capable of managing multiple 
+                processes and threads simultaneously. The assignment required handling complex state transitions (Ready, Running, Blocked) 
+                without any external libraries.</p>
+              <p><strong>My Solution:</strong> I wrote a complete process scheduler in C from scratch. The system parses a configuration file 
+                defining various processes (loops, I/O operations) and simulates their execution using a <b>Round Robin</b> algorithm with 
+                priority queues. I implemented full context switching logic, managing the saving and restoring of thread states.</p>
+              <p><strong>Results:</strong> I was the <b>only student in the class</b> to complete the entire scheduler without using provided 
+                starter code or external libraries. The final system successfully handles concurrent process execution, demonstrating deadlock 
+                avoidance and efficient CPU utilization.</p>
+              
+              <!-- SOURCE CODE NOTE -->
+              <div style="margin-top: 25px; border-top: 1px solid #e9ecef; padding-top: 15px;">
+                <span style="color: #6c757d; font-size: 0.9rem; font-style: italic;">
+                    <i class="fas fa-code"></i> (Source code available upon request)
+                </span>
+              </div>
           </div>
       </div>
     </article>
