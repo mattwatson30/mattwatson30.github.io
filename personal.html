@@ -280,17 +280,13 @@ l <!DOCTYPE html>
       <div class="slideshow-container">
         <!-- Slide 1: Video Demo -->
         <div class="slide active">
-            <video autoplay loop muted playsinline>
-                <source src="images/cpu_emulator.mp4" type="video/mp4">
-            </video>
+        <video autoplay muted playsinline onended="manualSlideChange('cpu-emulator', 1)">
+            <source src="images/cpu_emulator.mp4" type="video/mp4">
+        </video>
         </div>
         <!-- Slide 2: ASM File (UPDATED) -->
         <div class="slide">
             <img src="images/assembly_language_file.png" alt="Pre-assembled ASM instructions that run on the Emulator" onerror="this.src='https://placehold.co/800x550?text=ASM+Code'">
-        </div>
-        <!-- Slide 3: Debugger UI -->
-        <div class="slide">
-            <img src="images/debugger-ui.png" alt="Custom Debugger Interface" onerror="this.src='https://placehold.co/800x550?text=Debugger+UI'">
         </div>
         
         <a class="prev" onclick="manualSlideChange('cpu-emulator', -1)">&#10094;</a>
