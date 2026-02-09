@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Academic Projects — Matthew Watson</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome for PDF Icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
@@ -59,7 +58,7 @@
     /* --- GRID LAYOUT (Side-by-Side) --- */
     .projects {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 Columns */
+      grid-template-columns: repeat(2, 1fr);
       gap: 30px;
       max-width: 1200px; 
       margin: 0 auto;
@@ -80,11 +79,11 @@
       box-shadow: 0 6px 20px rgba(0, 0, 255, 0.15);
     }
     
-    /* --- Slideshow Styles (For the Cardiac Card) --- */
+    /* --- Slideshow Styles --- */
     .slideshow-container {
         position: relative;
         width: 100%;
-        height: 300px; /* Fixed height for consistency */
+        height: 300px;
         overflow: hidden;
         border-radius: 10px;
         margin-bottom: 20px;
@@ -103,16 +102,14 @@
         animation: fade 0.5s ease;
     }
     
-    /* Media Styling */
     .slide img, .slide video, .card > img { 
         width: 100%; 
         height: 100%; 
-        object-fit: contain; /* Shows full image without cropping */
+        object-fit: contain;
         display: block;
-        background-color: #fff; /* White background for letterboxing */
+        background-color: #fff;
     }
     
-    /* Special fitting for DALIS logo so it isn't cropped */
     .card > img.contain-fit {
         object-fit: contain;
         padding: 20px;
@@ -122,7 +119,6 @@
         border: 1px solid #eee;
     }
 
-    /* Arrows for Slideshow */
     .prev, .next {
         cursor: pointer;
         position: absolute;
@@ -146,7 +142,6 @@
     .meta { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px; font-style: italic; }
     .card p { margin-bottom: 15px; color: #495057; font-size: 0.95rem; }
     
-    /* Bolding Styles */
     .card strong { 
         color: var(--primary-blue); 
         font-weight: 600; 
@@ -158,7 +153,6 @@
         color: var(--text-primary); 
     }
 
-    /* Push links to bottom of card */
     .links { margin-top: auto; padding-top: 15px; border-top: 1px solid var(--border-light); }
     .links a { font-weight: 600; font-size: 0.9rem; }
 
@@ -188,38 +182,32 @@
   <section class="projects">
 
     <!-- === CARD 1: CAPSTONE (Slideshow) === -->
-    <article class="card" id="cardiac-imaging">
-      <div class="slideshow-container" id="slideshow-cardiac">
+    <article class="card" id="cardiac-imaging" data-project-id="cardiac-imaging">
+      <div class="slideshow-container" data-slideshow-id="slideshow-cardiac">
           
-          <!-- Slide 1: Video 1 -->
           <div class="slide active">
               <video autoplay loop muted playsinline>
                   <source src="images/cardiac_video.mp4" type="video/mp4">
               </video>
           </div>
-          <!-- Slide 2: Camera Photo -->
           <div class="slide">
               <img src="images/quinn_lab_camera.png" alt="Camera Setup">
           </div>
-          <!-- Slide 3: Video 2 -->
           <div class="slide">
               <video autoplay loop muted playsinline>
                   <source src="images/cardiac_imaging_camera_exposures.mp4" type="video/mp4">
               </video>
           </div>
-        
-          <!-- Slide 4: Box Photo -->
           <div class="slide">
               <img src="images/quinn_lab_box.png" alt="Custom Hardware Chassis">
           </div>
-            <div class="slide">
+          <div class="slide">
               <img src="images/cardiac_GUI.png" alt="Graphical User Interface">
           </div>
           <div class="slide">
               <img src="images/cardiac_circuit.png" alt="Circuit Schematic">
           </div>
 
-          <!-- Arrows -->
           <a class="prev" onclick="changeSlide('slideshow-cardiac', -1)">&#10094;</a>
           <a class="next" onclick="changeSlide('slideshow-cardiac', 1)">&#10095;</a>
       </div>
@@ -253,26 +241,20 @@
       </div>
     </article>
 
-    <!-- === CARD 2: DALIS (Static Logo) === -->
-        <article class="card">
-      <div class="slideshow-container" id="slideshow-dalis">
+    <!-- === CARD 2: DALIS === -->
+    <article class="card" id="dalis-quant" data-project-id="dalis-quant">
+      <div class="slideshow-container" data-slideshow-id="slideshow-dalis">
           
-          <!-- Slide 1: Main App Interface -->
           <div class="slide active">
               <img src="images/dalis-quant-app.png" alt="Quantitative Analysis App Interface">
           </div>
-          
-          <!-- Slide 3: Data Visualization 1 -->
           <div class="slide">
               <img src="images/dalis_image_2.png" alt="Risk Management Analytics">
           </div>
-          
-          <!-- Slide 4: Data Visualization 2 -->
           <div class="slide">
               <img src="images/dalis_image_3.png" alt="Portfolio Analysis">
           </div>
 
-          <!-- Arrows -->
           <a class="prev" onclick="changeSlide('slideshow-dalis', -1)">&#10094;</a>
           <a class="next" onclick="changeSlide('slideshow-dalis', 1)">&#10095;</a>
       </div>
@@ -306,7 +288,7 @@
 
   <footer>
     <p>
-      <a href="images/Resume_Matthew_Watson.pdf" target="_blank"> Download Resume</a> ·
+      <a href="images/Resume_Matthew_Watson.pdf" target="_blank">Download Resume</a> ·
       <a href="mailto:matthewwatson311@gmail.com">Email Me</a> ·
       <a href="https://linkedin.com/in/matthewwatson311" target="_blank">LinkedIn</a>
     </p>
@@ -314,25 +296,25 @@
   </footer>
 
   <script>
-    // --- SLIDESHOW LOGIC WITH AUTO-TIMER ---
-    const slideTimers = {}; // Store timers for each slideshow
+    // ========================================
+    // PROFESSIONAL PORTFOLIO JAVASCRIPT
+    // Slideshow Management with Auto-Timer
+    // ========================================
 
-    function startTimer(containerId) {
-        // Clear existing timer if any
-        if (slideTimers[containerId]) clearInterval(slideTimers[containerId]);
+    const slideTimers = {};
+
+    // ========================================
+    // SLIDESHOW FUNCTIONALITY
+    // ========================================
+
+    function changeSlide(slideshowId, direction, isManual = true) {
+        const container = document.querySelector(`[data-slideshow-id="${slideshowId}"]`);
+        if (!container) return;
         
-        // Start new timer: Auto-switch every 5 seconds
-        slideTimers[containerId] = setInterval(() => {
-            changeSlide(containerId, 1, false); // false = not manual
-        }, 5000);
-    }
-
-    function changeSlide(containerId, n, isManual = true) {
-        const container = document.getElementById(containerId);
         const slides = container.getElementsByClassName("slide");
         let activeIndex = -1;
 
-        // Find current active index
+        // Find current active slide
         for (let i = 0; i < slides.length; i++) {
             if (slides[i].classList.contains("active")) {
                 activeIndex = i;
@@ -341,26 +323,71 @@
             }
         }
 
-        // Calculate new index
-        let newIndex = activeIndex + n;
+        // Calculate new index with wrapping
+        let newIndex = activeIndex + direction;
         if (newIndex >= slides.length) newIndex = 0;
         if (newIndex < 0) newIndex = slides.length - 1;
 
         // Show new slide
         slides[newIndex].classList.add("active");
 
-        // If user clicked manually, reset the timer so they have 5s to look at the new slide
+        // Reset timer if user interacted manually
         if (isManual) {
-            startTimer(containerId);
+            startTimer(slideshowId);
         }
     }
 
-    // Initialize timers on load
+    function startTimer(slideshowId) {
+        // Clear existing timer
+        if (slideTimers[slideshowId]) {
+            clearInterval(slideTimers[slideshowId]);
+        }
+        
+        // Start new auto-advance timer (5 seconds)
+        slideTimers[slideshowId] = setInterval(() => {
+            changeSlide(slideshowId, 1, false);
+        }, 5000);
+    }
+
+    // ========================================
+    // DEEP LINKING (FROM RESUME)
+    // ========================================
+    
+    function handleDeepLink() {
+        const hash = window.location.hash.substring(1);
+        if (!hash) return;
+
+        const targetCard = document.querySelector(`.card[data-project-id="${hash}"]`);
+        if (!targetCard) return;
+
+        // Scroll to perfect position
+        setTimeout(() => {
+            const headerOffset = 20; // Small padding from top
+            const elementPosition = targetCard.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }, 100); // Small delay to ensure page is fully loaded
+    }
+
+    // ========================================
+    // INITIALIZATION
+    // ========================================
+    
     document.addEventListener('DOMContentLoaded', () => {
-        // Start timer for the cardiac slideshow
+        // Start timers for all slideshows
         startTimer('slideshow-cardiac');
         startTimer('slideshow-dalis');
+
+        // Handle deep linking from resume
+        handleDeepLink();
     });
+
+    // Handle hash changes (if user navigates back/forward)
+    window.addEventListener('hashchange', handleDeepLink);
   </script>
 
 </body>
