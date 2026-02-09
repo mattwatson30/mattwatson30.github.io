@@ -1,11 +1,10 @@
-l <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Personal Projects — Matthew Watson</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome for Toggle Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
@@ -80,25 +79,19 @@ l <!DOCTYPE html>
     
     .meta { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px; font-style: italic; }
     
-    /* --- TEXT STYLING (MATCHING WORK.HTML) --- */
     .card p { margin-bottom: 10px; color: #495057; }
-    
-    /* Headers like "Challenge:" -> BLUE */
     .card strong { 
         color: var(--primary-blue); 
         font-weight: 600; 
         display: block; 
         margin-bottom: 5px; 
     }
-    
-    /* Inline keywords like "ROS2" -> BLACK/DARK */
     .card p b { 
         font-weight: 500; 
         color: var(--text-primary); 
     }
 
     .links { margin-top: auto; }
-
     .card p a {
       color: var(--text-primary);
       font-weight: 400;
@@ -160,7 +153,6 @@ l <!DOCTYPE html>
     }
     .slide { display: none; width: 100%; animation: fadeEffect 0.8s ease; }
     
-    /* Fixed Image Styling - Matched to 550px like brother's site */
     .slide img { 
         display: block; 
         width: 100%; 
@@ -191,7 +183,6 @@ l <!DOCTYPE html>
     .next { right: 0; border-radius: 3px 0 0 3px; }
     .prev:hover, .next:hover { background-color: rgba(255, 255, 255, 0.8); }
 
-    /* --- Caption Styles --- */
     .caption-container { 
         text-align: center; 
         padding: 10px 0 5px 0; 
@@ -231,15 +222,12 @@ l <!DOCTYPE html>
     <!-- === PROJECT 1: ROBOTICS COMPETITION === -->
     <article class="card" data-project-id="robotics-comp"> 
       <div class="slideshow-container">
-        <!-- Slide 1: Hero Shot -->
         <div class="slide active">
             <img src="images/dalhousie_robotics_competition.png" alt="1st Place Winning Robot Design" onerror="this.src='https://placehold.co/800x550?text=Winning+Robot'">
         </div>
-        <!-- Slide 2: RViz (Technical) -->
         <div class="slide">
             <img src="images/RViz.png" alt="ROS2 Nav2 Path Planning Visualization in RViz" onerror="this.src='https://placehold.co/800x550?text=RViz+Visualization'">
         </div>
-        <!-- Slide 3: Close Up (Hardware) -->
         <div class="slide">
             <img src="images/robot.png" alt="Hardware Integration Close-Up" onerror="this.src='https://placehold.co/800x550?text=Robot+Close-Up'">
         </div>
@@ -248,7 +236,6 @@ l <!DOCTYPE html>
         <a class="next" onclick="manualSlideChange('robotics-comp', 1)">&#10095;</a>
       </div>
       
-      <!-- ADDED CAPTION CONTAINER -->
       <div class="caption-container">1st Place Winning Robot, Pictured During Competition</div>
       
       <h3>Autonomous Navigation Robot (1st Place Winner)</h3>
@@ -278,13 +265,11 @@ l <!DOCTYPE html>
 
     <article class="card" data-project-id="cpu-emulator"> 
       <div class="slideshow-container">
-        <!-- Slide 1: Video Demo -->
         <div class="slide active">
         <video autoplay muted playsinline onended="manualSlideChange('cpu-emulator', 1)">
             <source src="images/cpu_emulator.mp4" type="video/mp4">
         </video>
         </div>
-        <!-- Slide 2: ASM File (UPDATED) -->
         <div class="slide">
             <img src="images/assembly_language_file.png" alt="Pre-assembled ASM instructions that run on the Emulator" onerror="this.src='https://placehold.co/800x550?text=ASM+Code'">
         </div>
@@ -326,7 +311,6 @@ l <!DOCTYPE html>
 
     <article class="card" data-project-id="os-scheduler"> 
       <div class="slideshow-container">
-        <!-- Single Slide (No Arrows needed) -->
         <div class="slide active">
             <img src="images/os_code.png" alt="Process Scheduler Source Code" onerror="this.src='https://placehold.co/800x550?text=Source+Code'">
         </div>
@@ -355,7 +339,6 @@ l <!DOCTYPE html>
                 the Message Passing Facility and Barrier Synchronization—without external libraries. The final system demonstrated deadlock-free execution 
                 and efficient CPU utilization under high-load simulations.</p>
               
-              <!-- SOURCE CODE NOTE -->
               <div style="margin-top: 25px; border-top: 1px solid #e9ecef; padding-top: 15px;">
                 <span style="color: #6c757d; font-size: 0.9rem; font-style: italic;">
                     <i class="fas fa-code"></i> (Source code available upon request)
@@ -369,7 +352,7 @@ l <!DOCTYPE html>
 
   <footer>
     <p>
-      <a href="images/Resume_Matthew_Watson.pdf" target="_blank"> Download Resume</a> ·
+      <a href="images/Resume_Matthew_Watson.pdf" target="_blank">Download Resume</a> ·
       <a href="mailto:matthewwatson311@gmail.com">Email Me</a> ·
       <a href="https://linkedin.com/in/matthewwatson311" target="_blank">LinkedIn</a>
     </p>
@@ -377,15 +360,23 @@ l <!DOCTYPE html>
   </footer>
 
   <script>
-    // --- TOGGLE LOGIC ---
+    // ========================================
+    // PROFESSIONAL PORTFOLIO JAVASCRIPT
+    // Toggle & Slideshow Management
+    // ========================================
+
+    const slideshowData = {};
+
+    // ========================================
+    // TOGGLE FUNCTIONALITY
+    // ========================================
+    
     function toggleDescription(btn) {
         const card = btn.closest('.card');
         const textSpan = btn.querySelector('span');
         
-        // Toggle class
         card.classList.toggle('expanded');
         
-        // Update text
         if (card.classList.contains('expanded')) {
             textSpan.textContent = "Hide Details";
         } else {
@@ -393,23 +384,27 @@ l <!DOCTYPE html>
         }
     }
 
-    // --- SLIDESHOW LOGIC ---
-    const slideshowData = {};
-
+    // ========================================
+    // SLIDESHOW FUNCTIONALITY
+    // ========================================
+    
     function initializeSlideshow(projectId) {
-        if (!slideshowData[projectId]) {
-            const projectItem = document.querySelector(`.card[data-project-id="${projectId}"]`);
-            if (!projectItem) return; 
-            const slides = projectItem.querySelectorAll('.slide');
-            const captions = Array.from(slides).map(slide => slide.querySelector('img').alt || '');
-            slideshowData[projectId] = {
-                slideIndex: 0, 
-                slides: slides, 
-                captions: captions, 
-                timer: null,
-                captionElement: projectItem.querySelector('.caption-container')
-            };
-        }
+        if (slideshowData[projectId]) return;
+        
+        const projectItem = document.querySelector(`.card[data-project-id="${projectId}"]`);
+        if (!projectItem) return;
+        
+        const slides = projectItem.querySelectorAll('.slide');
+        const captions = Array.from(slides).map(slide => slide.querySelector('img')?.alt || '');
+        const captionElement = projectItem.querySelector('.caption-container');
+        
+        slideshowData[projectId] = {
+            slideIndex: 0, 
+            slides: slides, 
+            captions: captions, 
+            timer: null,
+            captionElement: captionElement
+        };
     }
 
     function showSlide(projectId, index) {
@@ -417,13 +412,16 @@ l <!DOCTYPE html>
         const data = slideshowData[projectId];
         if (!data || !data.slides || data.slides.length === 0) return;
         
-        if (index >= data.slides.length) { index = 0; }
-        if (index < 0) { index = data.slides.length - 1; }
+        // Wrap index
+        if (index >= data.slides.length) index = 0;
+        if (index < 0) index = data.slides.length - 1;
         
+        // Update slides
         data.slides.forEach(slide => slide.classList.remove('active'));
         data.slides[index].classList.add('active');
         data.slideIndex = index;
         
+        // Update caption with smooth transition
         if (data.captionElement) {
             data.captionElement.style.opacity = 0;
             setTimeout(() => {
@@ -433,60 +431,87 @@ l <!DOCTYPE html>
         }
     }
 
-    function manualSlideChange(projectId, n) {
+    function manualSlideChange(projectId, direction) {
         initializeSlideshow(projectId);
         const data = slideshowData[projectId];
         if (!data) return;
+        
         stopAutoSlide(projectId);
-        showSlide(projectId, data.slideIndex + n);
-        setTimeout(() => startAutoSlide(projectId), 8000); 
+        showSlide(projectId, data.slideIndex + direction);
+        
+        // Resume auto-slide after manual interaction
+        setTimeout(() => startAutoSlide(projectId), 8000);
     }
 
     function startAutoSlide(projectId) {
         initializeSlideshow(projectId);
         const data = slideshowData[projectId];
         if (!data || data.slides.length <= 1) return;
-        stopAutoSlide(projectId); 
+        
+        stopAutoSlide(projectId);
         data.timer = setInterval(() => {
             showSlide(projectId, data.slideIndex + 1);
         }, 5000);
     }
 
     function stopAutoSlide(projectId) {
-        if (slideshowData[projectId] && slideshowData[projectId].timer) {
-            clearInterval(slideshowData[projectId].timer);
-            slideshowData[projectId].timer = null;
+        const data = slideshowData[projectId];
+        if (data?.timer) {
+            clearInterval(data.timer);
+            data.timer = null;
         }
     }
 
-    // --- INITIALIZATION & DEEP LINKING ---
+    // ========================================
+    // DEEP LINKING (FROM RESUME)
+    // ========================================
+    
+    function handleDeepLink() {
+        const hash = window.location.hash.substring(1);
+        if (!hash) return;
+
+        const targetCard = document.querySelector(`.card[data-project-id="${hash}"]`);
+        if (!targetCard) return;
+
+        // Expand the card
+        const toggleBtn = targetCard.querySelector('.toggle-bar');
+        if (toggleBtn) {
+            toggleDescription(toggleBtn);
+        }
+
+        // Scroll to perfect position after expansion animation
+        setTimeout(() => {
+            const headerOffset = 20; // Small padding from top
+            const elementPosition = targetCard.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }, 650); // Wait for expansion animation (600ms) + buffer
+    }
+
+    // ========================================
+    // INITIALIZATION
+    // ========================================
+    
     document.addEventListener('DOMContentLoaded', () => {
-        // 1. Init all slideshows
+        // Initialize all slideshows
         const projectCards = document.querySelectorAll('.card[data-project-id]');
         projectCards.forEach(card => {
             const projectId = card.dataset.projectId;
             initializeSlideshow(projectId);
-            showSlide(projectId, 0); 
+            showSlide(projectId, 0);
             startAutoSlide(projectId);
         });
 
-        // 2. Check URL Hash for Deep Linking (e.g., #robot-hand-project)
-        const hash = window.location.hash.substring(1); // Get ID without '#'
-        if (hash) {
-            const targetCard = document.querySelector(`.card[data-project-id="${hash}"]`);
-            if (targetCard) {
-                // Expand the card
-                const toggleBtn = targetCard.querySelector('.toggle-bar');
-                if (toggleBtn) {
-                    toggleDescription(toggleBtn);
-                }
-                // Smooth scroll to it after a brief delay
-                setTimeout(() => {
-                    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 500);
-            }
-        }
+        // Handle deep linking from resume
+        handleDeepLink();
     });
+
+    // Handle hash changes (if user navigates back/forward)
+    window.addEventListener('hashchange', handleDeepLink);
   </script>
 
 </body>
