@@ -25,7 +25,7 @@
         header, footer { text-align: center; max-width: 900px; margin: 0 auto; }
         header { margin-bottom: 70px; }
         h1 { font-weight: 600; font-size: 2.5rem; letter-spacing: 1px; margin-bottom: 10px; }
-        footer { margin-top: 100px; padding-top: 40px; border-top: 1px solid var(--border-color); color: var(--text-secondary); font-size: 0.9rem; padding-bottom: 800px;; }
+        footer { margin-top: 100px; padding-top: 40px; border-top: 1px solid var(--border-color); color: var(--text-secondary); font-size: 0.9rem; padding-bottom: 800px; }
         footer p:first-child a { margin: 0 10px; }
         .back-link { font-size: 1rem; color: var(--text-secondary); display: inline-block; margin-top: 10px; transition: color 0.2s ease; }
         .back-link:hover { color: var(--primary-blue); opacity: 1; }
@@ -54,23 +54,12 @@
         .project-preview h3 { font-size: 1.25rem; font-weight: 500; margin-bottom: 5px; color: var(--text-primary); padding-right: 40px; }
         .project-preview .meta { font-size: 0.9rem; color: var(--text-secondary); font-style: italic; font-weight: 300; }
 
-        /* --- Logo: UPDATED SIZE --- */
         .preview-company-logo {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            /* Larger Logos */
-            height: 30px; 
-            max-width: 120px;
-            opacity: 0.6;
-            filter: grayscale(100%);
+            position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+            height: 30px; max-width: 120px; opacity: 0.6; filter: grayscale(100%);
             transition: filter 0.3s ease, opacity 0.3s ease;
         }
-        .project-preview:hover .preview-company-logo {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
+        .project-preview:hover .preview-company-logo { filter: grayscale(0%); opacity: 1; }
 
         .preview-icon { display: inline-block; font-size: 1.5rem; color: var(--text-secondary); transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); margin-left: 15px; flex-shrink: 0; line-height: 1; transform: rotate(0deg); }
         .project-item.active .preview-icon { transform: rotate(-180deg); }
@@ -78,93 +67,52 @@
         /* --- Project Details (Hidden Content) --- */
         .project-details {
             max-height: 0; overflow: hidden;
-            /* Faster transition (0.3s) for instant feel */
             transition: max-height 0.3s ease-in-out, padding-top 0.3s ease, padding-bottom 0.3s ease;
             border-top: 1px solid transparent; padding: 0 30px;
         }
         .project-item.active .project-details { 
-            max-height: 2000px; 
-            padding-top: 30px; 
-            padding-bottom: 30px; 
+            max-height: 2000px; padding-top: 30px; padding-bottom: 30px; 
             border-top-color: var(--border-light); 
         }
         
         .project-description { margin-top: 30px; }
-        .project-description p { margin-bottom: 15px; color: #495057; font-weight: 300; }
+        .project-description p { margin-bottom: 10px; color: #495057; font-weight: 300; }
         
-        /* --- BOLD TEXT STYLING --- */
-        /* Headers (Problem/Solution) -> BLUE */
-        .project-description strong { 
-            font-weight: 600; 
-            color: var(--primary-blue); 
-            display: block; 
-            margin-bottom: 5px; 
-        }
-        
-        /* Inline Keywords -> DARK GREY (Not Blue) */
-        .project-description p b { 
-            font-weight: 500; /* CHANGE THIS from 600 to 500 */
-            color: var(--text-primary); 
-        }
-
-        /* Update paragraph spacing to match personal.html */
-        .project-description p { 
-            margin-bottom: 10px; /* CHANGE THIS from 15px to 10px */
-            color: #495057; 
-            font-weight: 300; 
-        }
+        .project-description strong { font-weight: 600; color: var(--primary-blue); display: block; margin-bottom: 5px; }
+        .project-description p b { font-weight: 500; color: var(--text-primary); }
         
         .details-links { margin-top: 25px; }
 
         /* --- Slideshow Styles --- */
-         .slideshow-container {
-            position: relative;
-            max-width: 100%;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 12px;
-            background-color: #ffffff;
-            /* FORCE FIXED HEIGHT so text doesn't jump */
-            height: 550px !important; 
+        .slideshow-container {
+            position: relative; max-width: 100%; margin: 0 auto; overflow: hidden;
+            border-radius: 12px; background-color: #ffffff; height: 550px !important; 
         }
-        
         .slide {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%; 
-            opacity: 0;
-            transition: opacity 0.8s ease; 
-            pointer-events: none;
+            position: absolute; left: 0; top: 0; width: 100%; height: 100%; 
+            opacity: 0; transition: opacity 0.8s ease; pointer-events: none;
         }
+        .slide img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
+        .slide.active { opacity: 1; pointer-events: auto; }
         
-        .slide img {
-            display: block;
-            width: 100%;
-            height: 100%; 
-            object-fit: contain; 
-            object-position: center;
-        }
-        
-        .slide.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
         .prev, .next { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); width: auto; padding: 16px; color: white; font-weight: bold; font-size: 20px; background-color: rgba(0, 0, 0, 0.3); border-radius: 0 3px 3px 0; user-select: none; transition: background-color 0.3s ease; }
         .next { right: 0; border-radius: 3px 0 0 3px; }
         .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.6); }
 
-        /* --- Caption Styles --- */
         .caption-container { text-align: center; padding: 10px 0 5px 0; color: var(--text-secondary); font-size: 0.9rem; min-height: 1.5em; font-style: italic; transition: opacity 0.15s ease-in-out; }
 
         /* --- Responsive Adjustments --- */
         @media (max-width: 768px) {
-             body { padding: 30px 15px; } header { margin-top: 60px; } .project-preview { padding: 15px; gap: 15px; }
-             .project-item.active .project-details { padding: 20px; } .preview-image-container { width: 70px; height: 70px; border-radius: 8px;}
-             .project-preview h3 { font-size: 1.1rem; padding-right: 30px; } .project-preview .meta { font-size: 0.85rem;}
-             .preview-company-logo { height: 30px; } .preview-icon { margin-left: 10px; font-size: 1.2rem; }
-             .prev, .next { font-size: 16px; padding: 12px; } .slide img { max-height: 400px; object-fit: contain; }
+            body { padding: 30px 15px; } header { margin-top: 60px; } 
+            .project-preview { padding: 15px; gap: 15px; }
+            .project-item.active .project-details { padding: 20px; } 
+            .preview-image-container { width: 70px; height: 70px; border-radius: 8px;}
+            .project-preview h3 { font-size: 1.1rem; padding-right: 30px; } 
+            .project-preview .meta { font-size: 0.85rem;}
+            .preview-company-logo { height: 30px; } 
+            .preview-icon { margin-left: 10px; font-size: 1.2rem; }
+            .prev, .next { font-size: 16px; padding: 12px; } 
+            .slide img { max-height: 400px; object-fit: contain; }
         }
     </style>
 </head>
@@ -179,33 +127,29 @@
         
         <li class="project-item" data-project-id="tesla-scheduling">
             <div class="project-preview">
-                 <div class="preview-image-container">
-                     <img src="images/giga_texas_factory_workers.jpeg" alt="Schedules thousands of associates daily, enforcing training compliance and ergonomic rotation." class="active" onerror="this.src='https://placehold.co/100x100?text=Workers'">
-                     <img src="images/tesla-giga-texas_new.jpeg" alt="Tesla Giga Texas Factory, one of Tesla's major factories using this software." onerror="this.src='https://placehold.co/100x100?text=System+Arch'">
-                     <img src="images/model_Y_assembly_line_tesla.png" alt="Tesla Assembly Line workers, assigned work using this software." onerror="this.src='https://placehold.co/100x100?text=Speed+Graph'">
-                 </div>
-                 <div class="preview-text">
-                     <h3>AI-Driven Employee Scheduling Software</h3>
-                     <p class="meta">Role: Pilot Engineering Intern - Software Product Manager @ Tesla</p>
-                     <img src="images/logo-tesla.png" alt="" class="preview-company-logo">
-                 </div>
-                 <span class="preview-icon">›</span>
+                <div class="preview-image-container">
+                    <img src="images/giga_texas_factory_workers.jpeg" alt="Schedules thousands of associates daily" class="active" onerror="this.src='https://placehold.co/100x100?text=Workers'">
+                    <img src="images/tesla-giga-texas_new.jpeg" alt="Tesla Giga Texas Factory" onerror="this.src='https://placehold.co/100x100?text=Factory'">
+                    <img src="images/model_Y_assembly_line_tesla.png" alt="Tesla Assembly Line" onerror="this.src='https://placehold.co/100x100?text=Assembly'">
+                </div>
+                <div class="preview-text">
+                    <h3>AI-Driven Employee Scheduling Software</h3>
+                    <p class="meta">Role: Pilot Engineering Intern - Software Product Manager @ Tesla</p>
+                    <img src="images/logo-tesla.png" alt="" class="preview-company-logo">
+                </div>
+                <span class="preview-icon">›</span>
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
-                    <!-- Slide 1: Workers -->
                     <div class="slide active">
                         <img src="images/giga_texas_factory_workers.jpeg" alt="Schedules thousands of associates daily, enforcing training compliance and ergonomic rotation." onerror="this.src='https://placehold.co/800x400?text=Factory+Workers'">
                     </div>
-                    <!-- Slide 2: Factory -->
                     <div class="slide">
                         <img src="images/tesla-giga-texas_new.jpeg" alt="Tesla Giga Texas Factory, one of Tesla's major factories using this software." onerror="this.src='https://placehold.co/800x400?text=Architecture+Diagram'">
                     </div>
-                    <!-- Slide 3: Assembly Line -->
                     <div class="slide">
                         <img src="images/model_Y_assembly_line_tesla.png" alt="Tesla Assembly Line workers, assigned work using this software." onerror="this.src='https://placehold.co/800x400?text=Performance+Graph'">
                     </div>
-                    
                     <a class="prev" onclick="manualSlideChange('tesla-scheduling', -1)">&#10094;</a>
                     <a class="next" onclick="manualSlideChange('tesla-scheduling', 1)">&#10095;</a>
                 </div>
@@ -232,16 +176,16 @@
 
         <li class="project-item" data-project-id="tesla-sim">
             <div class="project-preview">
-                 <div class="preview-image-container">
-                     <img src="images/tesla_PA.png" alt="Tesla Production Associates on Assembly Line" class="active" onerror="this.src='https://placehold.co/100x100?text=Tesla+PAs'">
-                     <img src="images/cybertruck_production.png" alt="Cybertruck Assembly Process" onerror="this.src='https://placehold.co/100x100?text=Cybertruck'">
-                 </div>
-                 <div class="preview-text">
-                     <h3>Model Y & Cybertruck Process Design/Simulation Software</h3>
-                     <p class="meta">Role: Pilot Engineering Intern - Software Product Manager @ Tesla</p>
-                     <img src="images/logo-tesla.png" alt="" class="preview-company-logo">
-                 </div>
-                 <span class="preview-icon">›</span>
+                <div class="preview-image-container">
+                    <img src="images/tesla_PA.png" alt="Tesla Production Associates" class="active" onerror="this.src='https://placehold.co/100x100?text=Tesla+PAs'">
+                    <img src="images/cybertruck_production.png" alt="Cybertruck Assembly" onerror="this.src='https://placehold.co/100x100?text=Cybertruck'">
+                </div>
+                <div class="preview-text">
+                    <h3>Model Y & Cybertruck Process Design/Simulation Software</h3>
+                    <p class="meta">Role: Pilot Engineering Intern - Software Product Manager @ Tesla</p>
+                    <img src="images/logo-tesla.png" alt="" class="preview-company-logo">
+                </div>
+                <span class="preview-icon">›</span>
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
@@ -260,8 +204,7 @@
                         relied on manual calculations and physical trials. Engineers lacked a unified tool to 
                         visualize spatial constraints (reach, walking distance) and temporal constraints (cycle time) 
                         before implementation, leading to costly line-side iteration.</p>
-                    <p><strong>My Solution:</strong> I engineered a
-                        simulation engine using <b>Waypoint Logic</b> to map spatial movements (lineside tools-to-vehicle) 
+                    <p><strong>My Solution:</strong> I engineered a simulation engine using <b>Waypoint Logic</b> to map spatial movements (lineside tools-to-vehicle) 
                         and integrated MODAPTS standards for precise timing analysis. I owned the full product lifecycle, from <b>developing the initial MVP</b> 
                         to leading User Acceptance Testing (UAT) with Process Engineers. I iterated on the UI/UX based on 
                         direct user feedback to ensure the tool met the rigorous demands of Tesla's Process Engineering teams.</p>
@@ -275,16 +218,16 @@
 
         <li class="project-item" data-project-id="tesla-audit">
             <div class="project-preview">
-                 <div class="preview-image-container">
-                     <img src="images/CT_line_2.jpg" alt="Cybertruck Production Audits and Metrics Automation" class="active" onerror="this.src='https://placehold.co/100x100?text=SQL+Python'">
-                     <img src="images/mY_expanded.png" alt="Model Y Production Audits and Metrics Automation" onerror="this.src='https://placehold.co/100x100?text=Model+Y'">
-                 </div>
-                 <div class="preview-text">
-                     <h3>Model Y & Cybertruck Process Audit & Analytics Portal</h3>
-                     <p class="meta">Role: Pilot Engineering Intern - Software Product Manager @ Tesla</p>
-                     <img src="images/logo-tesla.png" alt="" class="preview-company-logo">
-                 </div>
-                 <span class="preview-icon">›</span>
+                <div class="preview-image-container">
+                    <img src="images/CT_line_2.jpg" alt="Cybertruck Production Audits" class="active" onerror="this.src='https://placehold.co/100x100?text=SQL+Python'">
+                    <img src="images/mY_expanded.png" alt="Model Y Production Audits" onerror="this.src='https://placehold.co/100x100?text=Model+Y'">
+                </div>
+                <div class="preview-text">
+                    <h3>Model Y & Cybertruck Process Audit & Analytics Portal</h3>
+                    <p class="meta">Role: Pilot Engineering Intern - Software Product Manager @ Tesla</p>
+                    <img src="images/logo-tesla.png" alt="" class="preview-company-logo">
+                </div>
+                <span class="preview-icon">›</span>
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
@@ -318,16 +261,16 @@
         
         <li class="project-item" data-project-id="lm-sonar">
             <div class="project-preview">
-                 <div class="preview-image-container">
-                     <img src="images/csc_sonar.png" alt="Unclassified - Towed Low Frequency Active Sonar (TLFAS) Array" class="active" onerror="this.src='https://placehold.co/100x100?text=TLFAS+Array'">
-                     <img src="images/hms.jpg" alt="Unclassified - Hull Mounted Sonar (HMS) Dome" onerror="this.src='https://placehold.co/100x100?text=HMS+Dome'">
-                 </div>
-                 <div class="preview-text">
-                     <h3>Sonar & Navigation Systems Integration</h3>
-                     <p class="meta">Role: Systems Engineering Intern @ Lockheed Martin</p>
-                     <img src="images/logo-lockheed.png" alt="" class="preview-company-logo">
-                 </div>
-                 <span class="preview-icon">›</span>
+                <div class="preview-image-container">
+                    <img src="images/csc_sonar.png" alt="Towed Low Frequency Active Sonar Array" class="active" onerror="this.src='https://placehold.co/100x100?text=TLFAS+Array'">
+                    <img src="images/hms.jpg" alt="Hull Mounted Sonar Dome" onerror="this.src='https://placehold.co/100x100?text=HMS+Dome'">
+                </div>
+                <div class="preview-text">
+                    <h3>Sonar & Navigation Systems Integration</h3>
+                    <p class="meta">Role: Systems Engineering Intern @ Lockheed Martin</p>
+                    <img src="images/logo-lockheed.png" alt="" class="preview-company-logo">
+                </div>
+                <span class="preview-icon">›</span>
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
@@ -350,7 +293,7 @@
                     <p><strong>My Solution:</strong> Acting as the Technical Integration Lead, I managed the requirements verification 
                         lifecycle for the underwater warfare suite. I chaired <b>Cross-Functional Working Groups (CFWGs)</b> with BAE Systems, 
                         the Royal Canadian Navy, and 3rd-party vendors to negotiate interface trade-offs. I performed detailed compliance 
-                        gaps analysis against Lloyd’s Register and Naval Standards to validate that the physical ship design could 
+                        gaps analysis against Lloyd's Register and Naval Standards to validate that the physical ship design could 
                         support the acoustic performance requirements.</p>
                     <p><strong>Results:</strong> My coordination de-risked the integration of the TLFAS and HMS systems. By securing 
                         stakeholder agreement on key Interface Control Documents, I closed open compliance gaps and ensured the sonar 
@@ -361,16 +304,16 @@
         
         <li class="project-item" data-project-id="lm-certs">
             <div class="project-preview">
-                 <div class="preview-image-container">
-                     <img src="images/lockheed-system-integration.png" alt="The Canadian River-Class Destroyer (CSC)" class="active" onerror="this.src='https://placehold.co/100x100?text=CSC+Ship'">
-                     <img src="images/BAE_image_CSC.png" alt="BAE Systems CSC Rendering" onerror="this.src='https://placehold.co/100x100?text=BAE+Render'">
-                 </div>
-                 <div class="preview-text">
-                     <h3>Certifications Ingestion Automation Software</h3>
-                     <p class="meta">Role: Systems Engineering Intern @ Lockheed Martin</p>
-                     <img src="images/logo-lockheed.png" alt="" class="preview-company-logo">
-                 </div>
-                 <span class="preview-icon">›</span>
+                <div class="preview-image-container">
+                    <img src="images/lockheed-system-integration.png" alt="Canadian River-Class Destroyer" class="active" onerror="this.src='https://placehold.co/100x100?text=CSC+Ship'">
+                    <img src="images/BAE_image_CSC.png" alt="BAE Systems CSC Rendering" onerror="this.src='https://placehold.co/100x100?text=BAE+Render'">
+                </div>
+                <div class="preview-text">
+                    <h3>Certifications Ingestion Automation Software</h3>
+                    <p class="meta">Role: Systems Engineering Intern @ Lockheed Martin</p>
+                    <img src="images/logo-lockheed.png" alt="" class="preview-company-logo">
+                </div>
+                <span class="preview-icon">›</span>
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
@@ -386,7 +329,7 @@
                 <div class="caption-container"></div>
                 <div class="project-description">
                     <p><strong>Problem:</strong> The multi-billion dollar River-Class Destroyer program faced critical delays in its certification lifecycle. 
-                        Conflicting data formats and requirements from <b>BAE Systems, Irving Shipbuilding, and Lloyd’s Register</b> created a bottleneck, making 
+                        Conflicting data formats and requirements from <b>BAE Systems, Irving Shipbuilding, and Lloyd's Register</b> created a bottleneck, making 
                         it impossible to manually verify alignment with <b>Royal Canadian Navy</b> standards (ANEP-77) on schedule.</p>
                     <p><strong>My Solution:</strong> Acting as the Product Owner for the certification workflow, I harmonized conflicting requirements 
                         across external stakeholders to define a unified data standard. I then engineered an automated compliance engine using <b>Python 
@@ -401,29 +344,25 @@
         
         <li class="project-item" data-project-id="jdi-app">
             <div class="project-preview">
-                 <div class="preview-image-container">
-                     <img src="images/JDI.png" alt="Mobile App used for Work Allocation" class="active" onerror="this.src='https://placehold.co/100x100?text=App+Interface'">
-                     <img src="images/JDI_truck.png" alt="J.D. Irving Fleet Truck" onerror="this.src='https://placehold.co/100x100?text=Fleet+Truck'">
-                 </div>
-                 <div class="preview-text">
-                     <h3>Mobile Fleet Dispatch & Routing App</h3>
-                     <p class="meta">Role: Data Engineering Intern @ J.D. Irving</p>
-                     <img src="images/JD_Irving_Logo.svg" alt="" class="preview-company-logo">
-                 </div>
-                 <span class="preview-icon">›</span>
+                <div class="preview-image-container">
+                    <img src="images/JDI.png" alt="Mobile App for Work Allocation" class="active" onerror="this.src='https://placehold.co/100x100?text=App+Interface'">
+                    <img src="images/JDI_truck.png" alt="J.D. Irving Fleet Truck" onerror="this.src='https://placehold.co/100x100?text=Fleet+Truck'">
+                </div>
+                <div class="preview-text">
+                    <h3>Mobile Fleet Dispatch & Routing App</h3>
+                    <p class="meta">Role: Data Engineering Intern @ J.D. Irving</p>
+                    <img src="images/JD_Irving_Logo.svg" alt="" class="preview-company-logo">
+                </div>
+                <span class="preview-icon">›</span>
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
-                    <!-- Slide 1 -->
                     <div class="slide active">
                         <img src="images/JDI.png" alt="Mobile App used for Work Allocation by Fleet Mechanics" onerror="this.src='https://placehold.co/800x400?text=App+Interface'">
                     </div>
-                    <!-- Slide 2 -->
                     <div class="slide">
                         <img src="images/JDI_truck.png" alt="J.D. Irving Fleet Truck" onerror="this.src='https://placehold.co/800x400?text=Fleet+Truck'">
                     </div>
-                    
-                    <!-- Arrows added back since there are now 2 images -->
                     <a class="prev" onclick="manualSlideChange('jdi-app', -1)">&#10094;</a>
                     <a class="next" onclick="manualSlideChange('jdi-app', 1)">&#10095;</a>
                 </div>
@@ -445,16 +384,16 @@
         
         <li class="project-item" data-project-id="lm-jira">
             <div class="project-preview">
-                 <div class="preview-image-container">
-                     <img src="images/BAE_image_CSC.png" alt="The Canadian River-Class Destroyer (CSC), Unclassified Photo (BAE Systems)" class="active" onerror="this.src='https://placehold.co/100x100?text=Pipeline+1'">
-                     <img src="images/lockheed-system-integration.png" alt="The Canadian River-Class Destroyer (CSC), Unclassified Photo (Lockheed Martin)" onerror="this.src='https://placehold.co/100x100?text=Pipeline+2'">
-                 </div>
-                 <div class="preview-text">
-                     <h3>River-Class Destroyer Program-Wide Jira Automation</h3>
-                     <p class="meta">Role: Electrical Engineering Intern @ Lockheed Martin</p>
-                     <img src="images/logo-lockheed.png" alt="" class="preview-company-logo">
-                 </div>
-                 <span class="preview-icon">›</span>
+                <div class="preview-image-container">
+                    <img src="images/BAE_image_CSC.png" alt="Canadian River-Class Destroyer" class="active" onerror="this.src='https://placehold.co/100x100?text=Pipeline+1'">
+                    <img src="images/lockheed-system-integration.png" alt="Canadian River-Class Destroyer" onerror="this.src='https://placehold.co/100x100?text=Pipeline+2'">
+                </div>
+                <div class="preview-text">
+                    <h3>River-Class Destroyer Program-Wide Jira Automation</h3>
+                    <p class="meta">Role: Electrical Engineering Intern @ Lockheed Martin</p>
+                    <img src="images/logo-lockheed.png" alt="" class="preview-company-logo">
+                </div>
+                <span class="preview-icon">›</span>
             </div>
             <div class="project-details">
                 <div class="slideshow-container">
@@ -483,76 +422,110 @@
             </div>
         </li>
     </ul>
+
+    <footer>
+        <p>
+            <a href="images/Resume_Matthew_Watson.pdf" target="_blank">Download Resume</a> ·
+            <a href="mailto:matthewwatson311@gmail.com">Email Me</a> ·
+            <a href="https://linkedin.com/in/matthewwatson311" target="_blank">LinkedIn</a>
+        </p>
+        <p>© 2026 Matthew Watson</p>
+    </footer>
+
     <script>
-        // --- Optimized Accordion Logic ---
+        // ========================================
+        // PROFESSIONAL PORTFOLIO JAVASCRIPT
+        // Slideshow & Accordion Management
+        // ========================================
+
         const projectItems = Array.from(document.querySelectorAll('.project-item'));
         const slideshowData = {};
         const previewSlideshowData = {};
 
-        // --- Slideshow Logic ---
-        function showSlide(projectId, index) {
-            if (!slideshowData[projectId]) {
-                const projectItem = document.querySelector(`.project-item[data-project-id="${projectId}"]`);
-                const slides = Array.from(projectItem.querySelectorAll('.project-details .slide'));
-                const captions = slides.map(s => s.querySelector('img') ? s.querySelector('img').alt : '');
-                slideshowData[projectId] = { 
-                    slideIndex: 0, 
-                    slides: slides, 
-                    captions: captions, 
-                    captionElement: projectItem.querySelector('.caption-container'),
-                    timer: null
-                };
-            }
+        // ========================================
+        // MAIN SLIDESHOW FUNCTIONALITY
+        // ========================================
+        
+        function initializeSlideshow(projectId) {
+            if (slideshowData[projectId]) return;
+            
+            const projectItem = document.querySelector(`.project-item[data-project-id="${projectId}"]`);
+            if (!projectItem) return;
+            
+            const slides = Array.from(projectItem.querySelectorAll('.project-details .slide'));
+            const captions = slides.map(s => s.querySelector('img')?.alt || '');
+            const captionElement = projectItem.querySelector('.caption-container');
+            
+            slideshowData[projectId] = { 
+                slideIndex: 0, 
+                slides, 
+                captions, 
+                captionElement,
+                timer: null
+            };
+        }
 
+        function showSlide(projectId, index) {
+            initializeSlideshow(projectId);
             const data = slideshowData[projectId];
             if (!data || !data.slides.length) return;
 
+            // Wrap index
             if (index >= data.slides.length) index = 0;
             if (index < 0) index = data.slides.length - 1;
 
+            // Update slides
             data.slides.forEach(s => s.classList.remove('active'));
             data.slides[index].classList.add('active');
             data.slideIndex = index;
 
+            // Update caption with smooth transition
             if (data.captionElement) {
                 data.captionElement.textContent = data.captions[index] || '';
             }
         }
 
-        function manualSlideChange(projectId, n) {
-            const data = slideshowData[projectId] || {};
-            const currentIndex = data.slideIndex || 0;
-            showSlide(projectId, currentIndex + n);
+        function manualSlideChange(projectId, direction) {
+            const data = slideshowData[projectId];
+            if (!data) return;
+            
             stopAutoSlide(projectId);
+            showSlide(projectId, data.slideIndex + direction);
             startAutoSlide(projectId);
         }
 
         function startAutoSlide(projectId) {
-            if (slideshowData[projectId] && slideshowData[projectId].timer) clearInterval(slideshowData[projectId].timer);
-            if (!slideshowData[projectId]) showSlide(projectId, 0);
+            initializeSlideshow(projectId);
+            const data = slideshowData[projectId];
+            if (!data || data.slides.length <= 1) return;
             
-            slideshowData[projectId].timer = setInterval(() => {
-                const current = slideshowData[projectId].slideIndex;
-                showSlide(projectId, current + 1);
+            stopAutoSlide(projectId);
+            data.timer = setInterval(() => {
+                showSlide(projectId, data.slideIndex + 1);
             }, 5000);
         }
 
         function stopAutoSlide(projectId) {
-            if (slideshowData[projectId] && slideshowData[projectId].timer) {
-                clearInterval(slideshowData[projectId].timer);
-                slideshowData[projectId].timer = null;
+            const data = slideshowData[projectId];
+            if (data?.timer) {
+                clearInterval(data.timer);
+                data.timer = null;
             }
         }
 
-        // --- Preview Slideshow (Mini images) ---
+        // ========================================
+        // PREVIEW IMAGE ROTATION
+        // ========================================
+        
         function startPreviewAutoSlide(projectId) {
             const projectItem = document.querySelector(`.project-item[data-project-id="${projectId}"]`);
-            if(!projectItem) return;
+            if (!projectItem) return;
+            
             const images = projectItem.querySelectorAll('.preview-image-container img');
-            if(images.length <= 1) return;
+            if (images.length <= 1) return;
 
             let idx = 0;
-            if(previewSlideshowData[projectId]) clearInterval(previewSlideshowData[projectId]);
+            stopPreviewAutoSlide(projectId);
 
             previewSlideshowData[projectId] = setInterval(() => {
                 images[idx].classList.remove('active');
@@ -562,84 +535,95 @@
         }
 
         function stopPreviewAutoSlide(projectId) {
-            if(previewSlideshowData[projectId]) {
+            if (previewSlideshowData[projectId]) {
                 clearInterval(previewSlideshowData[projectId]);
                 previewSlideshowData[projectId] = null;
             }
         }
 
-        // --- Click Handler (Auto-Collapse + Instant Open) ---
-        projectItems.forEach(item => {
-            const summary = item.querySelector('.project-preview');
+        // ========================================
+        // ACCORDION CLICK HANDLERS
+        // ========================================
+        
+        function toggleProject(item) {
             const projectId = item.getAttribute('data-project-id');
+            const wasActive = item.classList.contains('active');
 
-            startPreviewAutoSlide(projectId);
-
-            summary.addEventListener('click', () => {
-                const wasActive = item.classList.contains('active');
-
-                // 1. Close ALL other items first
-                projectItems.forEach(other => {
-                    if (other !== item && other.classList.contains('active')) {
-                        other.classList.remove('active');
-                        const otherId = other.getAttribute('data-project-id');
-                        stopAutoSlide(otherId);
-                        startPreviewAutoSlide(otherId);
-                    }
-                });
-
-                // 2. Toggle the clicked item
-                if (wasActive) {
-                    item.classList.remove('active');
-                    stopAutoSlide(projectId);
-                    startPreviewAutoSlide(projectId);
-                } else {
-                    item.classList.add('active');
-                    stopPreviewAutoSlide(projectId);
-                    showSlide(projectId, 0); 
-                    startAutoSlide(projectId);
+            // Close all other projects
+            projectItems.forEach(other => {
+                if (other !== item && other.classList.contains('active')) {
+                    other.classList.remove('active');
+                    const otherId = other.getAttribute('data-project-id');
+                    stopAutoSlide(otherId);
+                    startPreviewAutoSlide(otherId);
                 }
             });
-        });
 
-        // --- DEEP LINK SCROLL FIX (Forces Top Alignment) ---
-        window.addEventListener('load', () => {
-            const hash = window.location.hash.substring(1);
-            if(hash) {
-                const targetItem = document.querySelector(`.project-item[data-project-id="${hash}"]`);
-                if(targetItem) {
-                    const preview = targetItem.querySelector('.project-preview');
-                    
-                    // Click to open
-                    if(preview) preview.click();
-
-                    // Scroll logic with offset
-                    setTimeout(() => {
-                        const yOffset = -20; // 20px padding from top
-                        const y = targetItem.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                        
-                        window.scrollTo({top: y, behavior: 'smooth'});
-                    }, 350); 
-                }
+            // Toggle clicked project
+            if (wasActive) {
+                item.classList.remove('active');
+                stopAutoSlide(projectId);
+                startPreviewAutoSlide(projectId);
+            } else {
+                item.classList.add('active');
+                stopPreviewAutoSlide(projectId);
+                showSlide(projectId, 0);
+                startAutoSlide(projectId);
             }
+        }
+
+        // ========================================
+        // DEEP LINKING (FROM RESUME)
+        // ========================================
+        
+        function handleDeepLink() {
+            const hash = window.location.hash.substring(1);
+            if (!hash) return;
+
+            const targetItem = document.querySelector(`.project-item[data-project-id="${hash}"]`);
+            if (!targetItem) return;
+
+            // Open the project
+            const preview = targetItem.querySelector('.project-preview');
+            if (preview) preview.click();
+
+            // Scroll to perfect position after animation completes
+            setTimeout(() => {
+                const headerOffset = 20; // Small padding from top
+                const elementPosition = targetItem.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }, 350); // Match CSS transition timing
+        }
+
+        // ========================================
+        // INITIALIZATION
+        // ========================================
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            // Setup click handlers
+            projectItems.forEach(item => {
+                const summary = item.querySelector('.project-preview');
+                const projectId = item.getAttribute('data-project-id');
+
+                // Start preview slideshow
+                startPreviewAutoSlide(projectId);
+
+                // Add click handler
+                summary.addEventListener('click', () => toggleProject(item));
+            });
+
+            // Handle deep linking from resume
+            handleDeepLink();
         });
 
-        projectItems.forEach(p => {
-            const id = p.getAttribute('data-project-id');
-            if (!previewSlideshowData[id]) startPreviewAutoSlide(id);
-        });
+        // Handle hash changes (if user clicks back/forward)
+        window.addEventListener('hashchange', handleDeepLink);
     </script>
-    <footer>
-        <p>
-            <a href="images/Resume_Matthew_Watson.pdf" target="_blank"> Download Resume</a> ·
-            <a href="mailto:matthewwatson311@gmail.com">Email Me</a> ·
-            <a href="https://linkedin.com/in/matthewwatson311" target="_blank">LinkedIn</a>
-        </p>
-        <p>© 2026 Matthew Watson</p>
-    </footer>
 
-
-
-    
 </body>
 </html>
